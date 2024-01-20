@@ -1,14 +1,18 @@
 import React from "react";
-import logo from "./logo.svg";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import BottomNav from "./components/bottomNav/BottomNav";
+import HomePage from "./pages/home/HomePage";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
+      <Routes>
+        <Route path="/home" element={<HomePage />}></Route>
+      </Routes>
       <BottomNav />
-    </div>
+    </>
   );
 }
 

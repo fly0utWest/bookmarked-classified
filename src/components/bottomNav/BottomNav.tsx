@@ -12,7 +12,7 @@ const bottomNav = () => {
       <BottomNavButton dest={"/home"} src={homeIcon} alt={"Home link"} />
       <BottomNavButton dest={"/search"} src={searchIcon} alt={"Home link"} />
       <BottomNavButton dest={"/notifications"} src={notificationIcon} alt={"Notification link"} />
-      <BottomNavButton dest={"/profile"} src={profileIcon} alt={"Profile link"} />
+      <BottomNavButton dest={"/profile/:id"} src={profileIcon} alt={"Profile link"} />
     </nav>
   );
 }

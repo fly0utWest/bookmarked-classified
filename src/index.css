@@ -87,6 +87,7 @@ body {
   width: 100vw;
   height: 100%;
   overflow-y: hidden;
+  margin-top: 4.3775rem;
 }
 
 .header {
@@ -100,6 +101,7 @@ body {
   top: 0;
   left: 0;
   padding: 0 1.25rem;
+  background-color: var(--background);
 }
 .header__burger {
   cursor: pointer;
@@ -125,6 +127,7 @@ body {
   left: 0;
   padding: 0 4.19rem;
   gap: 1rem;
+  background-color: var(--background);
 }
 .bottom-nav__button {
   flex-grow: 1;
