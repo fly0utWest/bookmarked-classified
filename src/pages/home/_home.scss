@@ -1,0 +1,69 @@
+.home {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+
+  &__heading {
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 700;
+
+    & > span {
+      color: var(--pale-pink);
+    }
+  }
+
+  &__greeting {
+    font-size: 0.625rem;
+    min-width: 11rem;
+    margin-bottom: 1.31rem;
+  }
+}
+
+.popular-month {
+  &__heading {
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.31rem;
+  }
+
+  &-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 2fr);
+    gap: 0.5rem;
+    margin-bottom: 1.69rem;
+
+    &__element {
+      a > img {
+        border-radius: 0.4375rem;
+      }
+    }
+  }
+
+  &-lists-grid {
+    display: grid;
+
+  &__element .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    min-height: 7.5rem;
+
+    & img {
+      object-fit: contain;
+    }
+  }
+
+  }
+
+  &-lists__heading {
+    @extend .popular-month__heading;
+  }
+}

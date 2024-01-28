@@ -14,12 +14,27 @@
 
   &__button {
     flex-grow: 1;
+    background-color: var(--background);
 
     img {
       position: relative;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      filter: invert(99%) sepia(88%) saturate(2%) hue-rotate(92deg) brightness(113%) contrast(100%);
+      opacity: 0.5; 
     }
+
+    &_active {
+      & > img {
+        transition: 0.1s ease-out;
+        filter: invert(64%) sepia(4%) saturate(2284%) hue-rotate(314deg) brightness(107%) contrast(108%);
+        opacity: 1;
+      }
+
+      &_active::before {
+        
+      }
+    } 
   }
 }

@@ -10,12 +10,7 @@
   left: 0;
   padding: 0 1.25rem;
   background-color: var(--background);
-
-  &__burger {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-  }
+  z-index: 10;
 
   &__profile > div {
     border-radius: 50%;

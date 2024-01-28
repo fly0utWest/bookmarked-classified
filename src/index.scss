@@ -3,4 +3,9 @@
 @use "./style/base/page";
 @use "./components/header/header";
 @use "./components/bottomNav/bottomNav";
+@use "./pages/home/home";
+@use "./components/AsideMenu/burger-menu";
+@use "./components/burger-button/burger-button";
+@use "./components/profile-info/profile-info";
+@use "./components/nav-link/nav-link";
 @use "./style/abstract/breakpoints";

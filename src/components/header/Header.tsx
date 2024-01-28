@@ -1,18 +1,26 @@
 import React from "react";
 import { useState } from "react";
-import burgerButton from "./burger.svg"
+import BurgerButton from "../burger-button/BurgerButton";
+import AsideMenu from "../AsideMenu/AsideMenu";
 
 const Header = () => {
-    return (
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const activateMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
+  return (
+    <>
       <header className="header">
-        <button className="header__burger">
-          <img src={burgerButton} alt="Burger menu button" />
-        </button>
+        <BurgerButton clickFunc={activateMenu} />
         <a href="/profile" className="header__profile">
-            <div></div>
+          <div></div>
         </a>
       </header>
-    );
-}
+      <AsideMenu updateState={openMenu} setUpdateState={setOpenMenu}/>
+    </>
+  );
+};
 
 export default Header;

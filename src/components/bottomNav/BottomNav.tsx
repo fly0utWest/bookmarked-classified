@@ -9,10 +9,10 @@ import profileIcon from "./__button/user.svg";
 const bottomNav = () => {
   return (
     <nav className="bottom-nav">
-      <BottomNavButton dest={"/home"} src={homeIcon} alt={"Home link"} />
-      <BottomNavButton dest={"/search"} src={searchIcon} alt={"Home link"} />
-      <BottomNavButton dest={"/notifications"} src={notificationIcon} alt={"Notification link"} />
-      <BottomNavButton dest={"/profile/:id"} src={profileIcon} alt={"Profile link"} />
+      <BottomNavButton dest={"/home"} id="homeButton" src={homeIcon} alt={"Home link"} />
+      <BottomNavButton dest={"/search"} id="searchButton" src={searchIcon} alt={"Home link"} />
+      <BottomNavButton dest={"/notifications"} id="notifButton" src={notificationIcon} alt={"Notification link"} />
+      <BottomNavButton dest={"/profile/:id"} id="profileButton" src={profileIcon} alt={"Profile link"} />
     </nav>
   );
 }
