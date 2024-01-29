@@ -61,6 +61,10 @@ video {
   max-width: 100%;
 }
 
+img {
+  display: block;
+}
+
 iframe {
   border: 0;
 }
@@ -114,6 +118,14 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+hr {
+  width: 100%;
+  color: var(--grey);
+  height: 1px;
+  margin: 0.4rem 0;
+  opacity: 0.5;
 }
 
 .header {
@@ -174,7 +186,6 @@ body {
   width: 100%;
   height: 100%;
   flex-direction: column;
-  overflow-y: scroll;
 }
 .home__heading {
   font-family: inherit;
@@ -210,16 +221,28 @@ body {
 .popular-month-lists-grid {
   display: grid;
 }
+.popular-month-lists-grid__element {
+  margin-bottom: 0.7rem;
+}
 .popular-month-lists-grid__element .container {
-  position: relative;
   display: flex;
-  justify-content: center;
+  width: fit-content;
+  justify-content: flex-start;
   flex-wrap: nowrap;
-  min-height: 7.5rem;
+  height: auto;
+  border-radius: 0.25rem;
+  border: 1px solid var(--grey);
+  overflow: hidden;
+  margin-bottom: 0.25rem;
 }
-.popular-month-lists-grid__element .container img {
-  object-fit: contain;
+.poster-link {
+  position: relative;
+  border-radius: 0.25rem;
+  border: 1px solid var(--grey);
+  margin-right: -1.5rem;
+  z-index: 0;
 }
+
 .burger-menu {
   display: block;
   position: fixed;
@@ -325,7 +348,7 @@ body {
   opacity: 1;
 }
 
-@media (min-width: 0px) {
+@media (min-width: 0px) and (max-width: 767.98px) {
   body {
     padding: 0 1.25rem;
   }

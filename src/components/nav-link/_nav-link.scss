@@ -23,9 +23,7 @@
   color: var(--background);
 
   & > img {
-    
     filter: invert(12%) sepia(26%) saturate(936%) hue-rotate(206deg) brightness(100%) contrast(100%);
     opacity: 1;
-
   }
 }

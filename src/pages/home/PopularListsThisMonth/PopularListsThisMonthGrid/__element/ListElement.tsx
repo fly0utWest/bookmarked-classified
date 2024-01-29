@@ -1,22 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Poster from "./Poster";
-import bojack from "../../bojack.jpg";
-import queensGambit from "../../queens-gambit.webp";
 
 type ListProps = {
   heading: string;
+  posterList: Array<React.ReactNode>
 };
 
 const ListElelement = (props: ListProps) => {
   return (
     <div className="popular-month-lists-grid__element">
       <div className="container">
-        <Link to="/article/:id">
-          <Poster src={bojack} alt="Конь БоДжек"></Poster>
-          <Poster src={queensGambit} alt="Ход королевы"></Poster>
-          <Poster src={bojack} alt="Конь БоДжек"></Poster>
-        </Link>
+        {props.posterList[0]}
+        {props.posterList[1]}
+        {props.posterList[2]}
+        {props.posterList[3]}
+        {props.posterList[4]}
       </div>
 
       <Link to="/article/:id">

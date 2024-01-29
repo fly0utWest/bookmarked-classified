@@ -4,7 +4,6 @@
   width: 100%;
   height: 100%;
   flex-direction: column;
-  overflow-y: scroll;
 
   &__heading {
     font-family: inherit;
@@ -49,21 +48,32 @@
   &-lists-grid {
     display: grid;
 
-  &__element .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    min-height: 7.5rem;
-
-    & img {
-      object-fit: contain;
+    &__element {
+      margin-bottom: .7rem;
     }
-  }
 
+    &__element .container {
+      display: flex;
+      width: fit-content;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      height: auto;
+      border-radius: 0.25rem;
+      border: 1px solid var(--grey);
+      overflow: hidden;
+      margin-bottom: 0.25rem;
+    }
   }
 
   &-lists__heading {
     @extend .popular-month__heading;
   }
+}
+
+.poster-link {
+  position: relative;
+  border-radius: 0.25rem;
+  border: 1px solid var(--grey);
+  margin-right: -1.5rem;
+  z-index: 0;
 }
