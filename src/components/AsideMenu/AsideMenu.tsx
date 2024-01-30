@@ -53,6 +53,7 @@ const AsideMenu = ({ updateState , setUpdateState}: any) => {
           />
         </nav>
       </aside>
+      <div onClick={changeInnerState} className="burger-menu__background"></div>
     </div>
   );
 };

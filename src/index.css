@@ -215,14 +215,15 @@ hr {
   gap: 0.5rem;
   margin-bottom: 1.69rem;
 }
-.popular-month-grid__element a > img {
-  border-radius: 0.4375rem;
-}
 .popular-month-lists-grid {
   display: grid;
 }
 .popular-month-lists-grid__element {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+.popular-month-lists-grid__element h3 {
+  font-weight: 600;
+  font-size: 0.62445rem;
 }
 .popular-month-lists-grid__element .container {
   display: flex;
@@ -253,7 +254,16 @@ hr {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, pointer-events 0.3s;
-  z-index: 10;
+  z-index: 12;
+}
+.burger-menu__background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(31, 29, 54, 0.7);
 }
 .burger-menu__aside {
   position: relative;
@@ -264,10 +274,11 @@ hr {
   left: 0;
   width: 55%;
   height: 100%;
-  padding: 2.5rem 1.25rem 0 1.25rem;
   background-color: var(--background);
   box-shadow: 6px 6px 6px 2px rgba(62, 54, 54, 0.23);
+  padding: 2.5rem 1.25rem 0 1.25rem;
   overflow-y: auto;
+  z-index: 10;
 }
 .burger-menu__profile-info {
   margin-top: 1.5rem;
@@ -277,7 +288,6 @@ hr {
 .burger-menu_active {
   opacity: 1;
   pointer-events: auto;
-  background-color: rgba(31, 29, 54, 0.7);
   transition: opacity 0.3s ease, pointer-events 0.3s;
 }
 
