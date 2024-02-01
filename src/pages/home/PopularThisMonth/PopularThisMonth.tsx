@@ -14,6 +14,7 @@ const PopularThisMonth = () => {
         <FilmLink />
       </div>
     </section>
+    <hr />
     </>
   );
 }

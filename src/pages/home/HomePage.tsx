@@ -3,6 +3,8 @@ import Header from "../../components/header/Header";
 import BottomNav from "../../components/bottomNav/BottomNav";
 import PopularThisMonth from "./PopularThisMonth/PopularThisMonth";
 import PopularListsThisMonth from "./PopularListsThisMonth/PopularListsThisMonth";
+import RecentArticles from "./recent-articles/RecentArticles";
+import LatestNews from "./latest-news/LatestNews";
 
 type HomePageProps = {
   username: string;
@@ -20,6 +22,8 @@ const HomePage = (props: HomePageProps) => {
       </p>
       <PopularThisMonth />
       <PopularListsThisMonth />
+      <RecentArticles />
+      <LatestNews />
     </div>
   );
 };

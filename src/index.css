@@ -87,7 +87,9 @@ a {
 :root {
   --background: #1F1D36;
   --pale-pink: #E9A6A6;
+  --dark-pink: rgba(233, 166, 166, 0.05);
   --grey: rgba(255, 255, 255, 0.50);
+  --background-light: #3D3B54;
 }
 
 @font-face {
@@ -176,54 +178,92 @@ hr {
   opacity: 0.5;
 }
 .bottom-nav__button_active > img {
+  transition-property: filter;
   transition: 0.1s ease-out;
   filter: invert(64%) sepia(4%) saturate(2284%) hue-rotate(314deg) brightness(107%) contrast(108%);
   opacity: 1;
+  padding-bottom: 0.2rem;
+  border-bottom: 0.08125rem solid black;
 }
+
+footer.footer {
+  width: 100%;
+  background-color: var(--background-light);
+  padding: 1.5rem 1rem;
+}
+footer.footer .footer-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0.25rem 0;
+}
+footer.footer .footer-list__element {
+  font-weight: 700;
+  margin-right: 0.5rem;
+  font-size: 0.7rem;
+  line-height: 1rem;
+}
+footer.footer .footer-list__element a:hover {
+  color: var(--pale-pink);
+}
+footer.footer .footer-grid {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+footer.footer p {
+  font-size: 0.75rem;
+}
+footer.footer p a {
+  text-decoration: underline;
+}
+footer.footer p a:hover {
+  color: var(--pale-pink);
+}
+
 .home {
   display: flex;
   flex: 1;
   width: 100%;
   height: 100%;
   flex-direction: column;
+  padding: 0 1.25rem;
 }
 .home__heading {
   font-family: inherit;
   font-size: 1.125rem;
   font-weight: 700;
+  line-height: 1.25rem;
 }
 .home__heading > span {
   color: var(--pale-pink);
 }
 .home__greeting {
-  font-size: 0.625rem;
+  font-size: 0.875rem;
   min-width: 11rem;
   margin-bottom: 1.31rem;
 }
 
-.popular-month__heading, .popular-month-lists__heading {
+.popular-month__heading, .latest-news__heading, .recent-articles__heading, .popular-month-lists__heading {
   text-transform: capitalize;
   font-family: inherit;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.31rem;
 }
 .popular-month-grid {
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: repeat(5, 2fr);
-  gap: 0.5rem;
-  margin-bottom: 1.69rem;
+  justify-content: space-between;
 }
 .popular-month-lists-grid {
-  display: grid;
-}
-.popular-month-lists-grid__element {
-  margin-bottom: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 .popular-month-lists-grid__element h3 {
   font-weight: 600;
-  font-size: 0.62445rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .popular-month-lists-grid__element .container {
   display: flex;
@@ -236,6 +276,9 @@ hr {
   overflow: hidden;
   margin-bottom: 0.25rem;
 }
+.popular-month-lists-grid__element .container:hover {
+  border-color: #fff;
+}
 .poster-link {
   position: relative;
   border-radius: 0.25rem;
@@ -244,6 +287,84 @@ hr {
   z-index: 0;
 }
 
+.recent-articles .container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.article-card {
+  min-height: 15rem;
+  margin-right: 0.75rem;
+  min-width: 15rem;
+  background-color: var(--dark-pink);
+  border-radius: 0.25rem;
+}
+.article-card > div {
+  padding: 0.75rem;
+}
+.article-card > div a:hover {
+  color: var(--pale-pink);
+}
+.article-card__heading {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.article-card__image {
+  width: 100%;
+  height: 8.4375rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.article-card__link {
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+}
+.article-card__description {
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
+
+.latest-news {
+  margin-bottom: 1.25rem;
+}
+.latest-news-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-pink);
+  border-radius: 0.25rem;
+  padding-bottom: 0.5rem;
+}
+.latest-news-card__container {
+  padding-left: 0.75rem;
+}
+.latest-news-card__heading {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05rem;
+}
+.latest-news-card__heading a:hover {
+  color: var(--pale-pink);
+}
+.latest-news-card__description {
+  margin: 0.375rem;
+}
+.latest-news-card__image {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+.latest-news-card__link {
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+.latest-news-card__link:hover {
+  color: var(--pale-pink);
+}
 .burger-menu {
   display: block;
   position: fixed;
@@ -358,11 +479,6 @@ hr {
   opacity: 1;
 }
 
-@media (min-width: 0px) and (max-width: 767.98px) {
-  body {
-    padding: 0 1.25rem;
-  }
-}
 @media (min-width: 992px) {
   body {
     margin-bottom: 0;

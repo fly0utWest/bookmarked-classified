@@ -27,13 +27,12 @@
 
     &_active {
       & > img {
+        transition-property: filter;
         transition: 0.1s ease-out;
         filter: invert(64%) sepia(4%) saturate(2284%) hue-rotate(314deg) brightness(107%) contrast(108%);
         opacity: 1;
-      }
-
-      &_active::before {
-        
+        padding-bottom: .2rem;
+        border-bottom: .08125rem solid black;
       }
     } 
   }
