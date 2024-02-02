@@ -365,6 +365,15 @@ footer.footer p a:hover {
 .latest-news-card__link:hover {
   color: var(--pale-pink);
 }
+.watchlist {
+  min-height: 90vh;
+  padding: 1.25rem 1rem;
+}
+.watchlist h1 {
+  margin-bottom: 1.31rem;
+  font-weight: 700;
+}
+
 .burger-menu {
   display: block;
   position: fixed;

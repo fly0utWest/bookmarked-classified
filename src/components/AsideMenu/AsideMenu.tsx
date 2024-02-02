@@ -18,9 +18,6 @@ const AsideMenu = ({ updateState , setUpdateState}: any) => {
   }, [updateState]);
 
   useEffect(() => {
-    innerState
-      ? document.body.classList.add("body_noscroll")
-      : document.body.classList.remove("body_noscroll");
 
     return () => {
       document.body.classList.remove("body_noscroll");
@@ -40,14 +37,14 @@ const AsideMenu = ({ updateState , setUpdateState}: any) => {
         <nav className="nav">
           <AsideNavLink dest="/home" src={homeIcon} span="Главная" />
           <AsideNavLink dest="/films" src={filmsIcon} span="Фильмы" />
-          <AsideNavLink dest="/profile/reviews" src={reviewsIcon} span="Обзоры" />
+          <AsideNavLink dest="/profile/:id/reviews" src={reviewsIcon} span="Обзоры" />
           <AsideNavLink
-            dest="/profile/watchlist"
+            dest="/profile/:id/watchlist"
             src={watchlistIcon}
             span="Смотреть позже"
           />
           <AsideNavLink
-            dest="/profile/lists"
+            dest="/profile/:id/lists"
             src={listsIcon}
             span="Списки"
           />
