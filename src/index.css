@@ -90,6 +90,7 @@ a {
   --dark-pink: rgba(233, 166, 166, 0.05);
   --grey: rgba(255, 255, 255, 0.50);
   --background-light: #3D3B54;
+  --border-grey: #ddeeff40;
 }
 
 @font-face {
@@ -365,6 +366,30 @@ footer.footer p a:hover {
 .latest-news-card__link:hover {
   color: var(--pale-pink);
 }
+.film {
+  display: flex;
+  flex-direction: column;
+}
+.film-background {
+  background-image: url("/src/pages/film-page/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 250px;
+  max-height: 250px;
+}
+.film-page {
+  padding: 0 1.25rem;
+}
+.film-cover {
+  position: relative;
+  transform: translateY(-50%);
+}
+.film-cover img {
+  width: 7rem;
+  height: 10rem;
+  border: 1px solid var(--border-grey);
+}
+
 .watchlist {
   min-height: 90vh;
   padding: 1.25rem 1rem;

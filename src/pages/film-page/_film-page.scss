@@ -1,0 +1,27 @@
+.film {
+  display: flex;
+  flex-direction: column;
+
+    &-background {
+    background-image: url("/src/pages/film-page/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    max-height: 250px;
+  }
+
+  &-page {
+    padding: 0 1.25rem;
+  }
+
+  &-cover {
+    position: relative;
+      transform: translateY(-50%);
+
+    img {
+      width: 7rem;
+      height: 10rem;
+      border: 1px solid var(--border-grey);
+    }
+  }
+}
