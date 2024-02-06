@@ -16,7 +16,18 @@ function App() {
       <Routes>
         <Route path="/home" element={<HomePage username="Никита" />}></Route>
         <Route path="/profile/:id/watchlist" element={<Watchlist />}></Route>
-        <Route path="/film/:id" element={<FilmPage title="guogigi" />}></Route>
+        <Route
+          path="/film/:id"
+          element={
+            <FilmPage
+              title="Вонка"
+              year={2023}
+              director="Пол Кинг"
+              slogan="Every good thing in this world started with a dream."
+              description="Вилли Вонка, полный идей и решимости менять мир по кусочку за раз, - доказательство того, что все самое лучшее в жизни начинается с мечты, и если вам посчастливилось встретить Вилли Вонку, то все возможно."
+            />
+          }
+        ></Route>
       </Routes>
       <BottomNav />
       <Footer />
