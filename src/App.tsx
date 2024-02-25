@@ -1,11 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import BottomNav from "./components/bottomNav/BottomNav";
-import HomePage from "./pages/home/HomePage";
-import FilmPage from "./pages/film-page/FilmPage";
-import Watchlist from "./pages/watchlist/Watchlist";
+import { useParams } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import BottomNav from "./components/BottomNav/BottomNav";
+import HomePage from "./pages/HomePage/HomePage";
+import FilmPage from "./pages/FilmPage/FilmPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import WatchlistPage from "./pages/WatchlistPage/WatchlistPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import ScrollToTop from "./pages/ScrollToTop";
 
 function App() {
@@ -15,19 +18,13 @@ function App() {
       <Header />
       <Routes>
         <Route path="/home" element={<HomePage username="Никита" />}></Route>
-        <Route path="/profile/:id/watchlist" element={<Watchlist />}></Route>
         <Route
-          path="/film/:id"
-          element={
-            <FilmPage
-              title="Вонка"
-              year={2023}
-              director="Пол Кинг"
-              slogan="Every good thing in this world started with a dream."
-              description="Вилли Вонка, полный идей и решимости менять мир по кусочку за раз, - доказательство того, что все самое лучшее в жизни начинается с мечты, и если вам посчастливилось встретить Вилли Вонку, то все возможно."
-            />
-          }
+          path="/profile/:id/watchlist"
+          element={<WatchlistPage />}
         ></Route>
+        <Route path="/film/:id" element={<FilmPage />}></Route>
+        <Route path="/profile/:id" element={<ProfilePage />}></Route>
+        <Route path="*" element={<ErrorPage code={404} description="странца не найдена"/>}></Route>
       </Routes>
       <BottomNav />
       <Footer />

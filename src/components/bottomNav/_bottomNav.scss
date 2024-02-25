@@ -10,30 +10,45 @@
   left: 0;
   padding: 0 4.19rem;
   gap: 1rem;
-  background-color: var(--background);
+  background-color: var(--background-dark);
 
   &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
-    background-color: var(--background);
 
-    img {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      filter: invert(99%) sepia(88%) saturate(2%) hue-rotate(92deg) brightness(113%) contrast(100%);
-      opacity: 0.5; 
+    .container {
+      &::after {
+        display: block;
+        content: "";
+        border-bottom: 1px solid var(--pale-pink);
+        transform: scaleX(0);
+        transition: transform 0.2s ease-out;
+      }
+
+      img {
+        filter: invert(99%) sepia(88%) saturate(2%) hue-rotate(92deg)
+          brightness(113%) contrast(100%);
+        opacity: 0.5;
+        padding-bottom: 0.2rem;
+      }
     }
 
     &_active {
-      & > img {
-        transition-property: filter;
-        transition: 0.1s ease-out;
-        filter: invert(64%) sepia(4%) saturate(2284%) hue-rotate(314deg) brightness(107%) contrast(108%);
-        opacity: 1;
-        padding-bottom: .2rem;
-        border-bottom: .08125rem solid black;
+      .container {
+        & > img {
+          transition-property: filter;
+          transition: 0.1s ease-out;
+          filter: invert(64%) sepia(4%) saturate(2284%) hue-rotate(314deg)
+            brightness(107%) contrast(108%);
+          opacity: 1;
+        }
+
+        &::after {
+          transform: scaleX(1);
+        }
       }
-    } 
+    }
   }
 }

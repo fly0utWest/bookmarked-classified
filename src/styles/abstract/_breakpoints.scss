@@ -1,0 +1,125 @@
+@media (min-width: 0px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 767.99px) {
+  body {
+    margin-bottom: 0;
+    box-shadow: inset -15px 0 15px -10px var(--background-dark),
+      inset 15px 0 15px -10px var(--background-dark);
+  }
+
+  .bottom-nav {
+    display: none;
+  }
+
+  .home {
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .burger-menu__aside {
+    width: 40%;
+  }
+
+  .burger-button {
+    display: none;
+  }
+
+  .header {
+    padding: 0;
+
+    &-container {
+      max-width: 950px;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 0 1.25rem;
+
+      &__logo {
+        position: static;
+        transform: translateX(0);
+      }
+    }
+
+    &-nav {
+      display: block;
+    }
+  }
+
+  .recent-articles .container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .article-card {
+    margin-bottom: 0.75rem;
+    margin-right: 0.75rem;
+  }
+
+  .latest-news-card {
+    flex-direction: row;
+
+    &__image {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .popular-month-lists-grid {
+    flex-direction: row;
+  }
+
+  .popular-month-section {
+    flex-wrap: nowrap;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .footer .footer-list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .film {
+    max-width: 950px;
+    margin-right: auto;
+    margin-left: auto;
+
+    &-page {
+      flex-direction: row;
+
+      &-info {
+        margin-left: 2.5rem;
+      }
+    }
+
+    &-background {
+      margin-top: -5%;
+      height: 500px;
+      max-height: 500px;
+      box-shadow: inset 5px -46px 80px 109px var(--background);
+    }
+
+    &-cover {
+      margin-top: -20%;
+      align-self: center;
+
+      img {
+        width: 14rem;
+        height: 20rem;
+      }
+    }
+  }
+
+  .error {
+    max-width: 950px;
+    margin-right: auto;
+    margin-left: auto;
+
+    &__image {
+      box-shadow: inset 5px 40px 90px 110px var(--background);
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+
+  &-background {
+    height: 250px;
+    background-repeat: no-repeat;
+    object-fit: fill;
+  }
+
+  &-avatar {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: -35%;
+    border-radius: 50%;
+    border: 2px solid var(--border-grey);
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+
+  &-page {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.25rem;
+
+    &__name {
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.25rem;
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+
+    &__bio {
+      text-align: center;
+    }
+  }
+}

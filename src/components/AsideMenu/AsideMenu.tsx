@@ -1,43 +1,47 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
-import BurgerButton from "../burger-button/BurgerButton";
-import ProfileInfo from "../profile-info/ProfileInfo";
-import homeIcon from "./home.svg"; 
-import filmsIcon from "./films.svg"
-import likesIcon from "./heart.svg";
+import BurgerButton from "../BurgerButton/BurgerButton";
+import ProfileInfo from "../ProfileInfo/ProfileInfo";
+import homeIcon from "./home.svg";
+import filmsIcon from "./films.svg";
 import reviewsIcon from "./reviews.svg";
 import watchlistIcon from "./watchlist.svg";
 import listsIcon from "./lists.svg";
-import AsideNavLink from "../nav-link/AsideNavLink";
+import AsideNavLink from "../NavLink/AsideNavLink";
+import { useLocation } from "react-router-dom";
 
-const AsideMenu = ({ updateState , setUpdateState}: any) => {
-  const [innerState, setInnerState] = useState(false);
+type AsideMenuProps = {
+  updatedState: boolean;
+  setUpdatedState: (state: boolean) => void;
+};
 
-  useEffect(() => {
-    setInnerState(updateState);
-  }, [updateState]);
-
-  useEffect(() => {
-
-    return () => {
-      document.body.classList.remove("body_noscroll");
-    };
-  }, [innerState]);
-
-  const changeInnerState = () => {
-    setInnerState(!innerState);
-    setUpdateState(!innerState);
+const AsideMenu = ({ updatedState, setUpdatedState }: AsideMenuProps) => {
+  const changeInnerState = (): void => {
+    setUpdatedState(!updatedState);
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    const closeMenu = (): void => {
+      if (updatedState) setUpdatedState(false);
+    };
+
+    closeMenu();
+  }, [location]);
+
   return (
-    <div className={`burger-menu ${innerState ? " burger-menu_active" : ""}`}>
+    <div className={`burger-menu ${updatedState ? " burger-menu_active" : ""}`}>
       <aside className="burger-menu__aside">
         <BurgerButton clickFunc={changeInnerState} />
-        <ProfileInfo name="Никита" tag="flyOutWest  " />
+        <ProfileInfo name="Никита" tag="flyOutWest" />
         <nav className="nav">
           <AsideNavLink dest="/home" src={homeIcon} span="Главная" />
           <AsideNavLink dest="/films" src={filmsIcon} span="Фильмы" />
-          <AsideNavLink dest="/profile/:id/reviews" src={reviewsIcon} span="Обзоры" />
+          <AsideNavLink
+            dest="/profile/:id/reviews"
+            src={reviewsIcon}
+            span="Обзоры"
+          />
           <AsideNavLink
             dest="/profile/:id/watchlist"
             src={watchlistIcon}

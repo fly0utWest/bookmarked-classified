@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-type buttonProps = {
+type ButtonProps = {
   dest: string,
   src: string,
   alt: string,
-  id: string
 };
 
-const BottomNavButton = (props: buttonProps) => {
+const BottomNavButton = (props: ButtonProps) => {
 
   return (
     <>
       <NavLink
         to={props.dest}
-        className={({isActive}) => "bottom-nav__button" + (isActive ? " bottom-nav__button_active" : "")}
-        id={props.id}
+        className={({ isActive }) =>
+          "bottom-nav__button" + (isActive ? " bottom-nav__button_active" : "")
+        }
       >
-        <img src={props.src} />
+        <div className="container">
+          <img src={props.src} />
+        </div>
       </NavLink>
     </>
   );

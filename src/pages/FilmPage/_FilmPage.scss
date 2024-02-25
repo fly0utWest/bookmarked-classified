@@ -1,0 +1,138 @@
+.film {
+  display: flex;
+  flex-direction: column;
+
+  &-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    max-height: 250px;
+  }
+
+  &-page {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.25rem;
+
+    &-heading {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      &__title {
+        font-weight: 600;
+        line-height: 2.25rem;
+        font-size: 2.25rem;
+      }
+
+      &__production {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+        font-size: 1rem;
+
+        .year {
+          font-style: italic;
+          text-decoration: underline;
+        }
+
+        .director {
+          span {
+            text-decoration: underline;
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    &-info {
+      &__slogan {
+        padding-top: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      &__cast {
+        & > p {
+          font-size: 1rem;
+          font-weight: 700;
+          padding-bottom: 0.25rem;
+        }
+
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.25rem;
+
+          p {
+            padding: 0.25rem;
+            line-height: 1rem;
+            text-transform: capitalize;
+            background-color: var(--dark-pink);
+            border-radius: 0.25rem;
+          }
+        }
+      }
+      &__description {
+        padding-top: 0.75rem;
+      }
+    }
+  }
+
+  &-cover {
+    position: relative;
+    margin-top: -20%;
+    flex-shrink: 0;
+
+    img {
+      width: 7rem;
+      height: 10rem;
+      border: 1.5px solid var(--border-grey);
+      box-shadow: inset 0 2px 4px 0 #0000000d;
+      border-radius: 0.25rem;
+    }
+  }
+
+  &-review-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+
+    &__input {
+      border-radius: 0.25rem;
+      background-color: var(--dark-pink);
+      padding: 0.75rem;
+      border: none;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__submit {
+      border-radius: 0.25rem;
+      padding: 0.25rem;
+      background-color: var(--dark-pink);
+      color: #fff;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__loading {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+  }
+}
