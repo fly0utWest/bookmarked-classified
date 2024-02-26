@@ -14,14 +14,18 @@ const ProfileListCounter = () => {
         className='profile-list-counter__favorites'
       >
         <p className='counter'>9</p>
-        <p>Любимых</p>
+        <p>Любимых фильмов</p>
       </Link>
       <Link
         to='/profile/:id/favorites'
         className='profile-list-counter__watchlist'
       >
         <p className='counter'>11</p>
-        <p>Смотреть позже</p>
+        <p>
+          Смотреть
+          <br />
+          позже
+        </p>
       </Link>
     </div>
   );

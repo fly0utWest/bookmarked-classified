@@ -12,7 +12,6 @@ const ProfilePage = () => {
         <p className='profile-page__name'>Никита</p>
         <p className='profile-page__bio'>Плейсхолдер для био</p>
         <ProfileListCounter />
-        <hr />
       </div>
     </div>
   );

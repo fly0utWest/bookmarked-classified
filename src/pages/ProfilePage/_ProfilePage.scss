@@ -54,6 +54,7 @@
     flex-direction: row;
 
     a {
+      width: 50%;
       padding: 0 0.75rem;
 
       .counter {
@@ -67,6 +68,10 @@
       p {
         text-align: center;
       }
+    }
+
+    &__favorites {
+      border-right: 2px solid var(--border-grey);
     }
   }
 }
