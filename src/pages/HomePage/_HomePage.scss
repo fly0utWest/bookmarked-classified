@@ -38,21 +38,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between;
-
-    &__element {
-      position: relative;
-      margin-right: 0.25rem;
-      margin-bottom: 2%;
-      border-radius: 0.25rem;
-      border: 1px solid var(--border-grey);
-      width: 32%;
-      overflow: hidden;
-
-      &:hover {
-        border-color: #fff;
-      }
-    }
+    gap: 0.25rem;
   }
 
   &-lists-grid {
@@ -199,4 +185,22 @@
   }
 
   margin-bottom: 1.25rem;
+}
+
+.film-link {
+  position: relative;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-grey);
+  width: 32%;
+  overflow: hidden;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
+
+.film-link_profile {
+  width: 25%;
+  max-width: 80px;
+  max-height: 120px;
 }

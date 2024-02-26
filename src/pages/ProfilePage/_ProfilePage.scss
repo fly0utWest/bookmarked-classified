@@ -29,6 +29,7 @@
 
   &-page__profile-list-counter {
     margin-top: 1rem;
+    margin-bottom: 3.5rem;
   }
 
   &-page {
@@ -43,12 +44,36 @@
       line-height: 1.25rem;
       text-align: center;
       margin: 0.5rem 0;
+      color: var(--pale-pink);
     }
 
     &__bio {
       text-align: center;
     }
+
+    &__container {
+      align-self: flex-start;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        font-size: 0.8rem;
+        font-weight: 600;
+
+        &:hover {
+          color: var(--pale-pink);
+        }
+      }
+    }
   }
+
   .profile-list-counter {
     display: flex;
     flex-direction: row;
@@ -72,6 +97,72 @@
 
     &__favorites {
       border-right: 2px solid var(--border-grey);
+    }
+  }
+
+  &-favorites {
+    width: 100%;
+
+    &__section {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+  }
+
+  hr {
+    margin-bottom: 1.25rem;
+  }
+
+  &-watchlist {
+    @extend .profile-favorites;
+
+    &__section {
+      @extend .profile-favorites__section;
+    }
+  }
+
+  .review-card {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0;
+    gap: 0.75rem;
+    border-bottom: 2px solid var(--border-grey);
+
+    &__info {
+      a {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+
+        &:hover {
+          color: var(--pale-pink);
+        }
+      }
+
+      span {
+        margin-left: 0.3rem;
+        font-size: 0.875rem;
+        color: var(--grey);
+      }
+
+      p {
+        font-size: 0.875rem;
+        padding-top: 0.5rem;
+        color: var(--grey);
+      }
+    }
+  }
+
+  &-reviews {
+    @extend .profile-favorites;
+    margin-top: -0.5rem;
+    padding-bottom: 3rem;
+
+    &__section {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

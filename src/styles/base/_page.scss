@@ -1,9 +1,9 @@
 @font-face {
-  font-family: "Open Sans";
-  src: local("../../assets/font/OpenSans-VariableFont_wdth\,wght.ttf");
+  font-family: 'Open Sans';
+  src: local('../../assets/font/OpenSans-VariableFont_wdth\,wght.ttf');
 
-  font-family: "Open Sans italic";
-  src: local("../../assets/font/OpenSans-Italic.ttf");
+  font-family: 'Open Sans italic';
+  src: local('../../assets/font/OpenSans-Italic.ttf');
 }
 
 html {
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,4 +40,10 @@ hr {
   height: 1px;
   margin: 0.4rem 0;
   opacity: 0.5;
+}
+
+.section-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
