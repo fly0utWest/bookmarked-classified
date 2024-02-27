@@ -7,7 +7,7 @@ type FilmLinkProps = {
   classModifier?: string;
 };
 
-const FilmLink = (props: FilmLinkProps) => {
+const FilmLink: React.FC<FilmLinkProps> = (props) => {
   return (
     <div
       className={`film-link${

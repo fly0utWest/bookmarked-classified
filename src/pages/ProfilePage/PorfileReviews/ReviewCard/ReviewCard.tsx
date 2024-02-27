@@ -2,7 +2,7 @@ import React from 'react';
 import FilmLink from '../../../HomePage/FilmLink/FilmLink';
 import { Link } from 'react-router-dom';
 
-const ReviewCard = () => {
+const ReviewCard: React.FC = () => {
   return (
     <div className='review-card'>
       <FilmLink

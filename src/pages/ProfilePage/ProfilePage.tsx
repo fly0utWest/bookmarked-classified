@@ -7,7 +7,7 @@ import ProfileWatchlist from './ProfileWatchlist/ProfileWatchlist';
 import ProfileReviews from './PorfileReviews/ProfileReviews';
 import { Link } from 'react-router-dom';
 
-const ProfilePage = () => {
+const ProfilePage: React.FC = () => {
   return (
     <div className='profile'>
       <ProfileBackground />
@@ -34,8 +34,7 @@ const ProfilePage = () => {
             </div>
             <ProfileWatchlist />
             <hr />
-            <div className='container profile-page__container'>
-            </div>
+            <div className='container profile-page__container'></div>
           </div>
           <ProfileReviews />
         </div>

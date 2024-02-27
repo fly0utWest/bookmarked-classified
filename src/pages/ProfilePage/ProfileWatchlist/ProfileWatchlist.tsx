@@ -2,7 +2,7 @@ import React from 'react';
 import FilmLink from '../../HomePage/FilmLink/FilmLink';
 import { Link } from 'react-router-dom';
 
-const ProfileWatchlist = () => {
+const ProfileWatchlist: React.FC = () => {
   return (
     <section className='profile-watchlist'>
       <div className='profile-watchlist__section'>

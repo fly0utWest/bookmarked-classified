@@ -15,16 +15,45 @@ const App: React.FC = () => {
     <>
       <ScrollToTop />
       <Routes>
-        <Route path='/home' element={<HomePage username='Никита' />}></Route>
+        <Route
+          path='/home'
+          element={
+            <MainLayout>
+              <HomePage username='Никита' />
+            </MainLayout>
+          }
+        ></Route>
         <Route
           path='/profile/:id/watchlist'
-          element={<WatchlistPage />}
+          element={
+            <MainLayout>
+              <WatchlistPage />
+            </MainLayout>
+          }
         ></Route>
-        <Route path='/film/:id' element={<FilmPage />}></Route>
-        <Route path='/profile/:id' element={<ProfilePage />}></Route>
+        <Route
+          path='/film/:id'
+          element={
+            <MainLayout>
+              <FilmPage />
+            </MainLayout>
+          }
+        ></Route>
+        <Route
+          path='/profile/:id'
+          element={
+            <MainLayout>
+              <ProfilePage />
+            </MainLayout>
+          }
+        ></Route>
         <Route
           path='*'
-          element={<ErrorPage code={404} description='странца не найдена' />}
+          element={
+            <MainLayout>
+              <ErrorPage code={404} description='странца не найдена' />
+            </MainLayout>
+          }
         ></Route>
         <Route
           path='/login'

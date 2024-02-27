@@ -1,5 +1,5 @@
 .login {
-  min-height: 90vh;
+  height: 100vh;
 
   &__background {
     position: relative;
@@ -22,6 +22,20 @@
       transform-origin: bottom left;
       filter: brightness(0.4);
       z-index: -1;
+    }
+  }
+
+  &-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 1.25rem;
+  }
+
+  &-form {
+    &__heading {
+      font-size: 1.5rem;
+      font-weight: 700;
     }
   }
 }

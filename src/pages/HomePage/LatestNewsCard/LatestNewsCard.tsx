@@ -7,7 +7,7 @@ type NewsCardProps = {
   description: string;
 };
 
-const LatestNewsCard = (props: NewsCardProps) => {
+const LatestNewsCard: React.FC<NewsCardProps> = (props) => {
   return (
     <article className="latest-news-card">
       <img className="latest-news-card__image" src={props.img} alt="" />
