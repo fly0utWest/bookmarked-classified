@@ -8,13 +8,17 @@ type ProfileListCounterProps = {
 
 const ProfileListCounter = () => {
   return (
-    <div className='profile-list-counter profile-page__profile-list-counter'>
+    <div className='profile-list-counter profile-page-header__profile-list-counter'>
       <Link
         to='/profile/:id/favorites'
         className='profile-list-counter__favorites'
       >
         <p className='counter'>9</p>
-        <p>Любимых фильмов</p>
+        <p>
+          Любимых
+          <br />
+          фильмов
+        </p>
       </Link>
       <Link
         to='/profile/:id/favorites'

@@ -11,27 +11,34 @@ const ProfilePage = () => {
   return (
     <div className='profile'>
       <ProfileBackground />
-      <ProfileAvatar />
       <div className='profile-page'>
-        <p className='profile-page__name'>Никита</p>
-        <p className='profile-page__bio'>Плейсхолдер для био</p>
-        <ProfileListCounter />
-        <div className='container profile-page__container'>
-          <h2>Любимые фильмы</h2>
-          <Link to='/profile/:id/favorites/'>Показать все</Link>
+        <div className='profile-page-header'>
+          <ProfileAvatar />
+          <div className='container profile-page-header__container'>
+            <p className='profile-page-header__name'>Никита</p>
+            <p className='profile-page-header__bio'>Плейсхолдер для био</p>
+          </div>
+          <ProfileListCounter />
         </div>
-        <ProfileFavorites />
-        <hr />
-        <div className='container profile-page__container'>
-          <h2>Смотреть позже</h2>
-          <Link to='/profile/:id/favorites/'>Показать все</Link>
+        <div className='profile-page__flex'>
+          <div>
+            <div className='container profile-page__container'>
+              <h2>Любимые фильмы</h2>
+              <Link to='/profile/:id/favorites/'>Показать все</Link>
+            </div>
+            <ProfileFavorites />
+            <hr />
+            <div className='container profile-page__container'>
+              <h2>Смотреть позже</h2>
+              <Link to='/profile/:id/favorites/'>Показать все</Link>
+            </div>
+            <ProfileWatchlist />
+            <hr />
+            <div className='container profile-page__container'>
+            </div>
+          </div>
+          <ProfileReviews />
         </div>
-        <ProfileWatchlist />
-        <hr />
-        <div className='container profile-page__container'>
-          <h2>Обзоры</h2>
-        </div>
-        <ProfileReviews />
       </div>
     </div>
   );

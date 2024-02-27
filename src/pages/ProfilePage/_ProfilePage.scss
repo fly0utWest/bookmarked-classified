@@ -2,34 +2,31 @@
   display: flex;
   flex-direction: column;
   min-height: 90vh;
+  width: 100%;
 
   &-background {
     height: 250px;
     background-repeat: no-repeat;
-    object-fit: fill;
+    background-position: center;
+    background-size: cover;
   }
 
   &-avatar {
     position: relative;
     left: 50%;
-    transform: translate(-50%);
-    margin-top: -35%;
+    transform: translateX(-50%);
     border-radius: 50%;
     border: 2px solid var(--border-grey);
+    margin-top: -45px;
     width: 90px;
     height: 90px;
     overflow: hidden;
 
     img {
-      width: 100%;
-      height: auto;
+      width: 100px;
+      height: 100px;
       min-height: 100%;
     }
-  }
-
-  &-page__profile-list-counter {
-    margin-top: 1rem;
-    margin-bottom: 3.5rem;
   }
 
   &-page {
@@ -38,17 +35,34 @@
     align-items: center;
     padding: 0 1.25rem;
 
-    &__name {
-      font-weight: 700;
-      font-size: 1.5rem;
-      line-height: 1.25rem;
-      text-align: center;
-      margin: 0.5rem 0;
-      color: var(--pale-pink);
+    &-header {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &__name {
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.25rem;
+        text-align: center;
+        margin: 0.5rem 0;
+        color: var(--pale-pink);
+      }
+
+      &__bio {
+        text-align: center;
+      }
+
+      &__profile-list-counter {
+        margin-top: 1rem;
+        margin-bottom: 3.5rem;
+      }
     }
 
-    &__bio {
-      text-align: center;
+    &__flex {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
 
     &__container {

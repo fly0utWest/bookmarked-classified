@@ -28,6 +28,18 @@
         height: 100%;
       }
     }
+
+    &__profile {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+    }
   }
 
   &-nav {
@@ -71,7 +83,7 @@
 
           &::after {
             display: block;
-            content: "";
+            content: '';
             border-bottom: 2px solid var(--pale-pink);
             transform: scaleX(0);
             transition: transform 0.15s ease-in-out;
@@ -90,12 +102,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
-    img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-    }
 
     &__dropdown {
       display: none;
