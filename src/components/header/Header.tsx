@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import AsideMenu from '../AsideMenu/AsideMenu';
 
-const Header = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+const Header: React.FC = () => {
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   useEffect(() => {
     document.body.classList.toggle('body_noscroll', openMenu);
 
-    return () => {
+    return (): void => {
       document.body.classList.remove('body_noscroll');
     };
   }, [openMenu]);
 
-  const activateMenu = () => {
+  const activateMenu = (): void => {
     setOpenMenu(!openMenu);
   };
 

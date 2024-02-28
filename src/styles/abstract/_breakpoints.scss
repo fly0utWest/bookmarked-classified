@@ -113,9 +113,17 @@
       }
     }
 
-    &-link_profile {
-      max-width: 140px;
-      max-height: 220px;
+    &-link {
+      &_profile {
+        max-width: 140px;
+        max-height: 220px;
+      }
+
+      &:hover {
+        .lists-buttons {
+          display: block;
+        }
+      }
     }
   }
 
@@ -170,5 +178,25 @@
         justify-content: space-between;
       }
     }
+  }
+
+  .login {
+    &-page {
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__background {
+      box-shadow: inset 0px -80px 80px 60px var(--background);
+
+      &::before {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .lists-buttons {
+    display: none;
   }
 }

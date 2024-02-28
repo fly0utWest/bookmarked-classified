@@ -23,17 +23,16 @@ const AsideMenu: React.FC<AsideMenuProps> = ({
   };
 
   const location = useLocation();
+  const closeMenu = (): void => {
+    if (updatedState) setUpdatedState(false);
+  };
 
-  useEffect(() => {
-    const closeMenu = (): void => {
-      if (updatedState) setUpdatedState(false);
-    };
-
+  useEffect((): void => {
     closeMenu();
-  }, [location, updatedState]);
+  }, [location]);
 
   return (
-    <div className={`burger-menu ${updatedState ? ' burger-menu_active' : ''}`}>
+    <div className={`burger-menu${updatedState ? ' burger-menu_active' : ''}`}>
       <aside className='burger-menu__aside'>
         <BurgerButton clickFunc={changeInnerState} />
         <ProfileInfo name='Никита' tag='flyOutWest' />
