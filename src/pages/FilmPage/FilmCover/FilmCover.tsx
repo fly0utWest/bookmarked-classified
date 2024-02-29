@@ -1,4 +1,5 @@
 import React from "react";
+import ListsButtons from "../../../components/ListsButtons/ListsButtons";
 
 type BackgroundProps = {
   img: string | undefined;
@@ -6,8 +7,9 @@ type BackgroundProps = {
 
 const FilmCover = (props: BackgroundProps) => {
   return (
-    <div className="film-cover">
-      <img src={"/assets/film-covers/" + props.img} alt="" />
+    <div className='film-cover'>
+      <img src={'/assets/film-covers/' + props.img} alt='' />
+      <ListsButtons classModifier="film-cover__lists-buttons"/>
     </div>
   );
 };

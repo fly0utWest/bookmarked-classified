@@ -83,15 +83,17 @@
 
   &-cover {
     position: relative;
+    width: 7rem;
+    height: 10rem;
     margin-top: -20%;
     flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    border: 1.5px solid var(--border-grey);
+    box-shadow: inset 0 2px 4px 0 #0000000d;
 
-    img {
-      width: 7rem;
-      height: 10rem;
-      border: 1.5px solid var(--border-grey);
-      box-shadow: inset 0 2px 4px 0 #0000000d;
-      border-radius: 0.25rem;
+    &__lists-buttons {
+      display: block !important;
     }
   }
 

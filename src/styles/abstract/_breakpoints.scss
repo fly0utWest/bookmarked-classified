@@ -104,13 +104,9 @@
     }
 
     &-cover {
-      margin-top: -20%;
       align-self: center;
-
-      img {
-        width: 14rem;
-        height: 20rem;
-      }
+      width: 14rem;
+      height: 20rem;
     }
 
     &-link {
@@ -194,9 +190,5 @@
         transform: rotate(0);
       }
     }
-  }
-
-  .lists-buttons {
-    display: none;
   }
 }
