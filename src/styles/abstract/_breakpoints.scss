@@ -28,6 +28,12 @@
 
   .header {
     padding: 0;
+    transition: box-shadow 0.2s ease-out;
+
+    &:hover {
+      box-shadow: inset -10px 10px 20px 5px rgba(62, 54, 54, 0.23);
+      transition: 0.2s ease-out;
+    }
 
     &-container {
       max-width: 950px;
@@ -189,6 +195,17 @@
       &::before {
         transform: rotate(0);
       }
+    }
+  }
+
+  .onboarding {
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__background {
+      background-size: fill;
+      background-position: center;
     }
   }
 }

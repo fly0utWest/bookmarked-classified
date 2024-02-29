@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './pages/MainLayout';
 import HideInterface from './pages/HideInterface';
 import HomePage from './pages/HomePage/HomePage';
@@ -8,6 +8,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import WatchlistPage from './pages/WatchlistPage/WatchlistPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import OnBoarding from './pages/OnBoarding/OnBoarding';
 import ScrollToTop from './pages/ScrollToTop';
 
 const App: React.FC = () => {
@@ -15,6 +16,7 @@ const App: React.FC = () => {
     <>
       <ScrollToTop />
       <Routes>
+        <Route path='/' element={<Navigate replace to='/home' />}></Route>
         <Route
           path='/home'
           element={
@@ -60,6 +62,14 @@ const App: React.FC = () => {
           element={
             <HideInterface>
               <LoginPage />
+            </HideInterface>
+          }
+        ></Route>
+        <Route
+          path='/welcome'
+          element={
+            <HideInterface>
+              <OnBoarding />
             </HideInterface>
           }
         ></Route>

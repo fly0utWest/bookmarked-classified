@@ -2,7 +2,7 @@
 @use "./abstract/variables";
 @use "./base/page";
 @use "../components/Header/Header";
-@use "../components/bottomNav/BottomNav";
+@use "../components/BottomNav/BottomNav";
 @use "../components/Footer/Footer";
 @use "../pages/HomePage/HomePage";
 @use "../components/ListsButtons/ListsButtons";
@@ -15,4 +15,5 @@
 @use "../components/NavLink/NavLink";
 @use "../pages/ErrorPage/ErrorPage";
 @use "../pages/LoginPage/LoginPage";
+@use "../pages/OnBoarding/OnBoarding";
 @use "./abstract/breakpoints";
