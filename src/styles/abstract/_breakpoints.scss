@@ -31,7 +31,7 @@
     transition: box-shadow 0.2s ease-out;
 
     &:hover {
-      box-shadow: inset -10px 10px 20px 5px rgba(62, 54, 54, 0.23);
+      box-shadow: inset -10px 10px 20px 5px var(--backlight);
       transition: 0.2s ease-out;
     }
 

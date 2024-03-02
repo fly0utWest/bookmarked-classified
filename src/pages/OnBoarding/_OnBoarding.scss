@@ -18,7 +18,7 @@
     box-shadow: inset 0px -80px 80px 60px var(--background);
 
     img {
-        object-fit: contain;
+      object-fit: contain;
     }
   }
 
@@ -31,7 +31,7 @@
 
   &__link {
     color: var(--background);
-    background-color: var(--pale-pink);
+    background-color: var(--pale-violet);
     padding: 1rem 1.25rem;
     width: 50%;
     text-align: center;
@@ -44,7 +44,7 @@
     transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
     &:hover {
-      background-color: var(--dark-pink);
+      background-color: var(--background2);
       color: #fff;
       transition: 0.2s ease-out;
     }

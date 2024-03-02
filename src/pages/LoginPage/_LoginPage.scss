@@ -55,7 +55,7 @@
       border-radius: 0 0.25rem 0.25rem 0;
       outline: none;
       border: none;
-      background-color: var(--dark-pink);
+      background-color: var(--background2);
 
       &::placeholder {
         color: #fff;
@@ -82,7 +82,7 @@
 
     &__submit {
       color: var(--background);
-      background-color: var(--pale-pink);
+      background-color: var(--pale-violet);
       padding: 1rem 1.25rem;
       width: 50%;
       font-weight: 700;
@@ -94,7 +94,7 @@
       transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
       &:hover {
-        background-color: var(--dark-pink);
+        background-color: var(--background2);
         color: #fff;
         transition: 0.2s ease-out;
       }
@@ -106,7 +106,7 @@
       margin-bottom: 1rem;
 
       &:hover {
-        color: var(--pale-pink);
+        color: var(--pale-violet);
       }
     }
 
@@ -115,7 +115,7 @@
 
       a {
         &:hover {
-          color: var(--pale-pink);
+          color: var(--pale-violet);
         }
       }
     }

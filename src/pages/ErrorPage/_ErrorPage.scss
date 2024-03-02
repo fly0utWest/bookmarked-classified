@@ -30,9 +30,9 @@
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       transform: scaleX(0);
-      border-bottom: 2px solid var(--pale-pink);
+      border-bottom: 2px solid var(--pale-violet);
       transition: transform 0.15s ease-in-out;
     }
 

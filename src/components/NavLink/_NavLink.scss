@@ -13,17 +13,18 @@
     margin-right: 0.94rem;
     filter: invert(99%) sepia(88%) saturate(2%) hue-rotate(92deg)
       brightness(113%) contrast(100%);
-      opacity: 0.5;
+    opacity: 0.5;
   }
 }
 
 .nav-link_active {
   transition: 0.2s;
-  background-color: var(--pale-pink);
+  background-color: var(--pale-violet);
   color: var(--background);
 
   & > img {
-    filter: invert(12%) sepia(26%) saturate(936%) hue-rotate(206deg) brightness(100%) contrast(100%);
+    filter: invert(12%) sepia(26%) saturate(936%) hue-rotate(206deg)
+      brightness(100%) contrast(100%);
     opacity: 1;
   }
 }
