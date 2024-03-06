@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 type ProfileInfo = {
   name: string;
@@ -9,17 +9,17 @@ type ProfileInfo = {
 
 const ProfileInfo = (props: ProfileInfo) => {
   return (
-    <div className="profile-info burger-menu__profile-info">
+    <div className='profile-info burger-menu__profile-info'>
       <img
-        src="/assets/profile/avatar.png"
-        className="profile-info__avatar"
+        src='/assets/profile/avatar.png'
+        className='profile-info__avatar'
       ></img>
-      <div className="container profile-info__container">
-        <Link to="/profile/:id" className="profile-info__name">
+      <div className='container profile-info__container'>
+        <Link to='/user/:id' className='profile-info__name'>
           {props.name}
         </Link>
         <br />
-        <span className="profile-info__tag">{`@${props.tag}`}</span>
+        <span className='profile-info__tag'>{`@${props.tag}`}</span>
       </div>
     </div>
   );

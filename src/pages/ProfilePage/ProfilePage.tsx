@@ -24,13 +24,13 @@ const ProfilePage: React.FC = () => {
           <div>
             <div className='container profile-page__container'>
               <h2>Любимые фильмы</h2>
-              <Link to='/profile/:id/favorites/'>Показать все</Link>
+              <Link to='/user/:id/favorites/'>Показать все</Link>
             </div>
             <ProfileFavorites />
             <hr />
             <div className='container profile-page__container'>
               <h2>Смотреть позже</h2>
-              <Link to='/profile/:id/favorites/'>Показать все</Link>
+              <Link to='/user/:id/favorites/'>Показать все</Link>
             </div>
             <ProfileWatchlist />
             <hr />

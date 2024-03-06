@@ -32,16 +32,13 @@ const Header: React.FC = () => {
               <ul>
                 <li className='container'>
                   <div className='header-profile'>
-                    <Link
-                      to='/profile/:id'
-                      className='header-container__profile'
-                    >
+                    <Link to='/user/:id' className='header-container__profile'>
                       <img src='/assets/profile/avatar.png' alt='' />
                       Никита
                     </Link>
                   </div>
                   <div className='header-profile__dropdown'>
-                    <Link to='/profile/:id'>Профиль</Link>
+                    <Link to='/user/:id'>Профиль</Link>
                     <Link to=''>Главная</Link>
                     <Link to=''>Фильмы</Link>
                     <Link to=''>Обзоры</Link>

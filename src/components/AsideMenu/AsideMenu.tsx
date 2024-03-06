@@ -40,20 +40,16 @@ const AsideMenu: React.FC<AsideMenuProps> = ({
           <AsideNavLink dest='/home' src={homeIcon} span='Главная' />
           <AsideNavLink dest='/films' src={filmsIcon} span='Фильмы' />
           <AsideNavLink
-            dest='/profile/:id/reviews'
+            dest='/user/:id/reviews'
             src={reviewsIcon}
             span='Обзоры'
           />
           <AsideNavLink
-            dest='/profile/:id/watchlist'
+            dest='/user/:id/watchlist'
             src={watchlistIcon}
             span='Смотреть позже'
           />
-          <AsideNavLink
-            dest='/profile/:id/lists'
-            src={listsIcon}
-            span='Списки'
-          />
+          <AsideNavLink dest='/user/:id/lists' src={listsIcon} span='Списки' />
         </nav>
       </aside>
       <div onClick={changeInnerState} className='burger-menu__background'></div>

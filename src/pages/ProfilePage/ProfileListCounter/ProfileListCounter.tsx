@@ -10,7 +10,7 @@ const ProfileListCounter: React.FC<ProfileListCounterProps> = () => {
   return (
     <div className='profile-list-counter profile-page-header__profile-list-counter'>
       <Link
-        to='/profile/:id/favorites'
+        to='/user/:id/favorites'
         className='profile-list-counter__favorites'
       >
         <p className='counter'>9</p>
@@ -21,7 +21,7 @@ const ProfileListCounter: React.FC<ProfileListCounterProps> = () => {
         </p>
       </Link>
       <Link
-        to='/profile/:id/favorites'
+        to='/user/:id/favorites'
         className='profile-list-counter__watchlist'
       >
         <p className='counter'>11</p>
