@@ -12,6 +12,14 @@
 
     &__date {
       margin: 0 0 0.5rem 0;
+      &__heading {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      &__section {
+
+      }
 
       & > i {
         font-weight: 600;

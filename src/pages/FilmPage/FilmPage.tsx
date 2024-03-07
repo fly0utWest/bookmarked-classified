@@ -1,4 +1,6 @@
 import React from 'react';
+import FilmLink from '../HomePage/FilmLink/FilmLink';
+import { FilmData } from '../../types';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import FilmCover from './FilmCover/FilmCover';
@@ -8,18 +10,7 @@ import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
 
-const FilmPage = () => {
-  type FilmData = {
-    background: string;
-    cover: string;
-    title: string;
-    year: number;
-    director: string;
-    slogan: string;
-    description: string;
-    cast: string[];
-  };
-
+const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
   const [filmData, setFilmData] = useState<FilmData>();
@@ -41,6 +32,7 @@ const FilmPage = () => {
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(`Fetching error: ${error.message}`);
+
         setError(error.message);
       } else {
         console.error('An unexpected error has occured!');
