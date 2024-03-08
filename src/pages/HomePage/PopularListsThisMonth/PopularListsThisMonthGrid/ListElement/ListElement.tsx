@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Poster from "./Poster";
+import { ListElementProps } from "../../../../../types";
 
-type ListProps = {
-  heading: string;
-  posterList: Array<React.ReactNode>
-};
-
-const ListElelement = (props: ListProps) => {
+const ListElelement: React.FC<ListElementProps> = (props) => {
   return (
     <div className="popular-month-lists-grid__element">
       <div className="container">

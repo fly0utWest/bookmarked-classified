@@ -9,8 +9,6 @@ const PopularThisMonth: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const filmArray: JSX.Element[] = [];
-
   const fetchFilmData = async () => {
     setIsLoading(true);
 
@@ -35,11 +33,7 @@ const PopularThisMonth: React.FC = () => {
       setIsLoading(false);
     }
     if (isLoading) {
-      return (
-        <div className='film__loading'>
-          <Loading />
-        </div>
-      );
+      return <Loading />;
     }
 
     if (error) {

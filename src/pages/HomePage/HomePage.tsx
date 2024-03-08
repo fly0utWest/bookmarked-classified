@@ -6,12 +6,9 @@ import PopularThisMonth from './PopularThisMonth/PopularThisMonth';
 import PopularListsThisMonth from './PopularListsThisMonth/PopularListsThisMonth';
 import RecentArticles from './RecentArticles/RecentArticles';
 import LatestNews from './LatestNews/LatestNews';
+import { HomePageProps } from '../../types';
 
-type HomePageProps = {
-  username: string;
-};
-
-const HomePage = (props: HomePageProps) => {
+const HomePage: React.FC<HomePageProps> = (props) => {
   return (
     <div className='home'>
       <h1 className='home__heading'>

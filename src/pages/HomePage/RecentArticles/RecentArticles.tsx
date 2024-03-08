@@ -2,7 +2,7 @@ import React from "react";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import blanchettCover from "./blanchett-cover.jpg";
 
-const RecentArticles = () => {
+const RecentArticles: React.FC = () => {
   return (
     <>
       <section className="recent-articles">

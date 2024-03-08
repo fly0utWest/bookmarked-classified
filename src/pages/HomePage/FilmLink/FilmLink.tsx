@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ListsButtons from '../../../components/ListsButtons/ListsButtons';
-
-type FilmLinkProps = {
-  filmId?: number;
-  src: string;
-  classModifier?: string;
-};
+import { FilmLinkProps } from '../../../types';
 
 const FilmLink: React.FC<FilmLinkProps> = (props) => {
   return (

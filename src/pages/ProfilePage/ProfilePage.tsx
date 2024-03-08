@@ -4,7 +4,7 @@ import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
 import ProfileListCounter from './ProfileListCounter/ProfileListCounter';
 import ProfileFavorites from './ProfileFavorites/ProfileFavorites';
 import ProfileWatchlist from './ProfileWatchlist/ProfileWatchlist';
-import ProfileReviews from './PorfileReviews/ProfileReviews';
+import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { Link } from 'react-router-dom';
 
 const ProfilePage: React.FC = () => {

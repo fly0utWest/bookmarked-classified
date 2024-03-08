@@ -1,15 +1,15 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { AsideNavLinkProps } from '../../types';
 
-type LinkProps = {
-  dest: string;
-  src: string;
-  span: string;
-};
-
-const AsideNavLink = (props: LinkProps) => {
+const AsideNavLink: React.FC<AsideNavLinkProps> = (props) => {
   return (
-    <NavLink to={props.dest} className={({ isActive }) => "nav-link" + (isActive ? " nav-link_active" : "")}>
+    <NavLink
+      to={props.dest}
+      className={({ isActive }) =>
+        'nav-link' + (isActive ? ' nav-link_active' : '')
+      }
+    >
       <img src={props.src} />
       <span>{props.span}</span>
     </NavLink>

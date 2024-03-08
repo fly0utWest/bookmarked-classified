@@ -1,12 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ErrorPageProps } from "../../types";
 
-type ErrorProps = {
-  code: number,
-  description: string
-}
-
-const ErrorPage: React.FC<ErrorProps> = (props) => {
+const ErrorPage: React.FC<ErrorPageProps> = (props) => {
   return (
     <div className='error'>
       <div className='error__image'>

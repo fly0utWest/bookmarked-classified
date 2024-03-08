@@ -1,13 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ArticleCardProps } from '../../../types';
 
-type ArticleCardProps = {
-    img: string,
-    heading: string,
-    description: string
-}
-
-const ArticleCard = (props: ArticleCardProps) => {
+const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   return (
     <article className="article-card">
       <img className="article-card__image" src={props.img} alt="" />

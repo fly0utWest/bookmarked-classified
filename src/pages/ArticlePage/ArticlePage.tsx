@@ -1,11 +1,5 @@
 import React from 'react';
-
-type ArticleProps = {
-  title?: string;
-  cover?: string;
-  content?: string;
-  date?: string;
-};
+import { ArticleProps } from '../../types';
 
 const ArticlePage: React.FC<ArticleProps> = (props) => {
   return (

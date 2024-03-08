@@ -1,11 +1,8 @@
 import React from 'react';
+import { CastCardProps } from '../../../types';
 
-type CastCardProps = {
-  name: string | undefined;
-};
-
-const castCard: React.FC<CastCardProps> = (props) => {
+const CastCard: React.FC<CastCardProps> = (props) => {
   return <p>{props.name}</p>;
 };
 
-export default castCard;
+export default CastCard;

@@ -1,12 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { PosterProps } from '../../../../../types';
 
-type PosterProps = {
-    src: string;
-    alt: string;
-}
-
-const Poster = (props: PosterProps) => {
+const Poster: React.FC<PosterProps> = (props) => {
   return (
     <div className="poster-link">
       <Link to="/show/:id">

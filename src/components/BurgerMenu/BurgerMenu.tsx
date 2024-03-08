@@ -8,13 +8,9 @@ import watchlistIcon from './watchlist.svg';
 import listsIcon from './lists.svg';
 import AsideNavLink from '../NavLink/AsideNavLink';
 import { useLocation } from 'react-router-dom';
+import { BurgerMenuProps } from '../../types';
 
-type AsideMenuProps = {
-  updatedState: boolean;
-  setUpdatedState: (state: boolean) => void;
-};
-
-const AsideMenu: React.FC<AsideMenuProps> = ({
+const BurgerMenu: React.FC<BurgerMenuProps> = ({
   updatedState,
   setUpdatedState,
 }) => {
@@ -34,7 +30,7 @@ const AsideMenu: React.FC<AsideMenuProps> = ({
   return (
     <div className={`burger-menu${updatedState ? ' burger-menu_active' : ''}`}>
       <aside className='burger-menu__aside'>
-        <BurgerButton clickFunc={changeInnerState} />
+        <BurgerButton eventHandler={changeInnerState} />
         <ProfileInfo name='Никита' tag='flyOutWest' />
         <nav className='nav'>
           <AsideNavLink dest='/home' src={homeIcon} span='Главная' />
@@ -57,4 +53,4 @@ const AsideMenu: React.FC<AsideMenuProps> = ({
   );
 };
 
-export default AsideMenu;
+export default BurgerMenu;

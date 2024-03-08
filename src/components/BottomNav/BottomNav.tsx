@@ -5,7 +5,7 @@ import searchIcon from './BottomNavButton/search.svg';
 import notificationIcon from './BottomNavButton/notification.svg';
 import profileIcon from './BottomNavButton/user.svg';
 
-const bottomNav = () => {
+const BottomNav: React.FC = () => {
   return (
     <nav className='bottom-nav'>
       <BottomNavButton dest={'/home'} src={homeIcon} alt={'Home link'} />
@@ -24,4 +24,4 @@ const bottomNav = () => {
   );
 };
 
-export default bottomNav;
+export default BottomNav;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BurgerButton from '../BurgerButton/BurgerButton';
-import AsideMenu from '../AsideMenu/AsideMenu';
+import AsideMenu from '../BurgerMenu/BurgerMenu';
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
           <Link to='/home' className='header-container__logo'>
             <img src='/assets/logo.png' alt='' />
           </Link>
-          <BurgerButton clickFunc={activateMenu} />
+          <BurgerButton eventHandler={activateMenu} />
           <div className='header-nav'>
             <nav>
               <ul>

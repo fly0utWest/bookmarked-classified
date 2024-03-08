@@ -1,7 +1,7 @@
 import React from "react";
 import PopularListsThisMonthGrid from "./PopularListsThisMonthGrid/PopularListsThisMonthGrid";
 
-const PopularListsThisMonth = () => {
+const PopularListsThisMonth: React.FC = () => {
   
   return (
     <>

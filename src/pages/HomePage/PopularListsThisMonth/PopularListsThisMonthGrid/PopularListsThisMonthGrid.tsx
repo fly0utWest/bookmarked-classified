@@ -12,7 +12,7 @@ import melancholy from "../melancholy.webp";
 import antichrist from "../antichrist.webp";
 import dancerInTheDark from "../dancer-in-the-dark.webp";
 
-const PopularListsThisMonthGrid = () => {
+const PopularListsThisMonthGrid: React.FC = () => {
   const posterList1: Array<React.ReactNode> = [
     <Poster src={bojack} alt="Конь БоДжек" />,
     <Poster src={queensGambit} alt="Ход королевы" />,

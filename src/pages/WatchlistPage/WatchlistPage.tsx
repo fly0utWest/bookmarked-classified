@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WatchlistPage = () => {
+const WatchlistPage: React.FC = () => {
   return (
     <section className='watchlist'>
         <h1>Смотреть позже</h1>

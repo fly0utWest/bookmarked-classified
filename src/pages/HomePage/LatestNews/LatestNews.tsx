@@ -2,7 +2,7 @@ import React from 'react'
 import LatestNewsCard from '../LatestNewsCard/LatestNewsCard';
 import cardCover from "./news-cover.jpg";
 
-const LatestNews = () => {
+const LatestNews: React.FC = () => {
   return (
     <>
       <section className="latest-news">

@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ButtonProps } from "../../../types";
 
-type ButtonProps = {
-  dest: string,
-  src: string,
-  alt: string,
-};
-
-const BottomNavButton = (props: ButtonProps) => {
-
+const BottomNavButton: React.FC<ButtonProps> = (props) => {
   return (
     <>
       <NavLink

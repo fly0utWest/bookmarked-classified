@@ -1,12 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ProfileListCounterProps } from '../../../types';
 
-type ProfileListCounterProps = {
-  favoritesCount?: number;
-  watchlistCount?: number;
-};
-
-const ProfileListCounter: React.FC<ProfileListCounterProps> = () => {
+const ProfileListCounter: React.FC<ProfileListCounterProps> = (props) => {
   return (
     <div className='profile-list-counter profile-page-header__profile-list-counter'>
       <Link

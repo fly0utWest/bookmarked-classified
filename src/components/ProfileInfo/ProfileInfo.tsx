@@ -1,13 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ProfileInfoProps } from '../../types';
 
-type ProfileInfo = {
-  name: string;
-  tag: string;
-  avatar?: string;
-};
-
-const ProfileInfo = (props: ProfileInfo) => {
+const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
   return (
     <div className='profile-info burger-menu__profile-info'>
       <img

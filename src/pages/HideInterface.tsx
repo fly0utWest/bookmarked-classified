@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-
-type HideInterfaceProps = {
-  children: React.ReactNode;
-};
+import { HideInterfaceProps } from '../types';
 
 const HideInterface: React.FC<HideInterfaceProps> = ({ children }) => {
+  const originalMargin: string = document.body.style.margin;
+
   useEffect(() => {
-    const originalMargin: string = document.body.style.margin;
     document.body.style.margin = '0';
-    
+
     return (): void => {
       document.body.style.margin = originalMargin;
     };

@@ -48,11 +48,7 @@ const FilmPage: React.FC = () => {
   }, [id]);
 
   if (isLoading) {
-    return (
-      <div className='film__loading'>
-        <Loading />
-      </div>
-    );
+    return <Loading />;
   }
 
   if (error) {

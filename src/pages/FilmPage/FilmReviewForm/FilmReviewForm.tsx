@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const FilmReviewForm = () => {
+export const FilmReviewForm: React.FC = () => {
   return (
     <div className="film-review-form">
       <p className="film-review-form__heading">Расскажите свое мнение об этом фильме!</p>

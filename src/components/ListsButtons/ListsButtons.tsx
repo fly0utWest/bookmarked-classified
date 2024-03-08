@@ -6,10 +6,7 @@ import likedIcon from './liked.svg';
 import likedIconActive from './liked-active.svg';
 import listedIcon from './listed.svg';
 import listedIconActive from './listed-active.svg';
-
-type ListsButtonsProps = {
-  classModifier?: string;
-};
+import { ListsButtonsProps } from '../../types';
 
 const ListsButtons: React.FC<ListsButtonsProps> = (props) => {
   const [watched, setWatched] = useState<boolean>(false);

@@ -1,10 +1,7 @@
 import React from "react";
+import { FilmBackgroundsProps } from "../../../types";
 
-type BackgroundsProp = {
-  url: string | undefined;
-};
-
-const FilmBackground = (props: BackgroundsProp) => {
+const FilmBackground: React.FC<FilmBackgroundsProps> = (props) => {
   return (
     <div
       className="film-background"
