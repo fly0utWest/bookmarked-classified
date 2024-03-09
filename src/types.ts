@@ -58,11 +58,11 @@ export type CastCardProps = {
 };
 
 export type FilmBackgroundsProps = {
-  url: string | undefined;
+  url?: string;
 };
 
 export type FilmCoverProps = {
-  img: string | undefined;
+  img?: string;
 };
 
 export type ArticleCardProps = {
@@ -98,8 +98,8 @@ export type HomePageProps = {
 };
 
 export type ProfileListCounterProps = {
-  favoritesCount: number[] | undefined;
-  watchlistCount: number[] | undefined;
+  favoritesCount?: number[];
+  watchlistCount?: number[];
 };
 
 export type HideInterfaceProps = {
@@ -126,13 +126,13 @@ export type User = {
 };
 
 export type ProfileFavoritesProps = {
-  favourites: number[] | undefined;
+  favourites?: number[];
 };
 
 export type ProfileWatchlistProps = {
-  watchLater: number[] | undefined;
+  watchLater?: number[];
 };
 
 export type ProfileReviewsProps = {
-  reviews: number[] | undefined;
+  reviews?: number[];
 };

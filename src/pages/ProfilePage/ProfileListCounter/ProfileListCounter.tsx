@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { ProfileListCounterProps } from '../../../types';
 
 const ProfileListCounter: React.FC<ProfileListCounterProps> = (props) => {
-  const favCounter: number = props.favoritesCount?.length!;
-  const watchLaterCounter: number = props.favoritesCount?.length!;
+  const favCounter: number = props.favoritesCount?.length ?? 0;
+  const watchLaterCounter: number = props.favoritesCount?.length ?? 0;
 
   return (
     <div className='profile-list-counter profile-page-header__profile-list-counter'>
