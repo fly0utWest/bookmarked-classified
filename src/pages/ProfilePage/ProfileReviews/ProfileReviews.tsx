@@ -1,7 +1,8 @@
 import React from 'react';
 import ReviewCard from './ReviewCard/ReviewCard';
+import { ProfileReviewsProps } from '../../../types';
 
-const ProfileReviews: React.FC = () => {
+const ProfileReviews: React.FC<ProfileReviewsProps> = () => {
   return (
     <>
       <div>

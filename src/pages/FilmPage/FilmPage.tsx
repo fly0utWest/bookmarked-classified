@@ -9,6 +9,7 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
+import { fetchFilm } from '../../utils';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,34 +18,21 @@ const FilmPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchFilmData = async () => {
-    setIsLoading(true);
-
-    try {
-      const response = await fetch(`http://localhost:8080/movies/${id}`);
-
-      if (!response.ok) {
-        throw new Error('HTTP error!');
-      }
-
-      const json = await response.json();
-      setFilmData(json);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error(`Fetching error: ${error.message}`);
-
-        setError(error.message);
-      } else {
-        console.error('An unexpected error has occured!');
-        setError('An unexpected error has occured');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    fetchFilmData();
+    const baseUrl: string = `http://localhost:8080/movies/${id}`;
+    setIsLoading(true);
+    fetchFilm(baseUrl)
+      .then((data) => {
+        setFilmData(data);
+      })
+      .catch((error: Error) => {
+        console.error(`Fetching error: ${error.message}`);
+        setError(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });;
+
   }, [id]);
 
   if (isLoading) {

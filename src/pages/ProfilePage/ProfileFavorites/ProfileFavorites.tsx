@@ -1,8 +1,8 @@
 import React from 'react';
 import FilmLink from '../../HomePage/FilmLink/FilmLink';
 import { Link } from 'react-router-dom';
-
-const ProfileFavorites: React.FC = () => {
+import { ProfileFavoritesProps } from '../../../types';
+const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
   return (
     <section className='profile-favorites'>
       <div className='profile-favorites__section'>

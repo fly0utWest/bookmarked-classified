@@ -38,8 +38,7 @@ const Footer: React.FC = () => {
         </nav>
         <p>
           &copy; Bookmarked. Интерфейс написан{" "}
-          <a href="https://github.com/fly0utWest">вот этим чуваком</a>. API by{" "}
-          <a href="https://github.com/DenisAbl">Денис</a>.
+          <a href="https://github.com/fly0utWest">вот этим чуваком</a>.
         </p>
       </div>
     </footer>

@@ -3,47 +3,36 @@ import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
 import FilmLink from '../FilmLink/FilmLink';
+import { fetchFilms } from '../../../utils';
 
 const PopularThisMonth: React.FC = () => {
   const [filmList, setFilmList] = useState<FilmData[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchFilmData = async () => {
+  useEffect(() => {
+    const baseUrl: string = 'http://localhost:8080/movies';
     setIsLoading(true);
-
-    try {
-      const response = await fetch(`http://localhost:8080/movies`);
-
-      if (!response.ok) {
-        throw new Error('HTTP error!');
-      }
-
-      const json = await response.json();
-      setFilmList(json);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
+    fetchFilms(baseUrl)
+      .then((data) => {
+        setFilmList(data);
+      })
+      .catch((error: Error) => {
         console.error(`Fetching error: ${error.message}`);
         setError(error.message);
-      } else {
-        console.error('An unexpected error has occured!');
-        setError('An unexpected error has occured');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-    if (isLoading) {
-      return <Loading />;
-    }
-
-    if (error) {
-      return <ErrorPage code={204} description='данные не были получены' />;
-    }
-  };
-
-  useEffect((): void => {
-    fetchFilmData();
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <ErrorPage code={204} description='данные не были получены' />;
+  }
 
   return (
     <>

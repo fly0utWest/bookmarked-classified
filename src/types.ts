@@ -98,8 +98,8 @@ export type HomePageProps = {
 };
 
 export type ProfileListCounterProps = {
-  favoritesCount?: number;
-  watchlistCount?: number;
+  favoritesCount: number[] | undefined;
+  watchlistCount: number[] | undefined;
 };
 
 export type HideInterfaceProps = {
@@ -107,5 +107,32 @@ export type HideInterfaceProps = {
 };
 
 export type MainLayoutProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
+};
+
+export type ErrorResponse = {
+  message: string;
+};
+
+export type User = {
+  id: number;
+  login: string;
+  password: string;
+  bio: string;
+  favourites: number[];
+  watchLater: number[];
+  watched: number[];
+  reviews: number[];
+};
+
+export type ProfileFavoritesProps = {
+  favourites: number[] | undefined;
+};
+
+export type ProfileWatchlistProps = {
+  watchLater: number[] | undefined;
+};
+
+export type ProfileReviewsProps = {
+  reviews: number[] | undefined;
 };
