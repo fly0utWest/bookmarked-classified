@@ -10,6 +10,7 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import OnBoarding from './pages/OnBoarding/OnBoarding';
 import ArticlePage from './pages/ArticlePage/ArticlePage';
+import SearchPage from './pages/SearchPage/SearchPage';
 import ScrollToTop from './pages/ScrollToTop';
 
 const App: React.FC = () => {
@@ -75,13 +76,18 @@ const App: React.FC = () => {
             }
           ></Route>
           <Route
-          path="/article/:idy"
+          path="/article/:id"
             element={
               <MainLayout>
                 <ArticlePage />
               </MainLayout>
             }
           ></Route>
+          <Route path="/search" element={
+            <MainLayout>
+              <SearchPage />
+            </MainLayout>
+          }></Route>
         </Routes>
     </>
   );

@@ -9,7 +9,7 @@
 @use '../pages/FilmPage/FilmPage';
 @use '../pages/WatchlistPage/WatchlistPage';
 @use '../pages/ProfilePage/ProfilePage';
-@use '../componentsBurgerMenu/BurgerMenu';
+@use '../components/BurgerMenu/BurgerMenu';
 @use '../components/BurgerButton/BurgerButton';
 @use '../components/ProfileInfo/ProfileInfo';
 @use '../components/AsideNavLink/AsideNavLink';
@@ -17,4 +17,6 @@
 @use '../pages/LoginPage/LoginPage';
 @use '../pages/OnBoarding/OnBoarding';
 @use '../pages/ArticlePage/_ArticlePage.scss';
+@use "../pages/SearchPage/SearchPage";
 @use './abstract/breakpoints';
+

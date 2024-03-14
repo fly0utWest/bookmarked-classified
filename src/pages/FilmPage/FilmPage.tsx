@@ -1,39 +1,19 @@
 import React from 'react';
-import FilmLink from '../HomePage/FilmLink/FilmLink';
 import { FilmData } from '../../types';
-import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import FilmCover from './FilmCover/FilmCover';
 import CastCard from './CastCard/CastCard';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
-import { fetchFilm } from '../../utils';
+import { useFetch } from '../../hooks';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const baseUrl: string = `http://localhost:8080/movies`;
 
-  const [filmData, setFilmData] = useState<FilmData>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const baseUrl: string = `http://localhost:8080/movies/${id}`;
-    setIsLoading(true);
-    fetchFilm(baseUrl)
-      .then((data) => {
-        setFilmData(data);
-      })
-      .catch((error: Error) => {
-        console.error(`Fetching error: ${error.message}`);
-        setError(error.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });;
-
-  }, [id]);
+  const { data: filmData, isLoading, error } = useFetch<FilmData>(baseUrl, id);
 
   if (isLoading) {
     return <Loading />;

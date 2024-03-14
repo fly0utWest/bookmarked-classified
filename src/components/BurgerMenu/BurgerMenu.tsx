@@ -6,7 +6,7 @@ import filmsIcon from './films.svg';
 import reviewsIcon from './reviews.svg';
 import watchlistIcon from './watchlist.svg';
 import listsIcon from './lists.svg';
-import AsideNavLink from '../NavLink/AsideNavLink';
+import AsideNavLink from '../AsideNavLink/AsideNavLink';
 import { useLocation } from 'react-router-dom';
 import { BurgerMenuProps } from '../../types';
 

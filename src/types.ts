@@ -136,3 +136,9 @@ export type ProfileWatchlistProps = {
 export type ProfileReviewsProps = {
   reviews?: number[];
 };
+
+export interface UseFetchResult<T> {
+  data: T | null;
+  isLoading: boolean;
+  error: string | null;
+}

@@ -1,6 +1,7 @@
 .film {
   display: flex;
   flex-direction: column;
+  min-height: 90vh;
 
   &-background {
     background-size: cover;
@@ -110,6 +111,8 @@
       padding: 0.75rem;
       border: none;
       width: 100%;
+      height: 5rem;
+      color: #fff;
 
       &:focus {
         outline: none;
@@ -118,12 +121,21 @@
 
     &__submit {
       border-radius: 0.25rem;
-      padding: 0.25rem;
+      padding: 0.8rem;
       background-color: var(--background2);
       color: #fff;
-      width: 100%;
+      width: 50%;
+      font-weight: 700;
+      align-self: center;
       border: none;
       cursor: pointer;
+      transition: 0.1s ease;
+
+      &:hover {
+        background-color: var(--pale-violet);
+        color: var(--background2);
+        transition: 0.1s ease;
+      }
 
       &:focus {
         outline: none;

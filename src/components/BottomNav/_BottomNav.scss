@@ -11,6 +11,8 @@
   padding: 0 4.19rem;
   gap: 1rem;
   background-color: var(--background-dark);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
 
   &__button {
     display: flex;
@@ -48,5 +50,8 @@
         }
       }
     }
+  }
+  &_hidden {
+    transform: translateY(100%);
   }
 }
