@@ -3,11 +3,11 @@ import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
 import FilmLink from '../FilmLink/FilmLink';
-import { fetchFilms } from '../../../utils';
 import { useFetch } from '../../../hooks';
+import config from '../../../utils';
 
 const PopularThisMonth: React.FC = () => {
-  const baseUrl: string = `http://localhost:8080/movies`;
+  const baseUrl: string = `${config.BACK_API}/movies`;
   const { data: filmList, isLoading, error } = useFetch<FilmData[]>(baseUrl);
 
   if (isLoading) {
@@ -26,7 +26,7 @@ const PopularThisMonth: React.FC = () => {
             <FilmLink
               key={film.id}
               filmId={film.id}
-              src={`assets/film-covers/${film.cover}`}
+              src={`${config.IMAGE_API}/film-covers/${film.cover}`}
             />
           ))}
         </div>

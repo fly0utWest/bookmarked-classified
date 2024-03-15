@@ -1,8 +1,11 @@
 import React from 'react';
 import ReviewCard from './ReviewCard/ReviewCard';
 import { ProfileReviewsProps } from '../../../types';
+import config from '../../../utils';
+import { FilmData } from '../../../types';
 
-const ProfileReviews: React.FC<ProfileReviewsProps> = () => {
+
+const ProfileReviews: React.FC<ProfileReviewsProps> = (props) => {
   return (
     <>
       <div>

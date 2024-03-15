@@ -36,9 +36,6 @@ export function useFetch<T>(
       setIsLoading(false);
     }
 
-    return () => {
-      abortController.abort();
-    };
   }, [baseUrl, endpoint]);
 
   useEffect(() => {

@@ -8,10 +8,11 @@ import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
 import { useFetch } from '../../hooks';
+import config from '../../utils';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const baseUrl: string = `http://localhost:8080/movies`;
+  const baseUrl: string = `${config.BACK_API}/movies`;
 
   const { data: filmData, isLoading, error } = useFetch<FilmData>(baseUrl, id);
 

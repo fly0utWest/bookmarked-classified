@@ -142,3 +142,9 @@ export interface UseFetchResult<T> {
   isLoading: boolean;
   error: string | null;
 }
+
+
+export interface Config {
+  BACK_API: string;
+  IMAGE_API: string;
+}

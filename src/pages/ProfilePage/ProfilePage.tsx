@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchUser } from '../../utils';
 import { User } from '../../types';
 import Loading from '../../components/Loading/Loading';
 import ErrorPage from '../ErrorPage/ErrorPage';
@@ -13,14 +12,15 @@ import ProfileWatchlist from './ProfileWatchlist/ProfileWatchlist';
 import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { useFetch } from '../../hooks';
 import { Link } from 'react-router-dom';
+import config from '../../utils';
 
 const ProfilePage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();  
+  const { id } = useParams<{ id: string }>();
 
-  const baseUrl: string = 'http://localhost:8080/users';
+  const baseUrl: string = `${config.BACK_API}/users`;
 
-  const {data: userData, isLoading, error} = useFetch<User>(baseUrl, id);
-  
+  const { data: userData, isLoading, error } = useFetch<User>(baseUrl, id);
+
   if (isLoading) {
     return <Loading />;
   }
