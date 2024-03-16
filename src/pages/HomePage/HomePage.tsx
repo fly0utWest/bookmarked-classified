@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header/Header';
-import BottomNav from '../../components/BottomNav/BottomNav';
 import PopularThisMonth from './PopularThisMonth/PopularThisMonth';
 import PopularListsThisMonth from './PopularListsThisMonth/PopularListsThisMonth';
 import RecentArticles from './RecentArticles/RecentArticles';

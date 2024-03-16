@@ -1,17 +1,20 @@
 import { Config } from './types';
 import developmentConfig from './config/development.json';
 
-export const config: Config = developmentConfig;
+const config: Config = developmentConfig;
 
-export default config;
-export function convertParams(param: string, ids: number[]): string {
+export function convertParams(param: string, values: number[] | string[]): string {
   let resultParam: string = '';
-  for (let i = 0; i < ids.length; i++) {
-    resultParam += param + '=' + ids[i];
-    if (i !== ids.length - 1) {
+  for (let i = 0; i < values.length; i++) {
+    resultParam += param + '=' + values[i];
+    if (i !== values.length - 1) {
       resultParam += '&';
     }
   }
 
   return resultParam;
 }
+
+
+
+export default config;

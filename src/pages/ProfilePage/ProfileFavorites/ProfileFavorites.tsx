@@ -8,6 +8,7 @@ import { ProfileFavoritesProps } from '../../../types';
 import { convertParams } from '../../../utils';
 import { useFetch } from '../../../hooks';
 import config from '../../../utils';
+import FilmList from '../../../components/FilmList/FilmList';
 
 const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
   const baseUrl: string = `${config.BACK_API}/movies?${convertParams(
@@ -27,13 +28,7 @@ const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
   return (
     <section className='profile-favorites'>
       <div className='profile-favorites__section'>
-        {filmList?.slice(0, 6).map((film) => (
-          <FilmLink
-            key={film.id}
-            filmId={film.id}
-            src={`${config.IMAGE_API}/film-covers/${film.cover}`}
-          />
-        ))}
+        <FilmList films={filmList!} limit={6}/>
       </div>
     </section>
   );

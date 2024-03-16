@@ -1,5 +1,8 @@
+import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { UseFetchResult, ErrorResponse } from './types';
+import { FilmData } from './types';
+import { FilmListProps } from './types';
 
 export function useFetch<T>(
   baseUrl: string,
@@ -44,3 +47,8 @@ export function useFetch<T>(
 
   return { data, isLoading, error };
 }
+
+export function useSlicedFilms(films: FilmData[], limit: number = 6): FilmData[] {
+  return films.slice(0, limit);
+}
+

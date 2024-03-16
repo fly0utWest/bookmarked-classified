@@ -6,6 +6,8 @@ import { FilmData } from '../../../types';
 
 
 const ProfileReviews: React.FC<ProfileReviewsProps> = (props) => {
+
+  
   return (
     <>
       <div>

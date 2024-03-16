@@ -197,16 +197,10 @@
   position: relative;
   border-radius: 0.25rem;
   border: 1px solid var(--border-grey);
-  width: 32%;
+  width: fit-content;
   overflow: hidden;
 
   &:hover {
     border-color: #fff;
   }
-}
-
-.film-link_profile {
-  width: 25%;
-  max-width: 80px;
-  max-height: 120px;
 }

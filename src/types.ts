@@ -27,6 +27,8 @@ export type FilmData = {
   slogan: string;
   description: string;
   cast: string[];
+  studio: string;
+  rating: number;
 };
 
 export type AsideNavLinkProps = {
@@ -85,7 +87,7 @@ export type NewsCardProps = {
 
 export type ListElementProps = {
   heading: string;
-  posterList: Array<React.ReactNode>;
+  baseUrl: string;
 };
 
 export type PosterProps = {
@@ -143,8 +145,13 @@ export interface UseFetchResult<T> {
   error: string | null;
 }
 
-
 export interface Config {
   BACK_API: string;
   IMAGE_API: string;
+}
+
+export type FilmListProps = {
+  films: FilmData[];
+  limit?: number;
+  linkClassModifier?: string
 }
