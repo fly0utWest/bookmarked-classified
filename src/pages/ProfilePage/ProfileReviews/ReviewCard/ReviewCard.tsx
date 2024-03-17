@@ -9,7 +9,7 @@ const ReviewCard: React.FC = () => {
       <FilmLink
         filmId={1}
         src={`${config.IMAGE_API}/film-covers/wonka-cover.jpg`}
-        classModifier='film-link_profile'
+        classModifier='review-card__film-link'
       />
       <div className='review-card__info'>
         <Link to='/movies/1'>Вонка</Link>

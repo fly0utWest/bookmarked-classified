@@ -27,8 +27,8 @@ const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
 
   return (
     <section className='profile-favorites'>
-      <div className='profile-favorites__section'>
-        <FilmList films={filmList!} limit={6}/>
+      <div className='profile-favorites-section'>
+        <FilmList films={filmList!} limit={6} linkClassModifier='profile-favorites-section__film-link'/>
       </div>
     </section>
   );

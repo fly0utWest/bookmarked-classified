@@ -10,6 +10,7 @@ const FilmList: React.FC<FilmListProps> = (props) => {
           key={film.id}
           filmId={film.id}
           src={`${config.IMAGE_API}/film-covers/${film.cover}`}
+          classModifier={props.linkClassModifier}
         />
       ))}
     </>

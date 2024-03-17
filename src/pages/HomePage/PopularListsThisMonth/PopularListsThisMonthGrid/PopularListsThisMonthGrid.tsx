@@ -17,7 +17,8 @@ const PopularListsThisMonthGrid: React.FC = () => {
     )}`;
 
   return <div className='popular-month-lists-grid'>
-    <ListElement heading='Топ-5 сериалов Нетфликса' baseUrl={baseUrl}/>
+    <ListElement heading='Топ-6 сериалов Нетфликса' baseUrl={baseUrl}/>
+    <ListElement heading='' baseUrl={baseUrl2}/>
     <ListElement heading='Топ-5 сериалов Нетфликса' baseUrl={baseUrl2}/>
   </div>;
 };

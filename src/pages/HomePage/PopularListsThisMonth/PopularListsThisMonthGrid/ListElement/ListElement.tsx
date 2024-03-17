@@ -21,7 +21,7 @@ const ListElelement: React.FC<ListElementProps> = (props) => {
   return (
     <div className="popular-month-lists-grid__element">
       <div className="container">
-        <FilmList films={filmList!} limit={6}/>
+        <FilmList films={filmList!} limit={6} linkClassModifier="container__film-link"/>
       </div>
         <h3>{props.heading}</h3>
     </div>

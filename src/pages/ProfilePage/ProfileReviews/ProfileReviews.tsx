@@ -15,7 +15,7 @@ const ProfileReviews: React.FC<ProfileReviewsProps> = (props) => {
           <h2>Обзоры</h2>
         </div>
         <section className='profile-reviews'>
-          <div className='profile-reviews__section'>
+          <div className='profile-reviews-section'>
             <ReviewCard />
             <ReviewCard />
             <ReviewCard />

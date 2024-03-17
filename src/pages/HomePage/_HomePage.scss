@@ -1,3 +1,15 @@
+.film-link {
+  position: relative;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-grey);
+  width: fit-content;
+  overflow: hidden;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
+
 .home {
   display: flex;
   flex: 1;
@@ -45,6 +57,10 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 0.3rem;
+
+    &__film-link {
+      width: 32%;
+    }
   }
 
   &-lists-grid {
@@ -53,6 +69,8 @@
     gap: 0.9rem;
 
     &__element {
+      width: 100%;
+      
       h3 {
         font-weight: 600;
         font-size: 0.875rem;
@@ -74,21 +92,20 @@
       &:hover {
         border-color: #fff;
       }
+
+      &__film-link {
+        width: 16.666%;
+
+        &:hover > .lists-buttons {
+          display: none;
+        }
+      }
     }
   }
 
   &-lists__heading {
     @extend .popular-month__heading;
   }
-}
-
-.poster-link {
-  position: relative;
-  border-radius: 0.25rem;
-  border: 1px solid var(--grey);
-  margin-right: -1.5rem;
-  overflow: hidden;
-  z-index: 0;
 }
 
 .recent-articles {
@@ -191,16 +208,4 @@
   }
 
   margin-bottom: 1.25rem;
-}
-
-.film-link {
-  position: relative;
-  border-radius: 0.25rem;
-  border: 1px solid var(--border-grey);
-  width: fit-content;
-  overflow: hidden;
-
-  &:hover {
-    border-color: #fff;
-  }
 }

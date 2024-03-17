@@ -27,8 +27,8 @@ const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
 
   return (
     <section className='profile-watchlist'>
-      <div className='profile-watchlist__section'>
-        <FilmList films={filmList!} limit={6} />
+      <div className='profile-watchlist-section'>
+        <FilmList films={filmList!} limit={6} linkClassModifier='profile-watchlist-section__film-link'/>
       </div>
     </section>
   );

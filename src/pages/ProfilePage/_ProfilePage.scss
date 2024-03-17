@@ -117,11 +117,15 @@
   &-favorites {
     width: 100%;
 
-    &__section {
+    &-section {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 0.25rem;
+
+      &__film-link {
+        width: 16.666%;
+      }
     }
   }
 
@@ -132,8 +136,12 @@
   &-watchlist {
     @extend .profile-favorites;
 
-    &__section {
-      @extend .profile-favorites__section;
+    &-section {
+      @extend .profile-favorites-section;
+
+      &__film-link {
+        width: 16.666%;
+      }
     }
   }
 
@@ -174,7 +182,7 @@
     margin-top: -0.5rem;
     padding-bottom: 3rem;
 
-    &__section {
+    &-section {
       display: flex;
       flex-direction: column;
     }
