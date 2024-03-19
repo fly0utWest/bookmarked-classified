@@ -11,7 +11,7 @@ import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 
 const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
-  const baseUrl: string = `${config.BACK_API}/movies?${convertParams(
+  const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(
     'id',
     props.watchLater!,
   )}`;
@@ -28,7 +28,11 @@ const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
   return (
     <section className='profile-watchlist'>
       <div className='profile-watchlist-section'>
-        <FilmList films={filmList!} limit={6} linkClassModifier='profile-watchlist-section__film-link'/>
+        <FilmList
+          films={filmList!}
+          limit={6}
+          linkClassModifier='profile-watchlist-section__film-link'
+        />
       </div>
     </section>
   );

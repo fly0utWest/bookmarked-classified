@@ -31,7 +31,7 @@ const BottomNav: React.FC = () => {
       <BottomNavButton dest={'/home'} src={homeIcon} alt={'Home link'} />
       <BottomNavButton dest={'/search'} src={searchIcon} alt={'Home link'} />
       <BottomNavButton
-        dest={'/user/:id'}
+        dest={'/user'}
         src={profileIcon}
         alt={'Profile link'}
       />

@@ -18,5 +18,7 @@
 @use '../pages/OnBoarding/OnBoarding';
 @use '../pages/ArticlePage/_ArticlePage.scss';
 @use "../pages/SearchPage/SearchPage";
+@use "../components/ui/LoginButton/LoginButton";
+@use "../components/ui/LogoutButton/LogoutButton";
 @use './abstract/breakpoints';
 

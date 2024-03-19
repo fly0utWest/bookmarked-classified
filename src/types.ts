@@ -38,8 +38,8 @@ export type AsideNavLinkProps = {
 };
 
 export type ProfileInfoProps = {
-  name: string;
-  tag: string;
+  name?: string;
+  tag?: string;
   avatar?: string;
 };
 
@@ -135,6 +135,10 @@ export type ProfileWatchlistProps = {
   watchLater?: number[];
 };
 
+export type ProfileWatchedProps = {
+  watched?: number[];
+}
+
 export type ProfileReviewsProps = {
   reviews?: number[];
 };
@@ -154,4 +158,17 @@ export type FilmListProps = {
   films: FilmData[];
   limit?: number;
   linkClassModifier?: string
+}
+
+export interface FormData {
+  login: string,
+  password: string
+}
+
+export type ProfilePageProps = {
+  data: User | null;
+}
+
+export type ClassModifier = {
+  classModifier?: string
 }

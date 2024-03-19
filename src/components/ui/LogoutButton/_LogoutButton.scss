@@ -1,0 +1,19 @@
+.logout-button {
+  width: 100%;
+  background-color: var(--red);
+  border: none;
+  cursor: pointer;
+  color: var(--background2);
+  border-radius: 0.25rem;
+  transition: 0.1s ease;
+  padding: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.875rem;
+
+  &:hover {
+    background-color: var(--background2);
+    color: #fff;
+    transition: 0.1s ease;
+  }
+}

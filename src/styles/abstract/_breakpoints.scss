@@ -175,10 +175,15 @@
       }
 
       &__flex {
-        gap: 1rem;
+        gap: 3rem;
         flex-direction: row;
         justify-content: space-between;
       }
+    }
+
+    .review-card__film-link {
+      width: 140px;
+      height: 220px;
     }
   }
 

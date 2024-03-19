@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { UseFetchResult, ErrorResponse } from './types';
 import { FilmData } from './types';
-import { FilmListProps } from './types';
+import { User } from './types';
+import config from './utils';
 
 export function useFetch<T>(
   baseUrl: string,
@@ -12,43 +13,82 @@ export function useFetch<T>(
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = useCallback(async () => {
-    const fullUrl = endpoint ? `${baseUrl}/${endpoint}` : baseUrl;
+  useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
+    const fetchData = async () => {
+      const fullUrl = endpoint ? `${baseUrl}/${endpoint}` : baseUrl;
+
+      try {
+        const response = await fetch(fullUrl, { signal });
+
+        if (!response.ok) {
+          const errorResponse: ErrorResponse = await response.json();
+          throw new Error(errorResponse.message || 'HTTP error!');
+        }
+
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error: unknown) {
+        if ((error as Error).name !== 'AbortError') {
+          setError(
+            error instanceof Error
+              ? error.message
+              : 'An unexpected error has occurred',
+          );
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+
+    return () => {
+    }
+
+  }, []);
+
+  return { data, isLoading, error };
+}
+
+export function useFetchUser() {
+  const [userData, setUserData] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const userFetch = async () => {
     try {
-      const response = await fetch(fullUrl, { signal });
+      const response = await fetch(`${config.BACK_API}/user`, {
+        method: 'GET',
+        credentials: 'include',
+      });
 
       if (!response.ok) {
         const errorResponse: ErrorResponse = await response.json();
         throw new Error(errorResponse.message || 'HTTP error!');
       }
-
-      const jsonData = await response.json();
-      setData(jsonData);
+      const user = await response.json();
+      setUserData(user);
     } catch (error: unknown) {
-      if ((error as Error).name !== 'AbortError') {
-        setError(
-          error instanceof Error
-            ? error.message
-            : 'An unexpected error has occurred',
-        );
-      }
+      setError((error as Error).message);
     } finally {
       setIsLoading(false);
     }
-
-  }, [baseUrl, endpoint]);
+  };
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    userFetch();
 
-  return { data, isLoading, error };
+    return () => {};
+  }, []);
+
+  return { userData, isLoading, error };
 }
 
-export function useSlicedFilms(films: FilmData[], limit: number = 6): FilmData[] {
+export function useSlicedFilms(
+  films: FilmData[],
+  limit: number = 6,
+): FilmData[] {
   return films.slice(0, limit);
 }
-

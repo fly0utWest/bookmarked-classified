@@ -124,7 +124,7 @@
       gap: 0.25rem;
 
       &__film-link {
-        width: 16.666%;
+        width: 16%;
       }
     }
   }
@@ -140,7 +140,7 @@
       @extend .profile-favorites-section;
 
       &__film-link {
-        width: 16.666%;
+        width: 16%;
       }
     }
   }
@@ -173,6 +173,23 @@
         font-size: 0.875rem;
         padding-top: 0.5rem;
         color: var(--grey);
+      }
+    }
+
+    &__film-link {
+      max-width: 80px;
+      max-height: 120px;
+    }
+  }
+
+  &-watched {
+    @extend .profile-favorites;
+
+    &-section {
+      @extend .profile-favorites-section;
+
+      &__film-link {
+        width: 16%;
       }
     }
   }

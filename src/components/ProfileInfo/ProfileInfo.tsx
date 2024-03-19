@@ -10,7 +10,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
         className='profile-info__avatar'
       ></img>
       <div className='container profile-info__container'>
-        <Link to='/user/:id' className='profile-info__name'>
+        <Link to='/user' className='profile-info__name'>
           {props.name}
         </Link>
         <br />

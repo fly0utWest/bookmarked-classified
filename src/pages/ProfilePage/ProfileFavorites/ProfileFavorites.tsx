@@ -1,7 +1,5 @@
 import React from 'react';
-import FilmLink from '../../HomePage/FilmLink/FilmLink';
 import { FilmData } from '../../../types';
-import { Link } from 'react-router-dom';
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import { ProfileFavoritesProps } from '../../../types';
@@ -11,7 +9,7 @@ import config from '../../../utils';
 import FilmList from '../../../components/FilmList/FilmList';
 
 const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
-  const baseUrl: string = `${config.BACK_API}/movies?${convertParams(
+  const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(
     'id',
     props.favourites!,
   )}`;
@@ -28,7 +26,11 @@ const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
   return (
     <section className='profile-favorites'>
       <div className='profile-favorites-section'>
-        <FilmList films={filmList!} limit={6} linkClassModifier='profile-favorites-section__film-link'/>
+        <FilmList
+          films={filmList!}
+          limit={6}
+          linkClassModifier='profile-favorites-section__film-link'
+        />
       </div>
     </section>
   );

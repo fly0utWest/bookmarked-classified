@@ -9,11 +9,16 @@ import listsIcon from './lists.svg';
 import AsideNavLink from '../AsideNavLink/AsideNavLink';
 import { useLocation } from 'react-router-dom';
 import { BurgerMenuProps } from '../../types';
+import { useFetchUser } from '../../hooks';
+import LoginButton from '../ui/LoginButton/LoginButton';
+import LogoutButton from '../ui/LogoutButton/LogoutButton';
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({
   updatedState,
   setUpdatedState,
 }) => {
+  const { userData, isLoading, error } = useFetchUser();
+
   const changeInnerState = (): void => {
     setUpdatedState(!updatedState);
   };
@@ -31,7 +36,11 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     <div className={`burger-menu${updatedState ? ' burger-menu_active' : ''}`}>
       <aside className='burger-menu__aside'>
         <BurgerButton eventHandler={changeInnerState} />
-        <ProfileInfo name='Никита' tag='flyOutWest' />
+        {error ? (
+          <LoginButton classModifier='burger-menu__login-button' />
+        ) : (
+          <ProfileInfo name={userData?.login} tag={userData?.login} />
+        )}
         <nav className='nav'>
           <AsideNavLink dest='/home' src={homeIcon} span='Главная' />
           <AsideNavLink dest='/films' src={filmsIcon} span='Фильмы' />
@@ -47,6 +56,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
           />
           <AsideNavLink dest='/user/:id/lists' src={listsIcon} span='Списки' />
         </nav>
+        {error ? null : (
+          <LogoutButton classModifier='burger-menu__logout-button' />
+        )}
       </aside>
       <div onClick={changeInnerState} className='burger-menu__background'></div>
     </div>

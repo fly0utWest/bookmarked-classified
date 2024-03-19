@@ -1,0 +1,19 @@
+.login-button {
+  width: 100%;
+  background-color: var(--pale-violet);
+  border: none;
+  cursor: pointer;
+  color: var(--background);
+  border-radius: 0.25rem;
+  transition: 0.1s ease;
+  padding: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: .875rem;
+
+  &:hover {
+    background-color: var(--background2);
+    color: #fff;
+    transition: 0.1s ease;
+  }
+}

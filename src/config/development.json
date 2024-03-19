@@ -1,4 +1,4 @@
 {
-    "BACK_API": "http://localhost:8080",
-    "IMAGE_API": "http://localhost:8090/files"
+  "BACK_API": "",
+  "IMAGE_API": "http://localhost:8090/files"
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { User } from '../../types';
 import Loading from '../../components/Loading/Loading';
@@ -9,14 +8,15 @@ import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
 import ProfileListCounter from './ProfileListCounter/ProfileListCounter';
 import ProfileFavorites from './ProfileFavorites/ProfileFavorites';
 import ProfileWatchlist from './ProfileWatchlist/ProfileWatchlist';
+import ProfileWatched from './ProfileWatched/ProfileWatched';
 import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { useFetch } from '../../hooks';
 import { Link } from 'react-router-dom';
 import config from '../../utils';
+import { useNavigate } from 'react-router-dom';
 
-const ProfilePage: React.FC = () => {
+const ProfilePageById: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-
   const baseUrl: string = `${config.BACK_API}/users`;
 
   const { data: userData, isLoading, error } = useFetch<User>(baseUrl, id);
@@ -58,7 +58,12 @@ const ProfilePage: React.FC = () => {
             </div>
             <ProfileWatchlist watchLater={userData?.watchLater} />
             <hr />
-            <div className='container profile-page__container'></div>
+            <div className='container profile-page__container'>
+              <h2>Watched</h2>
+              <Link to='/user/:id/watched/'>Показать все</Link>
+            </div>
+            <ProfileWatched watched={userData?.watched}/>
+            <hr />
           </div>
           <ProfileReviews reviews={userData?.reviews} />
         </div>
@@ -67,4 +72,4 @@ const ProfilePage: React.FC = () => {
   );
 };
 
-export default ProfilePage;
+export default ProfilePageById;
