@@ -33,11 +33,18 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      width: max-content;
 
       img {
         width: 36px;
         height: 36px;
         border-radius: 50%;
+      }
+    }
+
+    &__logout-button {
+      &:hover {
+        background-color: var(--pale-violet);
       }
     }
   }
@@ -93,6 +100,12 @@
             transform: scaleX(1);
           }
         }
+      }
+    }
+
+    &__login-button {
+      &:hover {
+        background-color: var(--red);
       }
     }
   }

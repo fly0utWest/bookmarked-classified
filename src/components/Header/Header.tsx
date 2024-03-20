@@ -3,9 +3,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import AsideMenu from '../BurgerMenu/BurgerMenu';
+import { useAuth } from '../../Auth/useAuth';
+import LoginButton from '../ui/LoginButton/LoginButton';
+import LogoutButton from '../ui/LogoutButton/LogoutButton';
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const { user, error } = useAuth();
 
   useEffect(() => {
     document.body.classList.toggle('body_noscroll', openMenu);
@@ -30,28 +34,42 @@ const Header: React.FC = () => {
           <div className='header-nav'>
             <nav>
               <ul>
-                <li className='container'>
-                  <div className='header-profile'>
-                    <Link to='/user/:id' className='header-container__profile'>
-                      <img src='/assets/profile/avatar.png' alt='' />
-                      Никита
-                    </Link>
-                  </div>
-                  <div className='header-profile__dropdown'>
-                    <Link to='/user/:id'>Профиль</Link>
-                    <Link to=''>Главная</Link>
-                    <Link to=''>Фильмы</Link>
-                    <Link to=''>Обзоры</Link>
-                    <Link to=''>Смотреть позже</Link>
-                    <Link to=''>Списки</Link>
-                  </div>
-                </li>
-                <li>
-                  <Link to=''>Фильмы</Link>
-                </li>
-                <li>
-                  <Link to=''>Списки</Link>
-                </li>
+                {!error ? (
+                  <>
+                    <li className='container'>
+                      <div className='header-profile'>
+                        <Link
+                          to='/user/:id'
+                          className='header-container__profile'
+                        >
+                          <img src='/assets/profile/avatar.png' alt='' />
+                          Никита
+                        </Link>
+                      </div>
+                      <div className='header-profile__dropdown'>
+                        <Link to='/user'>Профиль</Link>
+                        <Link to='/home'>Главная</Link>
+                        <Link to=''>Фильмы</Link>
+                        <Link to=''>Обзоры</Link>
+                        <Link to=''>Смотреть позже</Link>
+                        <Link to=''>Списки</Link>
+                      </div>
+                    </li>
+                    <li>
+                      <Link to=''>Фильмы</Link>
+                    </li>
+                    <li>
+                      <Link to=''>Списки</Link>
+                    </li>
+                  </>
+                ) : (
+                  <LoginButton classModifier='header-nav__login-button' />
+                )}
+                {error ? null : (
+                  <>
+                    <LogoutButton classModifier='header-profile__logout-button' />
+                  </>
+                )}
               </ul>
             </nav>
           </div>
