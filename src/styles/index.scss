@@ -1,6 +1,8 @@
 @use './base/reset';
 @use './abstract/variables';
 @use './base/page';
+@use "../components/ui/LoginButton/LoginButton";
+@use "../components/ui/LogoutButton/LogoutButton";
 @use '../components/Header/Header';
 @use '../components/BottomNav/BottomNav';
 @use '../components/Footer/Footer';
@@ -18,7 +20,5 @@
 @use '../pages/OnBoarding/OnBoarding';
 @use '../pages/ArticlePage/_ArticlePage.scss';
 @use "../pages/SearchPage/SearchPage";
-@use "../components/ui/LoginButton/LoginButton";
-@use "../components/ui/LogoutButton/LogoutButton";
 @use './abstract/breakpoints';
 

@@ -59,7 +59,7 @@ const ProfilePageById: React.FC = () => {
             <ProfileWatchlist watchLater={userData?.watchLater} />
             <hr />
             <div className='container profile-page__container'>
-              <h2>Watched</h2>
+              <h2>Просмотренные</h2>
               <Link to='/user/:id/watched/'>Показать все</Link>
             </div>
             <ProfileWatched watched={userData?.watched}/>

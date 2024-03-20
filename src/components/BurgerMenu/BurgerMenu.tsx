@@ -1,23 +1,19 @@
 import React, { useEffect } from 'react';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
-import homeIcon from './home.svg';
-import filmsIcon from './films.svg';
-import reviewsIcon from './reviews.svg';
-import watchlistIcon from './watchlist.svg';
-import listsIcon from './lists.svg';
 import AsideNavLink from '../AsideNavLink/AsideNavLink';
 import { useLocation } from 'react-router-dom';
 import { BurgerMenuProps } from '../../types';
 import { useFetchUser } from '../../hooks';
 import LoginButton from '../ui/LoginButton/LoginButton';
 import LogoutButton from '../ui/LogoutButton/LogoutButton';
+import { useAuth } from '../../Auth/useAuth';
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({
   updatedState,
   setUpdatedState,
 }) => {
-  const { userData, isLoading, error } = useFetchUser();
+  const { user, error } = useAuth();
 
   const changeInnerState = (): void => {
     setUpdatedState(!updatedState);
@@ -39,22 +35,34 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
         {error ? (
           <LoginButton classModifier='burger-menu__login-button' />
         ) : (
-          <ProfileInfo name={userData?.login} tag={userData?.login} />
+          <ProfileInfo name={user?.login} tag={user?.login} />
         )}
         <nav className='nav'>
-          <AsideNavLink dest='/home' src={homeIcon} span='Главная' />
-          <AsideNavLink dest='/films' src={filmsIcon} span='Фильмы' />
+          <AsideNavLink
+            dest='/home'
+            src='/assets/icons/home.svg'
+            span='Главная'
+          />
+          <AsideNavLink
+            dest='/films'
+            src='/assets/icons/films.svg'
+            span='Фильмы'
+          />
           <AsideNavLink
             dest='/user/:id/reviews'
-            src={reviewsIcon}
+            src='/assets/icons/reviews.svg'
             span='Обзоры'
           />
           <AsideNavLink
             dest='/user/:id/watchlist'
-            src={watchlistIcon}
+            src='/assets/icons/watchlist.svg'
             span='Смотреть позже'
           />
-          <AsideNavLink dest='/user/:id/lists' src={listsIcon} span='Списки' />
+          <AsideNavLink
+            dest='/user/:id/lists'
+            src='/assets/icons/lists.svg'
+            span='Списки'
+          />
         </nav>
         {error ? null : (
           <LogoutButton classModifier='burger-menu__logout-button' />

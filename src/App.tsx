@@ -13,10 +13,12 @@ import ArticlePage from './pages/ArticlePage/ArticlePage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ScrollToTop from './pages/ScrollToTop';
 import ProfilePageAuth from './pages/ProfilePage/ProfilePageAuth';
+import { AuthProvider } from './Auth/useAuth';
 
 const App: React.FC = () => {
   return (
     <>
+    <AuthProvider>
       <ScrollToTop />
         <Routes>
           <Route path='/' element={<Navigate replace to='/home' />}></Route>
@@ -24,7 +26,7 @@ const App: React.FC = () => {
             path='/home'
             element={
               <MainLayout>
-                <HomePage username='Никита' />
+                <HomePage />
               </MainLayout>
             }
           ></Route>
@@ -98,7 +100,8 @@ const App: React.FC = () => {
             </MainLayout>
           }></Route>
         </Routes>
-    </>
+        </AuthProvider>
+        </>
   );
 };
 

@@ -3,46 +3,22 @@ import { Link } from 'react-router-dom';
 import { FormData } from '../../types';
 import config from '../../utils';
 import { error } from 'console';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
+import { useAuth } from '../../Auth/useAuth';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState<FormData>({
-    login: '',
-    password: '',
-  });
-
-  const [error, setError] = useState<string | null>(null);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  const { formData, handleChange, error, login, loginError, user } = useAuth();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    try {
-      const response = await fetch(`${config.BACK_API}/auth`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Response was not ok.');
-      } else navigate('/home');
-    } catch (error: unknown) {
-      console.error('Error:', error);
-      setError((error as Error).message);
-    }
+    await login(formData);
   };
+
+  if (user) {
+    return <Navigate replace to='/home' />;
+  }
 
   return (
     <div className='login'>
@@ -59,7 +35,7 @@ const LoginPage: React.FC = () => {
             <div
               role='alert'
               className={`login-form__warning ${
-                error ? 'login-form__warning_active' : ''
+                loginError ? 'login-form__warning_active' : ''
               }`}
             >
               Неправильный логин или пароль!
@@ -73,7 +49,7 @@ const LoginPage: React.FC = () => {
             value={formData.login}
             onChange={handleChange}
             className={`login-form__username ${
-              error ? 'login-form__username_invalid' : ''
+              loginError ? 'login-form__username_invalid' : ''
             }`}
           />
           <input
@@ -83,7 +59,7 @@ const LoginPage: React.FC = () => {
             value={formData.password}
             onChange={handleChange}
             className={`login-form__password ${
-              error ? 'login-form__password_invalid' : ''
+              loginError ? 'login-form__password_invalid' : ''
             }`}
             required
           />

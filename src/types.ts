@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export type ListsButtonsProps = {
   classModifier?: string;
 };
@@ -137,7 +139,7 @@ export type ProfileWatchlistProps = {
 
 export type ProfileWatchedProps = {
   watched?: number[];
-}
+};
 
 export type ProfileReviewsProps = {
   reviews?: number[];
@@ -157,18 +159,40 @@ export interface Config {
 export type FilmListProps = {
   films: FilmData[];
   limit?: number;
-  linkClassModifier?: string
-}
+  linkClassModifier?: string;
+};
 
 export interface FormData {
-  login: string,
-  password: string
+  login: string;
+  password: string;
 }
 
 export type ProfilePageProps = {
   data: User | null;
-}
+};
 
 export type ClassModifier = {
-  classModifier?: string
+  classModifier?: string;
+};
+
+export interface AuthContextType {
+  user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  error: string | null;
+  loginError: string | null;
+  isLoading: boolean;
+  formData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  login: (formData: FormData) => Promise<void>;
 }
+
+export type AuthProviderType = {
+  children: React.ReactNode;
+};
+
+export type HomeFeatureType = {
+  icon: string;
+  alt: string;
+  text: string;
+};

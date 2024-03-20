@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../Auth/useAuth';
+import { Navigate } from 'react-router-dom';
 
 const OnBoarding: React.FC = () => {
+  const { user } = useAuth();
+
+  if (user) {
+    return <Navigate replace to="/home"/>;
+  }
+
   return (
     <div className='onboarding'>
       <div className='onboarding__background'></div>
