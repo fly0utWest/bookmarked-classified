@@ -4,7 +4,6 @@ import ProfileInfo from '../ProfileInfo/ProfileInfo';
 import AsideNavLink from '../AsideNavLink/AsideNavLink';
 import { useLocation } from 'react-router-dom';
 import { BurgerMenuProps } from '../../types';
-import { useFetchUser } from '../../hooks';
 import LoginButton from '../ui/LoginButton/LoginButton';
 import LogoutButton from '../ui/LogoutButton/LogoutButton';
 import { useAuth } from '../../Auth/useAuth';

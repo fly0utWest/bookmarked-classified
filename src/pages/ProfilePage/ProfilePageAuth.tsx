@@ -15,7 +15,6 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import OnBoarding from '../OnBoarding/OnBoarding';
 import Loading from '../../components/Loading/Loading';
 import { ErrorResponse } from '../../types';
-import { useFetchUser } from '../../hooks'
 import { useAuth } from '../../Auth/useAuth';
 
 const ProfilePageAuth: React.FC = () => {

@@ -161,7 +161,7 @@ export interface Config {
   IMAGE_API: string;
 }
 
-export type FilmListProps = {
+export type SliceListProps = {
   films: FilmData[];
   limit?: number;
   linkClassModifier?: string;

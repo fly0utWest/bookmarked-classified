@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ListElementProps } from "../../../../../types";
-import FilmList from "../../../../../components/FilmList/FilmList";
+import SliceList from "../../../../../components/SliceList/SliceList";
 import ErrorPage from "../../../../ErrorPage/ErrorPage";
 import Loading from "../../../../../components/Loading/Loading";
 import { useFetch } from "../../../../../hooks";
@@ -21,7 +21,7 @@ const ListElelement: React.FC<ListElementProps> = (props) => {
   return (
     <div className="popular-month-lists-grid__element">
       <div className="container">
-        <FilmList films={filmList!} limit={6} linkClassModifier="container__film-link"/>
+        {filmList && <SliceList films={filmList} limit={6} linkClassModifier="container__film-link"/>}
       </div>
         <h3>{props.heading}</h3>
     </div>

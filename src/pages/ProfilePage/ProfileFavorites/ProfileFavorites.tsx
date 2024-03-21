@@ -6,7 +6,7 @@ import { ProfileFavoritesProps } from '../../../types';
 import { convertParams } from '../../../utils';
 import { useFetch } from '../../../hooks';
 import config from '../../../utils';
-import FilmList from '../../../components/FilmList/FilmList';
+import SliceList from '../../../components/SliceList/SliceList';
 
 const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
   const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(
@@ -26,7 +26,7 @@ const ProfileFavorites: React.FC<ProfileFavoritesProps> = (props) => {
   return (
     <section className='profile-favorites'>
       <div className='profile-favorites-section'>
-        <FilmList
+        <SliceList
           films={filmList!}
           limit={6}
           linkClassModifier='profile-favorites-section__film-link'

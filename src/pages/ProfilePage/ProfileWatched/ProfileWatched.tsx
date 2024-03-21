@@ -6,7 +6,7 @@ import { ProfileWatchedProps } from '../../../types';
 import { convertParams } from '../../../utils';
 import { useFetch } from '../../../hooks';
 import config from '../../../utils';
-import SlicedList from '../../../components/SlicedList/SliceList';
+import SliceList from '../../../components/SliceList/SliceList';
 
 const ProfileWatched: React.FC<ProfileWatchedProps> = (props) => {
   const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(
@@ -26,7 +26,7 @@ const ProfileWatched: React.FC<ProfileWatchedProps> = (props) => {
   return (
     <section className='profile-watched'>
       <div className='profile-watched-section'>
-        <SlicedList
+        <SliceList
           films={filmList!}
           limit={6}
           linkClassModifier='profile-watched-section__film-link'
