@@ -59,9 +59,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             span='Смотреть позже'
           />
           <AsideNavLink
-            dest='/user/:id/lists'
-            src='/assets/icons/lists.svg'
-            span='Списки'
+            dest='/user/favourites'
+            src='/assets/icons/heart.svg'
+            span='Любимые'
           />
         </nav>
         {error ? null : (
