@@ -2,8 +2,14 @@ import React from 'react';
 import ListsButtons from '../../../components/ListsButtons/ListsButtons';
 import { FilmCoverProps } from '../../../types';
 import config from '../../../utils';
+import { useAuth } from '../../../Auth/useAuth';
 
 const FilmCover: React.FC<FilmCoverProps> = (props) => {
+  const {user} = useAuth();
+  if (user) {
+    
+  } 
+
   return (
     <div className='film-cover'>
       <img src={`${config.IMAGE_API}/film-covers/${props.img}`} alt='' />

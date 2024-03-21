@@ -28,7 +28,7 @@ const FilmPage: React.FC = () => {
     <div className='film'>
       <FilmBackground url={filmData?.background} />
       <div className='film-page'>
-        <FilmCover img={filmData?.cover} />
+        <FilmCover filmId={id} img={filmData?.cover} />
         <section className='film-page-info'>
           <div className='film-page-heading'>
             <p className='film-page-heading__title'>{filmData?.title}</p>
