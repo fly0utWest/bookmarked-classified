@@ -103,12 +103,12 @@
 
       &:hover {
         background-color: var(--red);
-        color: var(--border-grey);
+        color: var(--background2);
         transition: 0.1s ease;
 
         .home-feature__icon {
-          filter: invert(28%) sepia(8%) saturate(1472%) hue-rotate(194deg)
-            brightness(97%) contrast(88%);
+          filter: invert(8%) sepia(7%) saturate(4062%) hue-rotate(196deg)
+            brightness(91%) contrast(88%);
         }
       }
     }

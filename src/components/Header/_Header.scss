@@ -116,6 +116,12 @@
     align-items: center;
     gap: 0.5rem;
 
+    &__logout-button {
+      &:hover {
+        background-color: var(--pale-violet);
+      }
+    }
+
     &__dropdown {
       display: none;
       flex-direction: column;
