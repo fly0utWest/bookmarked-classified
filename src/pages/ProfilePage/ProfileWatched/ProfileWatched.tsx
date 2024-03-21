@@ -26,11 +26,13 @@ const ProfileWatched: React.FC<ProfileWatchedProps> = (props) => {
   return (
     <section className='profile-watched'>
       <div className='profile-watched-section'>
-        <SliceList
-          films={filmList!}
-          limit={6}
-          linkClassModifier='profile-watched-section__film-link'
-        />
+        {filmList && (
+          <SliceList
+            films={filmList}
+            limit={6}
+            linkClassModifier='profile-watched-section__film-link'
+          />
+        )}
       </div>
     </section>
   );

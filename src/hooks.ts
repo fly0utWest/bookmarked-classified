@@ -1,9 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { UseFetchResult, ErrorResponse } from './types';
-import { FilmData } from './types';
-import { User } from './types';
-import config from './utils';
 
 export function useFetch<T>(
   baseUrl: string,
@@ -46,9 +43,8 @@ export function useFetch<T>(
 
     return () => {
       abortController.abort();
-    }
-
-  }, []);
+    };
+  }, [baseUrl, endpoint]);
 
   return { data, isLoading, error };
 }

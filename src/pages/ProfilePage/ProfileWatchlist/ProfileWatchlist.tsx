@@ -28,11 +28,13 @@ const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
   return (
     <section className='profile-watchlist'>
       <div className='profile-watchlist-section'>
-        <SliceList
-          films={filmList!}
-          limit={6}
-          linkClassModifier='profile-watchlist-section__film-link'
-        />
+        {filmList && (
+          <SliceList
+            films={filmList}
+            limit={6}
+            linkClassModifier='profile-watchlist-section__film-link'
+          />
+        )}
       </div>
     </section>
   );

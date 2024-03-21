@@ -13,7 +13,6 @@ import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { useFetch } from '../../hooks';
 import { Link } from 'react-router-dom';
 import config from '../../utils';
-import { useNavigate } from 'react-router-dom';
 
 const ProfilePageById: React.FC = () => {
   const { id } = useParams<{ id: string }>();
