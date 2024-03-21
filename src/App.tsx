@@ -31,7 +31,7 @@ const App: React.FC = () => {
             }
           ></Route>
           <Route
-            path='/user/:id/watchlist'
+            path='/user/watchlist'
             element={
               <MainLayout>
                 <WatchlistPage />

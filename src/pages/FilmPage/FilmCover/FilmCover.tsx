@@ -6,9 +6,7 @@ import { useAuth } from '../../../Auth/useAuth';
 
 const FilmCover: React.FC<FilmCoverProps> = (props) => {
   const {user} = useAuth();
-  if (user) {
-    
-  } 
+  if (user) {} 
 
   return (
     <div className='film-cover'>

@@ -54,7 +54,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             span='Обзоры'
           />
           <AsideNavLink
-            dest='/user/:id/watchlist'
+            dest='/user/watchlist'
             src='/assets/icons/watchlist.svg'
             span='Смотреть позже'
           />

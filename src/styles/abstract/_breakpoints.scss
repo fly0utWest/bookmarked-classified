@@ -38,6 +38,10 @@
         margin-top: 1.31rem;
       }
     }
+
+    .home-feature {
+      text-align: center;
+    }
   }
 
   .burger-menu__aside {
@@ -231,8 +235,7 @@
     margin-right: auto;
 
     &__background {
-      background-size: fill;
-      background-position: center;
+      height: 600px;
     }
   }
 

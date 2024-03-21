@@ -39,7 +39,7 @@ const Header: React.FC = () => {
                     <li className='container'>
                       <div className='header-profile'>
                         <Link
-                          to='/user/:id'
+                          to='/user'
                           className='header-container__profile'
                         >
                           <img src='/assets/profile/avatar.png' alt='' />
@@ -49,10 +49,10 @@ const Header: React.FC = () => {
                       <div className='header-profile__dropdown'>
                         <Link to='/user'>Профиль</Link>
                         <Link to='/home'>Главная</Link>
-                        <Link to=''>Фильмы</Link>
-                        <Link to=''>Обзоры</Link>
-                        <Link to=''>Смотреть позже</Link>
-                        <Link to=''>Списки</Link>
+                        <Link to='/catalogue'>Фильмы</Link>
+                        <Link to='/user/reviews'>Обзоры</Link>
+                        <Link to='/user/watchlist'>Смотреть позже</Link>
+                        <Link to='/user/favourites'>Любимые</Link>
                       </div>
                     </li>
                     <li>
