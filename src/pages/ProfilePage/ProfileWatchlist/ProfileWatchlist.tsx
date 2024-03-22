@@ -6,7 +6,7 @@ import config from '../../../utils';
 import { convertParams } from '../../../utils';
 import { useFetch } from '../../../hooks';
 import { FilmData } from '../../../types';
-import SliceList from '../../../components/SliceList/SliceList';
+import SlicedList from '../../../components/SlicedList/SlicedList';
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 
@@ -29,7 +29,7 @@ const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
     <section className='profile-watchlist'>
       <div className='profile-watchlist-section'>
         {filmList && (
-          <SliceList
+          <SlicedList
             films={filmList}
             limit={6}
             linkClassModifier='profile-watchlist-section__film-link'

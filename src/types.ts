@@ -2,7 +2,6 @@ import { ChangeEvent } from 'react';
 
 export type ListsButtonsProps = {
   classModifier?: string;
-
 };
 
 export type ButtonProps = {
@@ -69,9 +68,9 @@ export type FilmBackgroundsProps = {
 export type FilmCoverProps = {
   filmId?: string;
   img?: string;
-  watched?: boolean,
+  watched?: boolean;
   liked?: boolean;
-  listed?: boolean
+  listed?: boolean;
 };
 
 export type ArticleCardProps = {
@@ -161,7 +160,7 @@ export interface Config {
   IMAGE_API: string;
 }
 
-export type SliceListProps = {
+export type SlicedListProps = {
   films: FilmData[];
   limit?: number;
   linkClassModifier?: string;
