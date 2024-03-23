@@ -51,6 +51,23 @@
   &__logout-button {
     margin: 1rem 0;
   }
+
+  &__theme-switcher {
+    width: 100%;
+    margin-top: 1rem;
+    padding: .5rem 0 .5rem .44rem;
+    .theme-switcher__label {
+      color: var(--grey);
+    }
+
+    .theme-switcher__icon {
+      margin-right: 0.94rem;
+    }
+
+    .checkbox {
+      margin-left: auto;
+    }
+  }
 }
 
 .burger-menu_active {

@@ -145,4 +145,14 @@
       }
     }
   }
+
+  &__theme-switcher {
+    .theme-switcher__label {
+      margin-right: 0.3rem;
+    }
+
+    .theme-switcher__icon {
+      margin-right: 0.2rem;
+    }
+  }
 }

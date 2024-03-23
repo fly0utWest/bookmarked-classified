@@ -1,12 +1,13 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 
 export type ListsButtonsProps = {
+  filmId?: string;
   classModifier?: string;
   listStatus: {
-    watched: boolean,
-    liked: boolean,
-    watchLater: boolean
-  }
+    watched: boolean;
+    liked: boolean;
+    watchLater: boolean;
+  };
 };
 
 export type ButtonProps = {
@@ -82,7 +83,7 @@ export type ArticleCardProps = {
 };
 
 export type FilmLinkProps = {
-  filmId?: number;
+  filmId?: string;
   src: string;
   classModifier?: string;
 };
@@ -205,11 +206,26 @@ export type HomeFeatureType = {
 
 export type ListPageProps = {
   heading?: string;
-  type?: ListType
-}
+  type?: ListType;
+};
 
 export enum ListType {
-  Favourites = 'favourites',
-  WatchLater = 'watchLater',
-  Watched = 'watched'
+  Favourites = 'like',
+  WatchLater = 'watch-later',
+  Watched = 'watched',
 }
+
+export type Theme = 'light' | 'dark';
+
+export interface ThemeContextType {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+export type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+export type ThemeSwitcherProps = {
+  classModifier?: string;
+};

@@ -12,6 +12,7 @@ import { AuthContextType } from '../types';
 import config from '../utils';
 import { AuthProviderType } from '../types';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -31,7 +32,9 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loginError, setLoginError] = useState<string | null>(null);
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -83,7 +86,7 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
 
   useEffect(() => {
     fetchUser();
-  }, [fetchUser]);
+  }, [fetchUser, location]);
 
   const authData = {
     user,

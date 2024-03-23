@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import AsideMenu from '../BurgerMenu/BurgerMenu';
-import { useAuth } from '../../Auth/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
 import LoginButton from '../ui/LoginButton/LoginButton';
 import LogoutButton from '../ui/LogoutButton/LogoutButton';
+import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -34,16 +35,13 @@ const Header: React.FC = () => {
           <div className='header-nav'>
             <nav>
               <ul>
-                {!error ? (
+                {user && !error ? (
                   <>
                     <li className='container'>
                       <div className='header-profile'>
-                        <Link
-                          to='/user'
-                          className='header-container__profile'
-                        >
+                        <Link to='/user' className='header-container__profile'>
                           <img src='/assets/profile/avatar.png' alt='' />
-                          Никита
+                          {}
                         </Link>
                       </div>
                       <div className='header-profile__dropdown'>
@@ -70,6 +68,7 @@ const Header: React.FC = () => {
                     <LogoutButton classModifier='header-profile__logout-button' />
                   </>
                 )}
+                <ThemeSwitcher classModifier='header__theme-switcher' />
               </ul>
             </nav>
           </div>

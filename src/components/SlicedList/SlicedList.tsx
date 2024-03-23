@@ -8,7 +8,7 @@ const SlicedList: React.FC<SlicedListProps> = (props) => {
       {props.films.slice(0, props.limit).map((film) => (
         <FilmLink
           key={film.id}
-          filmId={film.id}
+          filmId={String(film.id)}
           src={`${config.IMAGE_API}/film-covers/${film.cover}`}
           classModifier={props.linkClassModifier}
         />

@@ -6,13 +6,16 @@ import { useLocation } from 'react-router-dom';
 import { BurgerMenuProps } from '../../types';
 import LoginButton from '../ui/LoginButton/LoginButton';
 import LogoutButton from '../ui/LogoutButton/LogoutButton';
-import { useAuth } from '../../Auth/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext';
+import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({
   updatedState,
   setUpdatedState,
 }) => {
   const { user, error } = useAuth();
+  const {toggleTheme} = useTheme();
 
   const changeInnerState = (): void => {
     setUpdatedState(!updatedState);
@@ -66,6 +69,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
         {error ? null : (
           <LogoutButton classModifier='burger-menu__logout-button' />
         )}
+        <ThemeSwitcher classModifier='burger-menu__theme-switcher' />
       </aside>
       <div onClick={changeInnerState} className='burger-menu__background'></div>
     </div>

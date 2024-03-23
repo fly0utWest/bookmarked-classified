@@ -5,7 +5,7 @@ import config from '../../utils';
 import { error } from 'console';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useRef } from 'react';
-import { useAuth } from '../../Auth/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
 
   useEffect(() => {
     loginInputRef.current?.focus();
-  }, [])
+  }, []);
 
   if (user) {
     return <Navigate replace to='/home' />;
@@ -29,8 +29,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className='login'>
-      <div className='login__background'>
-      </div>
+      <div className='login__background'></div>
       <div className='login-page'>
         <img src='/assets/logo2.png' alt='' />
         <form className='login-form' onSubmit={handleSubmit}>
@@ -49,7 +48,7 @@ const LoginPage: React.FC = () => {
             </div>
           ) : null}
           <input
-          ref={loginInputRef}
+            ref={loginInputRef}
             name='login'
             type='text'
             placeholder='Введите имя пользователя'

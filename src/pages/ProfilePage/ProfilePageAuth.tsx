@@ -15,10 +15,10 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import OnBoarding from '../OnBoarding/OnBoarding';
 import Loading from '../../components/Loading/Loading';
 import { ErrorResponse } from '../../types';
-import { useAuth } from '../../Auth/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
 
 const ProfilePageAuth: React.FC = () => {
-  const {user, isLoading, error} = useAuth();
+  const { user, isLoading, error } = useAuth();
 
   if (error) {
     return <Navigate replace to='/welcome' />;
@@ -28,7 +28,7 @@ const ProfilePageAuth: React.FC = () => {
     return <Loading />;
   }
 
-  return <Navigate replace to ={`/user/${user?.login}`}/>;
+  return <Navigate replace to={`/user/${user?.login}`} />;
 };
 
 export default ProfilePageAuth;

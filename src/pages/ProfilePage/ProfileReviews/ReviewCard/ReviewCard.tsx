@@ -7,7 +7,7 @@ const ReviewCard: React.FC = () => {
   return (
     <div className='review-card'>
       <FilmLink
-        filmId={1}
+        filmId={String(1)}
         src={`${config.IMAGE_API}/film-covers/wonka-cover.jpg`}
         classModifier='review-card__film-link'
       />

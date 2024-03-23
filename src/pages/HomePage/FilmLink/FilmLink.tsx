@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ListsButtons from '../../../components/ListsButtons/ListsButtons';
 import { FilmLinkProps } from '../../../types';
-import { useAuth } from '../../../Auth/useAuth';
+import { useAuth } from '../../../contexts/AuthContext';
 
-const FilmLink: React.FC<FilmLinkProps> = ({filmId, src, classModifier}) => {
+const FilmLink: React.FC<FilmLinkProps> = ({ filmId, src, classModifier }) => {
   const { user } = useAuth();
   let userListed = {
     watched: false,
@@ -25,7 +25,7 @@ const FilmLink: React.FC<FilmLinkProps> = ({filmId, src, classModifier}) => {
       <Link to={`/film/${filmId}`}>
         <img src={src} alt='Ссылка на фильм' />
       </Link>
-      <ListsButtons listStatus={userListed}/>
+      <ListsButtons filmId={filmId} listStatus={userListed} />
     </div>
   );
 };

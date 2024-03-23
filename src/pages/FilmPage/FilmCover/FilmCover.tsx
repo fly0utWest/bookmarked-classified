@@ -2,7 +2,7 @@ import React from 'react';
 import ListsButtons from '../../../components/ListsButtons/ListsButtons';
 import { FilmCoverProps } from '../../../types';
 import config from '../../../utils';
-import { useAuth } from '../../../Auth/useAuth';
+import { useAuth } from '../../../contexts/AuthContext';
 
 const FilmCover: React.FC<FilmCoverProps> = ({ img, filmId }) => {
   const { user, isLoading } = useAuth();
@@ -24,6 +24,7 @@ const FilmCover: React.FC<FilmCoverProps> = ({ img, filmId }) => {
     <div className='film-cover'>
       <img src={`${config.IMAGE_API}/film-covers/${img}`} alt='' />
       <ListsButtons
+        filmId={filmId}
         classModifier='film-cover__lists-buttons'
         listStatus={userListed}
       />

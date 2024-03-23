@@ -6,7 +6,7 @@ import RecentArticles from './RecentArticles/RecentArticles';
 import LatestNews from './LatestNews/LatestNews';
 import { HomePageProps } from '../../types';
 import config from '../../utils';
-import { useAuth } from '../../Auth/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
 import LoginButton from '../../components/ui/LoginButton/LoginButton';
 import HomeFeature from './HomeFeature/HomeFeature';
 
@@ -16,7 +16,9 @@ const HomePage: React.FC = () => {
   return (
     <div className='home'>
       {error ? <div className='home-unauthorized'></div> : null}
-      <h1 className={`home__heading ${error ? '' : 'home__heading_authorized'}`}>
+      <h1
+        className={`home__heading ${error ? '' : 'home__heading_authorized'}`}
+      >
         {error ? (
           'Отслеживайте фильмы, которые посмотрели. Пополняйте свою коллекцию. Найдите свой идеал.'
         ) : (
@@ -72,7 +74,7 @@ const HomePage: React.FC = () => {
         </section>
       ) : (
         <Link to='/home' className='home__banner'>
-          <img src="/assets/ad-banner.jpg" alt="" />
+          <img src='/assets/ad-banner.jpg' alt='' />
         </Link>
       )}
       <PopularListsThisMonth />
