@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { UseFetchResult, ErrorResponse } from './types';
+import { useRef } from 'react';
 
 export function useFetch<T>(
   baseUrl: string,
@@ -10,15 +11,18 @@ export function useFetch<T>(
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  // const abortControllerRef = useRef<AbortController | null>(null);
+
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
+    // abortControllerRef.current?.abort();
+    // abortControllerRef.current = new AbortController();
 
     const fetchData = async () => {
       const fullUrl = endpoint ? `${baseUrl}/${endpoint}` : baseUrl;
-
       try {
-        const response = await fetch(fullUrl, { signal });
+        const response = await fetch(fullUrl, {
+          // signal: abortControllerRef.current?.signal,
+        });
 
         if (!response.ok) {
           const errorResponse: ErrorResponse = await response.json();
@@ -28,23 +32,17 @@ export function useFetch<T>(
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error: unknown) {
-        if ((error as Error).name !== 'AbortError') {
           setError(
             error instanceof Error
               ? error.message
               : 'An unexpected error has occurred',
           );
-        }
-      } finally {
+        } finally {
         setIsLoading(false);
       }
     };
     fetchData();
-
-    return () => {
-      abortController.abort();
-    };
-  }, [baseUrl, endpoint]);
+  }, []);
 
   return { data, isLoading, error };
 }

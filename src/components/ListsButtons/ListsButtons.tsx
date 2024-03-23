@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import watchedIcon from './watched.svg';
 import watchedIconActive from './watched-active.svg';
 import likedIcon from './liked.svg';
@@ -10,13 +10,16 @@ import { ListsButtonsProps } from '../../types';
 import { useAuth } from '../../Auth/useAuth';
 import { useNavigate } from 'react-router-dom';
 
-const ListsButtons: React.FC<ListsButtonsProps> = (props) => {
-  const { user } = useAuth();
+const ListsButtons: React.FC<ListsButtonsProps> = ({
+  classModifier,
+  listStatus,
+}) => {
+  const { user, isLoading, error } = useAuth();
   const navigate = useNavigate();
 
-  const [watched, setWatched] = useState<boolean>(false);
-  const [liked, setLiked] = useState<boolean>(false);
-  const [listed, setListed] = useState<boolean>(false);
+  const [watched, setWatched] = useState<boolean>(listStatus.watched);
+  const [liked, setLiked] = useState<boolean>(listStatus.liked);
+  const [listed, setListed] = useState<boolean>(listStatus.watchLater);
 
   const listSetter = (
     state: boolean,
@@ -27,8 +30,14 @@ const ListsButtons: React.FC<ListsButtonsProps> = (props) => {
     } else navigate('/welcome');
   };
 
+useEffect(() => {
+  setWatched(listStatus.watched);
+  setLiked(listStatus.liked);
+  setListed(listStatus.watchLater);
+}, [listStatus]);
+
   return (
-    <div className={`lists-buttons ${props.classModifier ?? ''}`}>
+    <div className={`lists-buttons ${classModifier ?? ''}`}>
       <button
         onClick={() => {
           listSetter(watched, setWatched);

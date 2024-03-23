@@ -71,7 +71,9 @@ const HomePage: React.FC = () => {
           />
         </section>
       ) : (
-        <Link to='/home' className='home__banner'></Link>
+        <Link to='/home' className='home__banner'>
+          <img src="/assets/ad-banner.jpg" alt="" />
+        </Link>
       )}
       <PopularListsThisMonth />
       <RecentArticles />

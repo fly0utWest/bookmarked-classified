@@ -1,9 +1,10 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormData } from '../../types';
 import config from '../../utils';
 import { error } from 'console';
 import { useNavigate, Navigate } from 'react-router-dom';
+import { useRef } from 'react';
 import { useAuth } from '../../Auth/useAuth';
 
 const LoginPage: React.FC = () => {
@@ -15,6 +16,12 @@ const LoginPage: React.FC = () => {
     event.preventDefault();
     await login(formData);
   };
+
+  const loginInputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    loginInputRef.current?.focus();
+  }, [])
 
   if (user) {
     return <Navigate replace to='/home' />;
@@ -42,6 +49,7 @@ const LoginPage: React.FC = () => {
             </div>
           ) : null}
           <input
+          ref={loginInputRef}
             name='login'
             type='text'
             placeholder='Введите имя пользователя'
@@ -63,9 +71,6 @@ const LoginPage: React.FC = () => {
             }`}
             required
           />
-          <Link to='/restore-password' className='login-form__restore'>
-            Забыли пароль?
-          </Link>
           <button type='submit' className='login-form__submit'>
             Войти
           </button>

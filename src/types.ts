@@ -2,6 +2,11 @@ import { ChangeEvent } from 'react';
 
 export type ListsButtonsProps = {
   classModifier?: string;
+  listStatus: {
+    watched: boolean,
+    liked: boolean,
+    watchLater: boolean
+  }
 };
 
 export type ButtonProps = {
@@ -68,9 +73,6 @@ export type FilmBackgroundsProps = {
 export type FilmCoverProps = {
   filmId?: string;
   img?: string;
-  watched?: boolean;
-  liked?: boolean;
-  listed?: boolean;
 };
 
 export type ArticleCardProps = {
@@ -200,3 +202,14 @@ export type HomeFeatureType = {
   alt: string;
   text: string;
 };
+
+export type ListPageProps = {
+  heading?: string;
+  type?: ListType
+}
+
+export enum ListType {
+  Favorites = 'favouries',
+  WatchLater = 'watchLater',
+  Watched = 'watched'
+}
