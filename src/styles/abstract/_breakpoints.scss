@@ -41,6 +41,10 @@
 
     .home-feature {
       text-align: center;
+
+      &__icon {
+        width: 40px;
+      }
     }
   }
 

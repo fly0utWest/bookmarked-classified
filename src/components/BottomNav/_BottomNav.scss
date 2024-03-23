@@ -24,7 +24,7 @@
       &::after {
         display: block;
         content: '';
-        border-bottom: 1px solid var(--pale-violet);
+        border-bottom: 2px solid var(--pale-violet);
         transform: scaleX(0);
         transition: transform 0.2s ease-out;
       }

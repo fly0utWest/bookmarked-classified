@@ -140,7 +140,7 @@
       transition: background-color 0.1s;
 
       a:hover {
-        background-color: #fff;
+        background-color: var(--primary-color);
         transition: background-color 0.1s;
       }
     }

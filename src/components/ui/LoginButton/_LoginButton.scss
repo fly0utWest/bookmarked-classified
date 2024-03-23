@@ -10,11 +10,11 @@
   padding: 0.5rem;
   font-weight: 600;
   text-align: center;
-  font-size: .875rem;
+  font-size: 0.875rem;
 
   &:hover {
     background-color: var(--background2);
-    color: #fff;
+    color: var(--primary-color);
     transition: 0.1s ease;
   }
 }

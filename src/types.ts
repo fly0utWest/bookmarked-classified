@@ -209,7 +209,7 @@ export type ListPageProps = {
 }
 
 export enum ListType {
-  Favorites = 'favouries',
+  Favourites = 'favourites',
   WatchLater = 'watchLater',
   Watched = 'watched'
 }
