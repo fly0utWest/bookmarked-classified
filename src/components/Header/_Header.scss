@@ -33,13 +33,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      width: max-content;
-
-      img {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-      }
     }
 
     &__logout-button {
@@ -68,6 +61,7 @@
         padding: 0.3rem;
         position: relative;
         border-radius: 0.25rem 0.25rem 0 0;
+        flex-shrink: 0;
 
         &:hover {
           background-color: var(--grey);
@@ -144,6 +138,8 @@
         transition: background-color 0.1s;
       }
     }
+
+
   }
 
   &__theme-switcher {

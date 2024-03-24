@@ -7,10 +7,13 @@ import { useAuth } from '../../contexts/AuthContext';
 import LoginButton from '../ui/LoginButton/LoginButton';
 import LogoutButton from '../ui/LogoutButton/LogoutButton';
 import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
+import { useTheme } from '../../contexts/ThemeContext';
+import ProfileAvatar from '../ui/ProfileAvatar/ProfileAvatar';
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const { user, error } = useAuth();
+  const { theme } = useTheme();
 
   useEffect(() => {
     document.body.classList.toggle('body_noscroll', openMenu);
@@ -29,19 +32,27 @@ const Header: React.FC = () => {
       <header className='header'>
         <div className='header-container'>
           <Link to='/home' className='header-container__logo'>
-            <img src='/assets/logo.png' alt='' />
+            <img
+              src={`${
+                theme === 'dark' ? '/assets/logo.png' : '/assets/logo-dark.png'
+              }`}
+              alt=''
+            />
           </Link>
           <BurgerButton eventHandler={activateMenu} />
           <div className='header-nav'>
             <nav>
               <ul>
-                {user && !error ? (
+                {user ? (
                   <>
                     <li className='container'>
                       <div className='header-profile'>
                         <Link to='/user' className='header-container__profile'>
-                          <img src='/assets/profile/avatar.png' alt='' />
-                          {}
+                          <ProfileAvatar
+                            username={user?.login}
+                            classModifier='header-profile__profile-avatar'
+                          />
+                          {user?.login}
                         </Link>
                       </div>
                       <div className='header-profile__dropdown'>
@@ -63,11 +74,11 @@ const Header: React.FC = () => {
                 ) : (
                   <LoginButton classModifier='header-nav__login-button' />
                 )}
-                {error ? null : (
+                {user ? (
                   <>
                     <LogoutButton classModifier='header-profile__logout-button' />
                   </>
-                )}
+                ) : null}
                 <ThemeSwitcher classModifier='header__theme-switcher' />
               </ul>
             </nav>

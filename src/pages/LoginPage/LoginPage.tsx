@@ -1,16 +1,14 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormData } from '../../types';
-import config from '../../utils';
-import { error } from 'console';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const LoginPage: React.FC = () => {
-  const navigate = useNavigate();
 
   const { formData, handleChange, error, login, loginError, user } = useAuth();
+  const {theme} = useTheme();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,7 +29,7 @@ const LoginPage: React.FC = () => {
     <div className='login'>
       <div className='login__background'></div>
       <div className='login-page'>
-        <img src='/assets/logo2.png' alt='' />
+        <img className="login-page__logo" src={`${theme === 'dark' ? '/assets/logo2.png' : '/assets/logo2-dark.png'}`} alt='' />
         <form className='login-form' onSubmit={handleSubmit}>
           <h1 className='login-form__heading'>Вход</h1>
           <p className='login-form__greeting'>

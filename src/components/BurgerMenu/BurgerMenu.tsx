@@ -7,7 +7,6 @@ import { BurgerMenuProps } from '../../types';
 import LoginButton from '../ui/LoginButton/LoginButton';
 import LogoutButton from '../ui/LogoutButton/LogoutButton';
 import { useAuth } from '../../contexts/AuthContext';
-import { useTheme } from '../../contexts/ThemeContext';
 import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({
@@ -15,7 +14,6 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
   setUpdatedState,
 }) => {
   const { user, error } = useAuth();
-  const {toggleTheme} = useTheme();
 
   const changeInnerState = (): void => {
     setUpdatedState(!updatedState);
@@ -34,10 +32,10 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     <div className={`burger-menu${updatedState ? ' burger-menu_active' : ''}`}>
       <aside className='burger-menu__aside'>
         <BurgerButton eventHandler={changeInnerState} />
-        {error ? (
-          <LoginButton classModifier='burger-menu__login-button' />
-        ) : (
+        {user ? (
           <ProfileInfo name={user?.login} tag={user?.login} />
+        ) : (
+          <LoginButton classModifier='burger-menu__login-button' />
         )}
         <nav className='nav'>
           <AsideNavLink
@@ -66,9 +64,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             span='Любимые'
           />
         </nav>
-        {error ? null : (
+        {user ? (
           <LogoutButton classModifier='burger-menu__logout-button' />
-        )}
+        ) : null}
         <ThemeSwitcher classModifier='burger-menu__theme-switcher' />
       </aside>
       <div onClick={changeInnerState} className='burger-menu__background'></div>

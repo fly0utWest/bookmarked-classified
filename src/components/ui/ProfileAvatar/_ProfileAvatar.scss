@@ -1,0 +1,35 @@
+.profile-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--border-grey);
+  width: 90px;
+  height: 90px;
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: var(--pale-violet);
+  user-select: none;
+  background-color: var(--background-light);
+}
+
+.header-profile__profile-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 1.5rem;
+  
+}
+
+.profile-info__profile-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.profile-page-header__profile-avatar {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -45px;
+}

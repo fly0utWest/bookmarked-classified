@@ -1,5 +1,5 @@
 import React from 'react';
-import ListsButtons from '../../../components/ListsButtons/ListsButtons';
+import ListsButtons from '../../../components/ui/ListsButtons/ListsButtons';
 import { FilmCoverProps } from '../../../types';
 import config from '../../../utils';
 import { useAuth } from '../../../contexts/AuthContext';

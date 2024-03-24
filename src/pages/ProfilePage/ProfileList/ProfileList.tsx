@@ -1,7 +1,5 @@
 import React from 'react';
-import FilmLink from '../../HomePage/FilmLink/FilmLink';
-import { Link } from 'react-router-dom';
-import { ProfileWatchlistProps } from '../../../types';
+import { ProfileListProps } from '../../../types';
 import config from '../../../utils';
 import { convertParams } from '../../../utils';
 import { useFetch } from '../../../hooks';
@@ -9,11 +7,12 @@ import { FilmData } from '../../../types';
 import SlicedList from '../../../components/SlicedList/SlicedList';
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
+import ListError from '../../../components/ui/ListError/ListError';
 
-const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
+const ProfileList: React.FC<ProfileListProps> = ({ listArray }) => {
   const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(
     'id',
-    props.watchLater!,
+    listArray!,
   )}`;
   const { data: filmList, isLoading, error } = useFetch<FilmData[]>(baseUrl);
 
@@ -21,23 +20,25 @@ const ProfileWatchlist: React.FC<ProfileWatchlistProps> = (props) => {
     return <Loading />;
   }
 
+  if (listArray?.length === 0) {
+    return <ListError />;
+  }
+
   if (error) {
     return <ErrorPage code={204} description='данные не были получены' />;
   }
 
   return (
-    <section className='profile-watchlist'>
-      <div className='profile-watchlist-section'>
-        {filmList && (
-          <SlicedList
-            films={filmList}
-            limit={6}
-            linkClassModifier='profile-watchlist-section__film-link'
-          />
-        )}
-      </div>
+    <section className='profile-list-section'>
+      {filmList && (
+        <SlicedList
+          films={filmList}
+          limit={6}
+          linkClassModifier='profile-list-section__film-link'
+        />
+      )}
     </section>
   );
 };
 
-export default ProfileWatchlist;
+export default ProfileList;

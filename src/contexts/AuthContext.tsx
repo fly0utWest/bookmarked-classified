@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { User } from '../types';
 import { FormData } from '../types';
+import { SignupFormData } from '../types';
 import { AuthContextType } from '../types';
 import config from '../utils';
 import { AuthProviderType } from '../types';
@@ -28,10 +29,17 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
     password: '',
   });
 
+  const [signupFormData, setSignupFormData] = useState<SignupFormData>({
+    login: '',
+    password: '',
+    repeatedPassword: '',
+  });
+
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loginError, setLoginError] = useState<string | null>(null);
+  const [signupError, setSignupError] = useState<string | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,6 +47,14 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const signupHandleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setSignupFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
@@ -65,6 +81,26 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
     }
   };
 
+  const signup = async (formData: SignupFormData) => {
+    if (formData.password === formData.repeatedPassword) {
+      try {
+        const response = await fetch(`${config.BACK_API}/signup`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        if (!response.ok) {
+          throw new Error('Registration has failed!');
+        }
+      } catch (error: unknown) {
+        console.error('Regostration: ', error);
+        setSignupError((error as Error).message);
+      }
+    } else setSignupError('Passwords are not the same.');
+  };
+
   const fetchUser = useCallback(async () => {
     try {
       const response = await fetch(`${config.BACK_API}/user`, {
@@ -84,6 +120,10 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
     }
   }, []);
 
+  const reFetchUser = () => {
+    fetchUser();
+  };
+
   useEffect(() => {
     fetchUser();
   }, [fetchUser, location]);
@@ -93,11 +133,16 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
     setUser,
     error,
     loginError,
+    signupError,
     isLoading,
     formData,
+    signupFormData,
     setFormData,
     handleChange,
+    signupHandleChange,
     login,
+    signup,
+    reFetchUser,
   };
 
   return (

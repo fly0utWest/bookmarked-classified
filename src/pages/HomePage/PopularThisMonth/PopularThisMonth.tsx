@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
-import FilmLink from '../FilmLink/FilmLink';
 import { useFetch } from '../../../hooks';
 import config from '../../../utils';
 import SlicedList from '../../../components/SlicedList/SlicedList';

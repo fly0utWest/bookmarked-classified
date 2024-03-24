@@ -2,13 +2,16 @@
 @use './base/page';
 @use '../components/ui/LoginButton/LoginButton';
 @use '../components/ui/LogoutButton/LogoutButton';
+@use '../components/ui/ListsButtons/ListsButtons';
+@use '../components/ui/ThemeSwitcher/ThemeSwitcher';
+@use '../components/ui/ListError/ListError';
+@use '../components/ui/ProfileAvatar/ProfileAvatar';
 @use '../components/Header/Header';
 @use '../components/BottomNav/BottomNav';
 @use '../components/Footer/Footer';
 @use '../pages/HomePage/HomePage';
-@use '../components/ListsButtons/ListsButtons';
 @use '../pages/FilmPage/FilmPage';
-@use '../pages/WatchlistPage/WatchlistPage';
+@use '../pages/ListPage/ListPage';
 @use '../pages/ProfilePage/ProfilePage';
 @use '../components/BurgerMenu/BurgerMenu';
 @use '../components/BurgerButton/BurgerButton';
@@ -19,6 +22,5 @@
 @use '../pages/OnBoarding/OnBoarding';
 @use '../pages/ArticlePage/_ArticlePage.scss';
 @use '../pages/SearchPage/SearchPage';
-@use '../components/ui/ThemeSwitcher/ThemeSwitcher';
 @use './abstract/breakpoints';
 @use './abstract/themes';

@@ -6,18 +6,18 @@ import likedIcon from './liked.svg';
 import likedIconActive from './liked-active.svg';
 import listedIcon from './listed.svg';
 import listedIconActive from './listed-active.svg';
-import { ListsButtonsProps } from '../../types';
-import { useAuth } from '../../contexts/AuthContext';
+import { ListsButtonsProps } from '../../../types';
+import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import config from '../../utils';
-import { ListType } from '../../types';
+import config from '../../../utils';
+import { ListType } from '../../../types';
 
 const ListsButtons: React.FC<ListsButtonsProps> = ({
   classModifier,
   listStatus,
   filmId,
 }) => {
-  const { user, isLoading, error } = useAuth();
+  const { user, reFetchUser } = useAuth();
   const navigate = useNavigate();
 
   const [watched, setWatched] = useState<boolean>(listStatus.watched);
@@ -36,14 +36,12 @@ const ListsButtons: React.FC<ListsButtonsProps> = ({
           method: `${state ? 'DELETE' : 'POST'}`,
         });
         if (response.ok) {
-          // Confirm the operation was successful before updating state
           setter(!state);
+          reFetchUser();
         } else {
-          // Handle server errors (e.g., unauthorized, not found) here
           console.error('Operation failed:', response.statusText);
         }
       } catch (error) {
-        // Handle network errors
         console.error('Network error:', error);
       }
     } else {

@@ -4,11 +4,9 @@ import { User } from '../../types';
 import Loading from '../../components/Loading/Loading';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ProfileBackground from './ProfileBackground/ProfileBackground';
-import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
+import ProfileAvatar from '../../components/ui/ProfileAvatar/ProfileAvatar';
 import ProfileListCounter from './ProfileListCounter/ProfileListCounter';
-import ProfileFavorites from './ProfileFavorites/ProfileFavorites';
-import ProfileWatchlist from './ProfileWatchlist/ProfileWatchlist';
-import ProfileWatched from './ProfileWatched/ProfileWatched';
+import ProfileList from './ProfileList/ProfileList';
 import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { useFetch } from '../../hooks';
 import { Link } from 'react-router-dom';
@@ -33,10 +31,15 @@ const ProfilePageById: React.FC = () => {
       <ProfileBackground />
       <div className='profile-page'>
         <div className='profile-page-header'>
-          <ProfileAvatar />
+          <ProfileAvatar
+            username={userData?.login}
+            classModifier='profile-page-header__profile-avatar'
+          />
           <div className='container profile-page-header__container'>
             <p className='profile-page-header__name'>{userData?.login}</p>
-            <p className='profile-page-header__bio'>{userData?.bio}</p>
+            <p className='profile-page-header__bio'>
+              {userData?.bio === '' ? 'Биография не указана.' : userData?.bio}
+            </p>
           </div>
           <ProfileListCounter
             favoritesCount={userData?.favourites}
@@ -47,21 +50,27 @@ const ProfilePageById: React.FC = () => {
           <div>
             <div className='container profile-page__container'>
               <h2>Любимые фильмы</h2>
-              <Link to='/user/:id/favorites/'>Показать все</Link>
+              {userData?.favourites.length === 0 ? null : (
+                <Link to='/user/:id/favorites/'>Показать все</Link>
+              )}
             </div>
-            <ProfileFavorites favourites={userData?.favourites} />
+            <ProfileList listArray={userData?.favourites} />
             <hr />
             <div className='container profile-page__container'>
               <h2>Смотреть позже</h2>
-              <Link to='/user/:id/favorites/'>Показать все</Link>
+              {userData?.watchLater.length === 0 ? null : (
+                <Link to='/user/:id/favorites/'>Показать все</Link>
+              )}
             </div>
-            <ProfileWatchlist watchLater={userData?.watchLater} />
+            <ProfileList listArray={userData?.watchLater} />
             <hr />
             <div className='container profile-page__container'>
               <h2>Просмотренные</h2>
-              <Link to='/user/:id/watched/'>Показать все</Link>
+              {userData?.watched.length === 0 ? null : (
+                <Link to='/user/:id/favorites/'>Показать все</Link>
+              )}
             </div>
-            <ProfileWatched watched={userData?.watched}/>
+            <ProfileList listArray={userData?.watched} />
             <hr />
           </div>
           <ProfileReviews reviews={userData?.reviews} />

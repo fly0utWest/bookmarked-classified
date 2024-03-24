@@ -1,10 +1,6 @@
 import React from 'react';
 import ListElement from './ListElement/ListElement';
-import Loading from '../../../../components/Loading/Loading';
-import ErrorPage from '../../../ErrorPage/ErrorPage';
 import config from '../../../../utils';
-import { useFetch } from '../../../../hooks';
-import { FilmData } from '../../../../types';
 import { convertParams } from '../../../../utils';
 
 const PopularListsThisMonthGrid: React.FC = () => {

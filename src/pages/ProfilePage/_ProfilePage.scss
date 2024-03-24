@@ -11,24 +11,6 @@
     background-size: cover;
   }
 
-  &-avatar {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: 2px solid var(--border-grey);
-    margin-top: -45px;
-    width: 90px;
-    height: 90px;
-    overflow: hidden;
-
-    img {
-      width: 100px;
-      height: 100px;
-      min-height: 100%;
-    }
-  }
-
   &-page {
     display: flex;
     flex-direction: column;
@@ -114,35 +96,20 @@
     }
   }
 
-  &-favorites {
+  &-list-section {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 
-    &-section {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-
-      &__film-link {
-        width: 16%;
-      }
+    &__film-link {
+      width: 16%;
     }
   }
 
   hr {
     margin-bottom: 1.25rem;
-  }
-
-  &-watchlist {
-    @extend .profile-favorites;
-
-    &-section {
-      @extend .profile-favorites-section;
-
-      &__film-link {
-        width: 16%;
-      }
-    }
   }
 
   .review-card {
@@ -179,29 +146,19 @@
     &__film-link {
       max-width: 80px;
       max-height: 120px;
-    }
-  }
 
-  &-watched {
-    @extend .profile-favorites;
-
-    &-section {
-      @extend .profile-favorites-section;
-
-      &__film-link {
-        width: 16%;
+      &:hover {
+        & > .lists-buttons {
+          display: none;
+        }
       }
     }
   }
 
-  &-reviews {
-    @extend .profile-favorites;
+  &-reviews-section {
+    @extend .profile-list-section;
     margin-top: -0.5rem;
     padding-bottom: 3rem;
-
-    &-section {
-      display: flex;
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 }

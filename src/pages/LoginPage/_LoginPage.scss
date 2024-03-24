@@ -1,6 +1,7 @@
 .login {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 
   &__background {
@@ -32,6 +33,10 @@
     flex-direction: column;
     padding: 0 1.25rem;
     z-index: 1;
+
+    &__logo {
+      margin-bottom: 2rem;
+    }
   }
 
   &-form {
@@ -117,7 +122,7 @@
       background-color: var(--pale-violet);
       padding: 1rem 1.25rem;
       margin-top: 0.5rem;
-      width: 50%;
+      width: max-content;
       font-weight: 700;
       font-size: 1rem;
       outline: none;
@@ -125,7 +130,7 @@
       border-radius: 0.25rem;
       cursor: pointer;
       transition: background-color 0.1s ease-out, color 0.1s ease-out;
-
+ 
       &:hover {
         background-color: var(--background2);
         color: var(--primary-color);

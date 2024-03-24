@@ -4,8 +4,6 @@ import PopularThisMonth from './PopularThisMonth/PopularThisMonth';
 import PopularListsThisMonth from './PopularListsThisMonth/PopularListsThisMonth';
 import RecentArticles from './RecentArticles/RecentArticles';
 import LatestNews from './LatestNews/LatestNews';
-import { HomePageProps } from '../../types';
-import config from '../../utils';
 import { useAuth } from '../../contexts/AuthContext';
 import LoginButton from '../../components/ui/LoginButton/LoginButton';
 import HomeFeature from './HomeFeature/HomeFeature';
@@ -15,31 +13,33 @@ const HomePage: React.FC = () => {
 
   return (
     <div className='home'>
-      {error ? <div className='home-unauthorized'></div> : null}
-      <h1
-        className={`home__heading ${error ? '' : 'home__heading_authorized'}`}
-      >
-        {error ? (
-          'Отслеживайте фильмы, которые посмотрели. Пополняйте свою коллекцию. Найдите свой идеал.'
-        ) : (
+      {user ? null : <div className='home-unauthorized'></div>}
+      <h1 className={`home__heading ${user ? 'home__heading_authorized' : ''}`}>
+        {user ? (
           <>
             Привет, <span>{user?.login}</span>!
           </>
+        ) : (
+          'Отслеживайте фильмы, которые посмотрели. Пополняйте свою коллекцию. Найдите свой идеал.'
         )}
       </h1>
       <p
         className={`home__greeting ${
-          error ? 'home__greeting_unauthorized' : ''
+          user ? '' : 'home__greeting_unauthorized'
         }`}
       >
-        {error ? (
-          <LoginButton classModifier='home__login-button' />
-        ) : (
+        {user ? (
           'Напишите обзор на уже просмотренный фильм или откройте для себя пару новинок'
+        ) : (
+          <LoginButton classModifier='home__login-button' />
         )}
       </p>
       <PopularThisMonth />
-      {error ? (
+      {user ? (
+        <Link to='/home' className='home__banner'>
+          <img src='/assets/ad-banner.jpg' alt='' />
+         </Link>
+      ) : (
         <section className='home-features'>
           <HomeFeature
             icon='/assets/icons/watched.svg'
@@ -72,10 +72,6 @@ const HomePage: React.FC = () => {
             text='Создайте свой профиль!'
           />
         </section>
-      ) : (
-        <Link to='/home' className='home__banner'>
-          <img src='/assets/ad-banner.jpg' alt='' />
-        </Link>
       )}
       <PopularListsThisMonth />
       <RecentArticles />

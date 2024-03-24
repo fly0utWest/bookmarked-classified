@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import ListsButtons from '../../../components/ListsButtons/ListsButtons';
+import ListsButtons from '../../../components/ui/ListsButtons/ListsButtons';
 import { FilmLinkProps } from '../../../types';
 import { useAuth } from '../../../contexts/AuthContext';
 

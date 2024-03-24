@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const OnBoarding: React.FC = () => {
-  const { user } = useAuth();
+  const { user, error } = useAuth();
+  const {theme} = useTheme();
 
-  if (user) {
+  if (user && !error) {
     return <Navigate replace to='/home' />;
   }
 
@@ -14,7 +16,7 @@ const OnBoarding: React.FC = () => {
     <div className='onboarding'>
       <div className='onboarding__background'></div>
       <div className='container onboarding__container'>
-        <img src='/assets/logo2.png' alt='Логотип' />
+        <img src={`${theme === 'dark' ? '/assets/logo2.png' : '/assets/logo2-dark.png'}`} alt='Логотип' />
         <p className='container__text'>
           Отслеживайте фильмы, которые посмотрели. Пополняйте свою коллекцию.
           Найдите свой идеал.

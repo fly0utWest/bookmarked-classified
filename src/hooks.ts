@@ -1,7 +1,5 @@
-import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { UseFetchResult, ErrorResponse } from './types';
-import { useRef } from 'react';
 
 export function useFetch<T>(
   baseUrl: string,

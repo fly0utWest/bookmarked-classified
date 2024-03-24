@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ListElementProps } from '../../../../../types';
 import SlicedList from '../../../../../components/SlicedList/SlicedList';
 import ErrorPage from '../../../../ErrorPage/ErrorPage';
 import Loading from '../../../../../components/Loading/Loading';
 import { useFetch } from '../../../../../hooks';
-import config from '../../../../../utils';
 import { FilmData } from '../../../../../types';
 
 const ListElelement: React.FC<ListElementProps> = (props) => {

@@ -1,3 +1,4 @@
+import { Sign } from 'crypto';
 import { ChangeEvent, ReactNode } from 'react';
 
 export type ListsButtonsProps = {
@@ -104,9 +105,6 @@ export type PosterProps = {
   alt: string;
 };
 
-export type HomePageProps = {
-  username: string;
-};
 
 export type ProfileListCounterProps = {
   favoritesCount?: number[];
@@ -136,16 +134,8 @@ export type User = {
   reviews: number[];
 };
 
-export type ProfileFavoritesProps = {
-  favourites?: number[];
-};
-
-export type ProfileWatchlistProps = {
-  watchLater?: number[];
-};
-
-export type ProfileWatchedProps = {
-  watched?: number[];
+export type ProfileListProps = {
+  listArray?: number[];
 };
 
 export type ProfileReviewsProps = {
@@ -174,6 +164,10 @@ export interface FormData {
   password: string;
 }
 
+export interface SignupFormData extends FormData {
+  repeatedPassword: string
+}
+
 export type ProfilePageProps = {
   data: User | null;
 };
@@ -187,11 +181,16 @@ export interface AuthContextType {
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
   error: string | null;
   loginError: string | null;
+  signupError: string | null;
   isLoading: boolean;
   formData: FormData;
+  signupFormData: SignupFormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  signupHandleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   login: (formData: FormData) => Promise<void>;
+  signup: (formData: SignupFormData) => Promise<void>;
+  reFetchUser: () => void;
 }
 
 export type AuthProviderType = {
@@ -229,3 +228,8 @@ export type ThemeProviderProps = {
 export type ThemeSwitcherProps = {
   classModifier?: string;
 };
+
+export type ProfileAvatarProps = {
+  username?: string
+  classModifier?: string
+}
