@@ -1,8 +1,8 @@
 import React from 'react';
 import { ProfileListProps } from '../../../types';
-import config from '../../../utils';
-import { convertParams } from '../../../utils';
-import { useFetch } from '../../../hooks';
+import config from '../../../utils/utils';
+import { convertParams } from '../../../utils/utils';
+import { useFetch } from '../../../hooks/useFetch';
 import { FilmData } from '../../../types';
 import SlicedList from '../../../components/SlicedList/SlicedList';
 import ErrorPage from '../../ErrorPage/ErrorPage';

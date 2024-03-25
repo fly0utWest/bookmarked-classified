@@ -105,7 +105,6 @@ export type PosterProps = {
   alt: string;
 };
 
-
 export type ProfileListCounterProps = {
   favoritesCount?: number[];
   watchlistCount?: number[];
@@ -165,7 +164,7 @@ export interface FormData {
 }
 
 export interface SignupFormData extends FormData {
-  repeatedPassword: string
+  repeatedPassword: string;
 }
 
 export type ProfilePageProps = {
@@ -214,6 +213,13 @@ export enum ListType {
   Watched = 'watched',
 }
 
+export enum ListPageType {
+  Favourites = 'favourites',
+  WatchLater = 'watchlist',
+  Watched = 'watched',
+  Catalogue = 'catalogue',
+}
+
 export type Theme = 'light' | 'dark';
 
 export interface ThemeContextType {
@@ -230,6 +236,6 @@ export type ThemeSwitcherProps = {
 };
 
 export type ProfileAvatarProps = {
-  username?: string
-  classModifier?: string
-}
+  username?: string;
+  classModifier?: string;
+};

@@ -13,19 +13,24 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
   updatedState,
   setUpdatedState,
 }) => {
-  const { user, error } = useAuth();
+  const { user } = useAuth();
 
   const changeInnerState = (): void => {
     setUpdatedState(!updatedState);
   };
 
   const location = useLocation();
+  
   const closeMenu = (): void => {
     if (updatedState) setUpdatedState(false);
   };
 
-  useEffect((): void => {
+  useEffect(() => {
     closeMenu();
+
+    return () => {
+      document.body.classList.remove('body_noscroll');
+    };
   }, [location]);
 
   return (
@@ -49,19 +54,24 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             span='Фильмы'
           />
           <AsideNavLink
-            dest='/user/:id/reviews'
+            dest={`/user/${user?.login}/reviews`}
             src='/assets/icons/reviews.svg'
             span='Обзоры'
           />
           <AsideNavLink
-            dest='/user/watchlist'
-            src='/assets/icons/watchlist.svg'
-            span='Смотреть позже'
+            dest={`/user/${user?.login}/watched`}
+            src='/assets/icons/watched.svg'
+            span='Просмотренные'
           />
           <AsideNavLink
-            dest='/user/favourites'
+            dest={`/user/${user?.login}/favourites`}
             src='/assets/icons/heart.svg'
             span='Любимые'
+          />
+          <AsideNavLink
+            dest={`/user/${user?.login}/watchlist`}
+            src='/assets/icons/watchlist.svg'
+            span='Смотреть позже'
           />
         </nav>
         {user ? (

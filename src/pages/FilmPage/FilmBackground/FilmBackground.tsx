@@ -1,13 +1,13 @@
-import React from "react";
-import { FilmBackgroundsProps } from "../../../types";
-import config from "../../../utils";
+import React from 'react';
+import { FilmBackgroundsProps } from '../../../types';
+import config from '../../../utils/utils';
 
 const FilmBackground: React.FC<FilmBackgroundsProps> = (props) => {
-  const backgroundUrl: string = `${config.IMAGE_API}/film-backgrounds/${props.url}` 
+  const backgroundUrl: string = `${config.IMAGE_API}/film-backgrounds/${props.url}`;
 
   return (
     <div
-      className="film-background"
+      className='film-background'
       style={{ backgroundImage: `url(${backgroundUrl})` }}
     ></div>
   );

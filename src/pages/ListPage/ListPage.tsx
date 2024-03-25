@@ -1,13 +1,13 @@
 import React from 'react';
-import { useFetch } from '../../hooks';
+import { useFetch } from '../../hooks/useFetch';
 import { useAuth } from '../../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
-import config from '../../utils';
+import config from '../../utils/utils';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import { useParams } from 'react-router-dom';
 import SlicedList from '../../components/SlicedList/SlicedList';
 import { ListPageProps, User } from '../../types';
-import { convertParams } from '../../utils';
+import { convertParams } from '../../utils/utils';
 import { ListType } from '../../types';
 
 const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {

@@ -8,11 +8,11 @@ import ProfileAvatar from '../../components/ui/ProfileAvatar/ProfileAvatar';
 import ProfileListCounter from './ProfileListCounter/ProfileListCounter';
 import ProfileList from './ProfileList/ProfileList';
 import ProfileReviews from './ProfileReviews/ProfileReviews';
-import { useFetch } from '../../hooks';
+import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
-import config from '../../utils';
+import config from '../../utils/utils';
 
-const ProfilePageById: React.FC = () => {
+const ProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const baseUrl: string = `${config.BACK_API}/users`;
 
@@ -80,4 +80,4 @@ const ProfilePageById: React.FC = () => {
   );
 };
 
-export default ProfilePageById;
+export default ProfilePage;

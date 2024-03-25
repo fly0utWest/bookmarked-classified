@@ -4,7 +4,7 @@ import MainLayout from './pages/MainLayout';
 import HideInterface from './pages/HideInterface';
 import HomePage from './pages/HomePage/HomePage';
 import FilmPage from './pages/FilmPage/FilmPage';
-import ProfilePageById from './pages/ProfilePage/ProfilePageById';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import WatchlistPage from './pages/ListPage/ListPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import LoginPage from './pages/LoginPage/LoginPage';
@@ -12,7 +12,6 @@ import OnBoarding from './pages/OnBoarding/OnBoarding';
 import ArticlePage from './pages/ArticlePage/ArticlePage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ScrollToTop from './pages/ScrollToTop';
-import ProfilePageAuth from './pages/ProfilePage/ProfilePageAuth';
 import RegistrationPage from './pages/LoginPage/RegistrationPage/RegistrationPage';
 
 const App: React.FC = () => {
@@ -49,15 +48,7 @@ const App: React.FC = () => {
           path='/user/:id'
           element={
             <MainLayout>
-              <ProfilePageById />
-            </MainLayout>
-          }
-        ></Route>
-        <Route
-          path='/user'
-          element={
-            <MainLayout>
-              <ProfilePageAuth />
+              <ProfilePage />
             </MainLayout>
           }
         ></Route>

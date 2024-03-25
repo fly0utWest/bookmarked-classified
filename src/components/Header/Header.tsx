@@ -9,18 +9,16 @@ import LogoutButton from '../ui/LogoutButton/LogoutButton';
 import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
 import { useTheme } from '../../contexts/ThemeContext';
 import ProfileAvatar from '../ui/ProfileAvatar/ProfileAvatar';
+import { useDesktopInterface } from '../../hooks/useDesktopInterface';
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const { user, error } = useAuth();
+  const { user } = useAuth();
   const { theme } = useTheme();
+  const isDesktopInterface = useDesktopInterface();
 
   useEffect(() => {
     document.body.classList.toggle('body_noscroll', openMenu);
-
-    return (): void => {
-      document.body.classList.remove('body_noscroll');
-    };
   }, [openMenu]);
 
   const activateMenu = (): void => {
@@ -39,7 +37,7 @@ const Header: React.FC = () => {
               alt=''
             />
           </Link>
-          <BurgerButton eventHandler={activateMenu} />
+          {<BurgerButton eventHandler={activateMenu} />}
           <div className='header-nav'>
             <nav>
               <ul>
@@ -85,7 +83,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
-      <AsideMenu updatedState={openMenu} setUpdatedState={setOpenMenu} />
+      {isDesktopInterface ? null : <AsideMenu updatedState={openMenu} setUpdatedState={setOpenMenu} />}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import ListElement from './ListElement/ListElement';
-import config from '../../../../utils';
-import { convertParams } from '../../../../utils';
+import config from '../../../../utils/utils';
+import { convertParams } from '../../../../utils/utils';
 
 const PopularListsThisMonthGrid: React.FC = () => {
   const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(

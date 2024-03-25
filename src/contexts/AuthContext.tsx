@@ -10,7 +10,7 @@ import { User } from '../types';
 import { FormData } from '../types';
 import { SignupFormData } from '../types';
 import { AuthContextType } from '../types';
-import config from '../utils';
+import config from '../utils/utils';
 import { AuthProviderType } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';

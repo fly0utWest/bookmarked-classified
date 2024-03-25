@@ -1,5 +1,5 @@
 import { SlicedListProps } from '../../types';
-import config from '../../utils';
+import config from '../../utils/utils';
 import FilmLink from '../../pages/HomePage/FilmLink/FilmLink';
 
 const SlicedList: React.FC<SlicedListProps> = (props) => {

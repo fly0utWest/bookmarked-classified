@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { UseFetchResult, ErrorResponse } from './types';
+import { UseFetchResult, ErrorResponse } from '../types';
 
 export function useFetch<T>(
   baseUrl: string,
@@ -30,12 +30,12 @@ export function useFetch<T>(
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error: unknown) {
-          setError(
-            error instanceof Error
-              ? error.message
-              : 'An unexpected error has occurred',
-          );
-        } finally {
+        setError(
+          error instanceof Error
+            ? error.message
+            : 'An unexpected error has occurred',
+        );
+      } finally {
         setIsLoading(false);
       }
     };

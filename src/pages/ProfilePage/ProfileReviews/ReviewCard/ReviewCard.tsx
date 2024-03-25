@@ -1,7 +1,7 @@
 import React from 'react';
 import FilmLink from '../../../HomePage/FilmLink/FilmLink';
 import { Link } from 'react-router-dom';
-import config from '../../../../utils';
+import config from '../../../../utils/utils';
 
 const ReviewCard: React.FC = () => {
   return (

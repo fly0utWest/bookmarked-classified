@@ -9,7 +9,7 @@ import listedIconActive from './listed-active.svg';
 import { ListsButtonsProps } from '../../../types';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import config from '../../../utils';
+import config from '../../../utils/utils';
 import { ListType } from '../../../types';
 
 const ListsButtons: React.FC<ListsButtonsProps> = ({

@@ -1,8 +1,8 @@
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
-import { useFetch } from '../../../hooks';
-import config from '../../../utils';
+import { useFetch } from '../../../hooks/useFetch';
+import config from '../../../utils/utils';
 import SlicedList from '../../../components/SlicedList/SlicedList';
 
 const PopularThisMonth: React.FC = () => {

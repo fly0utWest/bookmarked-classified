@@ -7,8 +7,8 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
-import { useFetch } from '../../hooks';
-import config from '../../utils';
+import { useFetch } from '../../hooks/useFetch';
+import config from '../../utils/utils';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
