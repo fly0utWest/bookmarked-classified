@@ -204,7 +204,7 @@ export type HomeFeatureType = {
 
 export type ListPageProps = {
   heading?: string;
-  type?: ListType;
+  type?: ListPageType;
 };
 
 export enum ListType {
@@ -239,3 +239,9 @@ export type ProfileAvatarProps = {
   username?: string;
   classModifier?: string;
 };
+
+export type DropdownMenuProps = {
+  children?: ReactNode;
+  placeholder: string;
+  classModifier?: string
+}

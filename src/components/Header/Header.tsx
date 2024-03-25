@@ -45,7 +45,7 @@ const Header: React.FC = () => {
                   <>
                     <li className='container'>
                       <div className='header-profile'>
-                        <Link to='/user' className='header-container__profile'>
+                        <Link to={`/user/${user.login}`} className='header-container__profile'>
                           <ProfileAvatar
                             username={user?.login}
                             classModifier='header-profile__profile-avatar'
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
                         </Link>
                       </div>
                       <div className='header-profile__dropdown'>
-                        <Link to='/user'>Профиль</Link>
+                        <Link to={`/user/${user?.login}`}>Профиль</Link>
                         <Link to='/home'>Главная</Link>
                         <Link to='/catalogue'>Фильмы</Link>
                         <Link to='/user/reviews'>Обзоры</Link>

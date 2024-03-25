@@ -1,6 +1,6 @@
 //Catppuccin
 
-//Light theme
+//Dark theme
 
 :root {
   --primary-color: #fff;
@@ -13,9 +13,11 @@
   --backlight: rgba(237, 135, 150, 0.05);
   --red: #ed8796;
   --pink: #ee99a0;
+  --green: #a6da95;
+  --yellow: #eed49f;
 }
 
-//Dark theme
+//Light theme
 
 [data-theme='light'] {
   --primary-color: #24273a;
@@ -28,11 +30,13 @@
   --backlight: rgba(237, 135, 150, 0.05);
   --red: #d20f39;
   --pink: #e64553;
+  --green: #40a02b;
+  --yellow: #df8e1d;
 
   .header-profile__logout-button {
     color: var(--background);
 
-    &:hover {
+    &:hover, &:active {
       color: var(--background);
     }
   }
@@ -40,7 +44,7 @@
   .header-profile__login-button {
     color: var(--primary-color);
 
-    &:hover {
+    &:hover, &:active {
       color: var(--background);
     }
   }
@@ -53,7 +57,7 @@
         brightness(94%) contrast(82%);
     }
 
-    &:hover {
+    &:hover, &:active {
       color: var(--background);
 
       .home-feature__icon {
@@ -89,7 +93,7 @@
       brightness(100%) contrast(94%);
   }
 
-  .film-review-form__submit:hover {
+  .film-review-form__submit:hover, .film-review-form__submit:active {
     color: var(--background);
   }
 

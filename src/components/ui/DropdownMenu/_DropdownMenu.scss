@@ -1,0 +1,17 @@
+.dropdown-menu {
+    background-color: var(--background2);
+    border-radius: .25rem;
+    padding: 0.4rem;
+    cursor: pointer;
+
+    &__placeholder {
+        font-weight: 600;
+        font-size: .9rem;
+
+        &::after {
+            content: '\25be';
+            margin-left: auto;
+            font-size: 1rem;
+        }
+    }
+}

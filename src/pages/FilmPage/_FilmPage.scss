@@ -46,6 +46,24 @@
           }
         }
       }
+
+      &__rating {
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+
+        &_good {
+          color: var(--green);
+        }
+
+        &_medium {
+          color: var(--yellow);
+        }
+
+        &_bad {
+          color: var(--red);
+        }
+      }
     }
 
     &-info {
@@ -105,6 +123,8 @@
     gap: 0.5rem;
     margin-bottom: 1.25rem;
 
+
+
     &__input {
       border-radius: 0.25rem;
       background-color: var(--background2);
@@ -131,7 +151,7 @@
       cursor: pointer;
       transition: 0.1s ease;
 
-      &:hover {
+      &:hover, &:active {
         background-color: var(--pale-violet);
         color: var(--background2);
         transition: 0.1s ease;

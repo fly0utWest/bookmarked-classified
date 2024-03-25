@@ -6,14 +6,14 @@ import ProfileAvatar from '../ui/ProfileAvatar/ProfileAvatar';
 const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
   return (
     <div className='profile-info burger-menu__profile-info'>
-      <Link to={'/user'}>
+      <Link to={`/user/${props.name}`}>
         <ProfileAvatar
           username={props.name}
           classModifier='profile-info__profile-avatar'
         />
       </Link>
       <div className='container profile-info__container'>
-        <Link to='/user' className='profile-info__name'>
+        <Link to={`/user/${props.name}`} className='profile-info__name'>
           {props.name}
         </Link>
         <br />

@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './pages/MainLayout';
 import HideInterface from './pages/HideInterface';
 import HomePage from './pages/HomePage/HomePage';
 import FilmPage from './pages/FilmPage/FilmPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import WatchlistPage from './pages/ListPage/ListPage';
+import ListPage from './pages/ListPage/ListPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import OnBoarding from './pages/OnBoarding/OnBoarding';
@@ -13,6 +13,8 @@ import ArticlePage from './pages/ArticlePage/ArticlePage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ScrollToTop from './pages/ScrollToTop';
 import RegistrationPage from './pages/LoginPage/RegistrationPage/RegistrationPage';
+import { ListPageType } from './types';
+import { useAuth } from './contexts/AuthContext';
 
 const App: React.FC = () => {
   return (
@@ -32,7 +34,7 @@ const App: React.FC = () => {
           path='/user/:id/favourites'
           element={
             <MainLayout>
-              <WatchlistPage />
+              <ListPage heading='Любимые фильмы' type={ListPageType.Favourites}/>
             </MainLayout>
           }
         ></Route>

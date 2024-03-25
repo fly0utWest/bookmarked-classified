@@ -2,8 +2,9 @@ import React from 'react'
 
 const Loading: React.FC = () => {
   return (
-    <div className="loading-animation">
-      <p>Loading...</p>
+    <div className="loading">
+      <div className='loading__animation'>
+      </div>
     </div>
   );
 }

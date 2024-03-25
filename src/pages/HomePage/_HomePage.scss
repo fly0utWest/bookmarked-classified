@@ -5,7 +5,7 @@
   width: fit-content;
   overflow: hidden;
 
-  &:hover {
+  &:hover, &:active {
     border-color: var(--primary-color);
   }
 }
@@ -110,7 +110,7 @@
         font-weight: 600;
       }
 
-      &:hover {
+      &:hover, &:active {
         background-color: var(--red);
         color: var(--background2);
         transition: 0.1s ease;
@@ -214,7 +214,7 @@
   & > div {
     padding: 0.75rem;
 
-    a:hover {
+    a:hover, &:active {
       color: var(--pale-violet);
     }
   }
@@ -264,7 +264,7 @@
       margin-top: 0.5rem;
       letter-spacing: 0.05rem;
 
-      a:hover {
+      a:hover, &:active {
         color: var(--pale-violet);
       }
     }
@@ -281,7 +281,7 @@
       text-transform: uppercase;
       margin-top: 0.25rem;
 
-      &:hover {
+      &:hover, &:active {
         color: var(--pale-violet);
       }
     }

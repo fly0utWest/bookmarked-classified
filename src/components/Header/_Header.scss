@@ -36,7 +36,7 @@
     }
 
     &__logout-button {
-      &:hover {
+      &:hover, &:active {
         background-color: var(--pale-violet);
       }
     }
@@ -90,7 +90,7 @@
             transition: transform 0.15s ease-in-out;
           }
 
-          &:hover::after {
+          &:hover::after, &:active::after {
             transform: scaleX(1);
           }
         }
@@ -98,7 +98,7 @@
     }
 
     &__login-button {
-      &:hover {
+      &:hover, &:active {
         background-color: var(--red);
       }
     }
@@ -111,7 +111,7 @@
     gap: 0.5rem;
 
     &__logout-button {
-      &:hover {
+      &:hover, &:active {
         background-color: var(--pale-violet);
       }
     }

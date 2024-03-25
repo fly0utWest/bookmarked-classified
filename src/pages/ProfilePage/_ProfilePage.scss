@@ -63,7 +63,7 @@
         font-size: 0.8rem;
         font-weight: 600;
 
-        &:hover {
+        &:hover, &:active {
           color: var(--pale-violet);
         }
       }
@@ -82,7 +82,7 @@
         font-weight: 700;
       }
 
-      &:hover {
+      &:hover, &:active {
         color: var(--pale-violet);
       }
 
@@ -125,7 +125,7 @@
         line-height: 1.75rem;
         font-weight: 700;
 
-        &:hover {
+        &:hover, &:active {
           color: var(--pale-violet);
         }
       }

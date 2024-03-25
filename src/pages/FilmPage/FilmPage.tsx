@@ -9,6 +9,7 @@ import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
 import { useFetch } from '../../hooks/useFetch';
 import config from '../../utils/utils';
+import { getRatingClass } from '../../utils/getRatingClass';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,6 +33,13 @@ const FilmPage: React.FC = () => {
         <section className='film-page-info'>
           <div className='film-page-heading'>
             <p className='film-page-heading__title'>{filmData?.title}</p>
+            <p
+              className={`film-page-heading__rating ${getRatingClass(
+                filmData?.rating!,
+              )}`}
+            >
+              {filmData?.rating}
+            </p>
             <div className='film-page-heading__production'>
               <p className='year'>{filmData?.year}</p>
               <p className='director'>

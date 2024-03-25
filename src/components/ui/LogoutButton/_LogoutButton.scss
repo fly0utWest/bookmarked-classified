@@ -11,7 +11,7 @@
   text-align: center;
   font-size: 0.875rem;
 
-  &:hover {
+  &:hover, &:active {
     background-color: var(--background2);
     color: var(--primary-color);
     transition: 0.1s ease;
