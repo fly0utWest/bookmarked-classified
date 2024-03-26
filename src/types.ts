@@ -240,8 +240,13 @@ export type ProfileAvatarProps = {
   classModifier?: string;
 };
 
+export type DropdownOption = {
+  value: string;
+  label: string;
+};
+
 export type DropdownMenuProps = {
-  children?: ReactNode;
+  options?: DropdownOption[];
   placeholder: string;
   classModifier?: string
 }

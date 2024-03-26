@@ -37,8 +37,8 @@ const Header: React.FC = () => {
               alt=''
             />
           </Link>
-          {<BurgerButton eventHandler={activateMenu} />}
-          <div className='header-nav'>
+          {isDesktopInterface ? null : <BurgerButton eventHandler={activateMenu} />}
+          {isDesktopInterface ? (<div className='header-nav'>
             <nav>
               <ul>
                 {user ? (
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                 <ThemeSwitcher classModifier='header__theme-switcher' />
               </ul>
             </nav>
-          </div>
+          </div>) : null}
         </div>
       </header>
       {isDesktopInterface ? null : <AsideMenu updatedState={openMenu} setUpdatedState={setOpenMenu} />}

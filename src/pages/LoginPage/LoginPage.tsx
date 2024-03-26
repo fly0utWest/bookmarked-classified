@@ -35,12 +35,10 @@ const LoginPage: React.FC = () => {
           <p className='login-form__greeting'>
             Войдите в аккаунт, чтобы продолжить.
           </p>
-          {error ? (
+          {loginError ? (
             <div
               role='alert'
-              className={`login-form__warning ${
-                loginError ? 'login-form__warning_active' : ''
-              }`}
+              className='login-form__warning'
             >
               Неправильный логин или пароль!
             </div>

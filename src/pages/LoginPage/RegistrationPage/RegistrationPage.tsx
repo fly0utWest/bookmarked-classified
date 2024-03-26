@@ -52,12 +52,10 @@ const RegistrationPage: React.FC = () => {
           <p className='login-form__greeting'>
             Зарегистрируйтесь, чтобы продолжить.
           </p>
-          {error ? (
+          {signupError ? (
             <div
               role='alert'
-              className={`login-form__warning ${
-                signupError ? 'login-form__warning_active' : ''
-              }`}
+              className='login-form__warning'
             >
               {signupError === 'Passwords are not the same.'
                 ? 'Пароли не совпадают!'

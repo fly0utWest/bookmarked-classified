@@ -7,9 +7,13 @@ export const FilmReviewForm: React.FC = () => {
       <p className='film-review-form__heading'>
         Расскажите свое мнение об этом фильме!
       </p>
-      <select name='' id=''></select>
       <DropdownMenu placeholder='Тип рецензии' />
-      <input className='film-review-form__input' type='text-field' />
+      <input
+        className='film-review-form__title'
+        placeholder='Заголовок'
+        type='text'
+      />
+      <textarea className='film-review-form__input' placeholder='Текст'></textarea>
       <button className='film-review-form__submit'>Отправить обзор</button>
     </div>
   );

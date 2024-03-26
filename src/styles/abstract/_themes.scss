@@ -36,7 +36,8 @@
   .header-profile__logout-button {
     color: var(--background);
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: var(--background);
     }
   }
@@ -44,7 +45,8 @@
   .header-profile__login-button {
     color: var(--primary-color);
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: var(--background);
     }
   }
@@ -57,7 +59,8 @@
         brightness(94%) contrast(82%);
     }
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: var(--background);
 
       .home-feature__icon {
@@ -93,11 +96,17 @@
       brightness(100%) contrast(94%);
   }
 
-  .film-review-form__submit:hover, .film-review-form__submit:active {
+  .film-review-form__submit:hover,
+  .film-review-form__submit:active {
     color: var(--background);
   }
 
   .login-form__warning {
     color: var(--background);
+  }
+
+  .dropdown-menu__placeholder::after {
+    filter: invert(16%) sepia(12%) saturate(1285%) hue-rotate(194deg)
+      brightness(91%) contrast(99%);
   }
 }
