@@ -41,12 +41,19 @@
   width: 100%;
   left: 0;
   top: 0;
-  height: 5rem;
   margin-top: 2.5rem;
   background-color: var(--background2);
-  padding: 0.4rem;
   border-radius: 0.25rem;
+  padding: 0.5rem 0;
 
   &__element {
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    &:hover,
+    &:active {
+      background-color: var(--background-light);
+    }
   }
 }

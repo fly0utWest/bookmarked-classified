@@ -54,6 +54,20 @@
       padding: 0.5rem;
       font-weight: 600;
       border-radius: 0.25rem;
+
+      &_success {
+        background-color: var(--green);
+        border-color: var(--teal);
+
+        a {
+          color: var(--pale-violet);
+
+          &:hover,
+          &:active {
+            color: var(--primary-color);
+          }
+        }
+      }
     }
 
     &__heading {

@@ -12,6 +12,7 @@ const RegistrationPage: React.FC = () => {
     error,
     signup,
     signupError,
+    signupSuccess,
     user,
   } = useAuth();
   const { theme } = useTheme();
@@ -53,13 +54,19 @@ const RegistrationPage: React.FC = () => {
             Зарегистрируйтесь, чтобы продолжить.
           </p>
           {signupError ? (
-            <div
-              role='alert'
-              className='login-form__warning'
-            >
+            <div role='alert' className='login-form__warning'>
               {signupError === 'Passwords are not the same.'
                 ? 'Пароли не совпадают!'
                 : 'Пользователь уже существует!'}
+            </div>
+          ) : null}
+          {signupSuccess ? (
+            <div
+              role='alert'
+              className='login-form__warning login-form__warning_success'
+            >
+              Пользователь успешно зарегистрирован! Теперь вы можете{' '}
+              <Link to='/login'>войти</Link>!
             </div>
           ) : null}
           <input

@@ -40,6 +40,7 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loginError, setLoginError] = useState<string | null>(null);
   const [signupError, setSignupError] = useState<string | null>(null);
+  const [signupSuccess, setSignupSuccess] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -94,11 +95,16 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
         if (!response.ok) {
           throw new Error('Registration has failed!');
         }
+        setSignupSuccess(true);
       } catch (error: unknown) {
-        console.error('Regostration: ', error);
+        console.error('Registration: ', error);
         setSignupError((error as Error).message);
+        setSignupSuccess(false);
       }
-    } else setSignupError('Passwords are not the same.');
+    } else {
+      setSignupError('Passwords are not the same.');
+      setSignupSuccess(false);
+    }
   };
 
   const fetchUser = useCallback(async () => {
@@ -134,6 +140,7 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
     error,
     loginError,
     signupError,
+    signupSuccess,
     isLoading,
     formData,
     signupFormData,

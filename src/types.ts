@@ -181,6 +181,7 @@ export interface AuthContextType {
   error: string | null;
   loginError: string | null;
   signupError: string | null;
+  signupSuccess: boolean;
   isLoading: boolean;
   formData: FormData;
   signupFormData: SignupFormData;
@@ -248,5 +249,6 @@ export type DropdownOption = {
 export type DropdownMenuProps = {
   options?: DropdownOption[];
   placeholder: string;
-  classModifier?: string
+  classModifier?: string;
+  onOptionSelect: (option: DropdownOption) => void;
 }
