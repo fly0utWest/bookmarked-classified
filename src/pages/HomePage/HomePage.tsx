@@ -9,7 +9,7 @@ import LoginButton from '../../components/ui/LoginButton/LoginButton';
 import HomeFeature from './HomeFeature/HomeFeature';
 
 const HomePage: React.FC = () => {
-  const { user, error } = useAuth();
+  const { user } = useAuth();
 
   return (
     <div className='home'>
@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
       {user ? (
         <Link to='/home' className='home__banner'>
           <img src='/assets/ad-banner.jpg' alt='' />
-         </Link>
+        </Link>
       ) : (
         <section className='home-features'>
           <HomeFeature

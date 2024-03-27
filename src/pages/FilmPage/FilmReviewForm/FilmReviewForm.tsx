@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import DropdownMenu from '../../../components/ui/DropdownMenu/DropdownMenu';
-import { DropdownOption } from '../../../types';
+import { DropdownOption, FilmReviewFormType } from '../../../types';
 
 export const FilmReviewForm: React.FC = () => {
   const options: DropdownOption[] = [
@@ -12,7 +12,19 @@ export const FilmReviewForm: React.FC = () => {
     null,
   );
   const [placeholder, setPlaceholder] = useState<string>('Тип рецензии');
+  const [reviewFormData, setReviewFormData] = useState<FilmReviewFormType>({
+    reviewHeading: '',
+    reviewType: selectedOption,
+    reviewBody: '',
+  }); 
 
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const {name, value} = event.target;
+      setReviewFormData((prevReviewFormData) => ({
+        ...prevReviewFormData,
+        [name]: value,
+      }))
+    }
     const handleOptionChange = (option: DropdownOption) => {
       setSelectedOption(option);
       setPlaceholder(option.label);

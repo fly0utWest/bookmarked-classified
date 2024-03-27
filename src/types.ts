@@ -252,3 +252,9 @@ export type DropdownMenuProps = {
   classModifier?: string;
   onOptionSelect: (option: DropdownOption) => void;
 }
+
+export type FilmReviewFormType = {
+  reviewHeading: string;
+  reviewType: DropdownOption | null;
+  reviewBody: string;
+}
