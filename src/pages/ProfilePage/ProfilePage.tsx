@@ -44,6 +44,7 @@ const ProfilePage: React.FC = () => {
           <ProfileListCounter
             favoritesCount={userData?.favourites}
             watchlistCount={userData?.watchLater}
+            login={userData?.login}
           />
         </div>
         <div className='profile-page__flex'>
@@ -51,7 +52,9 @@ const ProfilePage: React.FC = () => {
             <div className='container profile-page__container'>
               <h2>Любимые фильмы</h2>
               {userData?.favourites.length === 0 ? null : (
-                <Link to='/user/:id/favorites/'>Показать все</Link>
+                <Link to={`/user/${userData?.login}/favourites/`}>
+                  Показать все
+                </Link>
               )}
             </div>
             <ProfileList listArray={userData?.favourites} />
@@ -59,7 +62,9 @@ const ProfilePage: React.FC = () => {
             <div className='container profile-page__container'>
               <h2>Смотреть позже</h2>
               {userData?.watchLater.length === 0 ? null : (
-                <Link to='/user/:id/favorites/'>Показать все</Link>
+                <Link to={`/user/${userData?.login}/watchlater`}>
+                  Показать все
+                </Link>
               )}
             </div>
             <ProfileList listArray={userData?.watchLater} />
@@ -67,7 +72,9 @@ const ProfilePage: React.FC = () => {
             <div className='container profile-page__container'>
               <h2>Просмотренные</h2>
               {userData?.watched.length === 0 ? null : (
-                <Link to='/user/:id/favorites/'>Показать все</Link>
+                <Link to={`/user/${userData?.login}/watched`}>
+                  Показать все
+                </Link>
               )}
             </div>
             <ProfileList listArray={userData?.watched} />

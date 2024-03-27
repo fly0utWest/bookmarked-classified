@@ -37,53 +37,65 @@ const Header: React.FC = () => {
               alt=''
             />
           </Link>
-          {isDesktopInterface ? null : <BurgerButton eventHandler={activateMenu} />}
-          {isDesktopInterface ? (<div className='header-nav'>
-            <nav>
-              <ul>
-                {user ? (
-                  <>
-                    <li className='container'>
-                      <div className='header-profile'>
-                        <Link to={`/user/${user.login}`} className='header-container__profile'>
-                          <ProfileAvatar
-                            username={user?.login}
-                            classModifier='header-profile__profile-avatar'
-                          />
-                          {user?.login}
-                        </Link>
-                      </div>
-                      <div className='header-profile__dropdown'>
-                        <Link to={`/user/${user?.login}`}>Профиль</Link>
-                        <Link to='/home'>Главная</Link>
+          {isDesktopInterface ? null : (
+            <BurgerButton eventHandler={activateMenu} />
+          )}
+          {isDesktopInterface ? (
+            <div className='header-nav'>
+              <nav>
+                <ul>
+                  {user ? (
+                    <>
+                      <li className='container'>
+                        <div className='header-profile'>
+                          <Link
+                            to={`/user/${user.login}`}
+                            className='header-container__profile'
+                          >
+                            <ProfileAvatar
+                              username={user?.login}
+                              classModifier='header-profile__profile-avatar'
+                            />
+                            {user?.login}
+                          </Link>
+                        </div>
+                        <div className='header-profile__dropdown'>
+                          <Link to={`/user/${user?.login}`}>Профиль</Link>
+                          <Link to='/home'>Главная</Link>
+                          <Link to={`/user/${user?.login}/reviews`}>
+                            Обзоры
+                          </Link>
+                          <Link to={`/user/${user?.login}/watchlist`}>
+                            Смотреть позже
+                          </Link>
+                          <Link to={`/user/${user?.login}/favourites`}>
+                            Любимые
+                          </Link>
+                        </div>
+                      </li>
+                      <li>
                         <Link to='/catalogue'>Фильмы</Link>
-                        <Link to='/user/reviews'>Обзоры</Link>
-                        <Link to='/user/watchlist'>Смотреть позже</Link>
-                        <Link to='/user/favourites'>Любимые</Link>
-                      </div>
-                    </li>
-                    <li>
-                      <Link to=''>Фильмы</Link>
-                    </li>
-                    <li>
-                      <Link to=''>Списки</Link>
-                    </li>
-                  </>
-                ) : (
-                  <LoginButton classModifier='header-nav__login-button' />
-                )}
-                {user ? (
-                  <>
-                    <LogoutButton classModifier='header-profile__logout-button' />
-                  </>
-                ) : null}
-                <ThemeSwitcher classModifier='header__theme-switcher' />
-              </ul>
-            </nav>
-          </div>) : null}
+                      </li>
+                      <li></li>
+                    </>
+                  ) : (
+                    <LoginButton classModifier='header-nav__login-button' />
+                  )}
+                  {user ? (
+                    <>
+                      <LogoutButton classModifier='header-profile__logout-button' />
+                    </>
+                  ) : null}
+                  <ThemeSwitcher classModifier='header__theme-switcher' />
+                </ul>
+              </nav>
+            </div>
+          ) : null}
         </div>
       </header>
-      {isDesktopInterface ? null : <AsideMenu updatedState={openMenu} setUpdatedState={setOpenMenu} />}
+      {isDesktopInterface ? null : (
+        <AsideMenu updatedState={openMenu} setUpdatedState={setOpenMenu} />
+      )}
     </>
   );
 };

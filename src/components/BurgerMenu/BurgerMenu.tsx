@@ -54,22 +54,22 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             span='Фильмы'
           />
           <AsideNavLink
-            dest={`/user/${user?.login}/reviews`}
+            dest={user ? `/user/${user?.login}/reviews` : '/welcome'}
             src='/assets/icons/reviews.svg'
             span='Обзоры'
           />
           <AsideNavLink
-            dest={`/user/${user?.login}/watched`}
+            dest={user ? `/user/${user?.login}/watched` : '/welcome'}
             src='/assets/icons/watched.svg'
             span='Просмотренные'
           />
           <AsideNavLink
-            dest={`/user/${user?.login}/favourites`}
+            dest={user ? `/user/${user?.login}/favourites` : '/welcome'}
             src='/assets/icons/heart.svg'
             span='Любимые'
           />
           <AsideNavLink
-            dest={`/user/${user?.login}/watchlist`}
+            dest={user ? `/user/${user?.login}/watchlist` : '/welcome'}
             src='/assets/icons/watchlist.svg'
             span='Смотреть позже'
           />

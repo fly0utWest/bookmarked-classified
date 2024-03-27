@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { useAuth } from '../../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -8,10 +8,11 @@ import { useParams } from 'react-router-dom';
 import SlicedList from '../../components/SlicedList/SlicedList';
 import { FilmData, ListPageProps, User } from '../../types';
 import { convertParams } from '../../utils/utils';
-import { ListPageType } from '../../types';
+import { matchListType } from '../../utils/matchListType';
 
 const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {
   const { id } = useParams<{ id: string }>();
+  const { user } = useAuth();
 
   const userUrl = `${config.BACK_API}/users`;
   const {
@@ -20,24 +21,63 @@ const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {
     error: userError,
   } = useFetch<User>(userUrl, id);
 
-  const moviesUrl = `${config.BACK_API}/moviesFilter?${convertParams(
-    'id',
-    userData?.favourites!,
-  )}`;
+  const [films, setFilms] = useState<FilmData[]>([]);
+  const [isFilmsLoading, setIsFilmsLoading] = useState<boolean>(true);
+  const [filmsError, setFilmsError] = useState<string | null>(null);
 
-  const {
-    data: films,
-    isLoading: isFilmsLoading,
-    error: filmsError,
-  } = useFetch<FilmData[]>(moviesUrl);
+  const listType = matchListType(type, userData!);
+  const params = convertParams('id', listType);
 
-  console.log(films);
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    if (listType && listType.length > 0) {
+      const moviesUrl = `${config.BACK_API}/moviesFilter?${params}`;
+
+      fetch(moviesUrl, { signal: abortController.signal })
+        .then((response) => response.json())
+        .then((data) => {
+          setFilms(data);
+        })
+        .catch((error) => {
+          if ((error as Error).name !== 'AbortError') {
+            setFilmsError(
+              error instanceof Error
+                ? error.message
+                : 'An unexpected error has occurred',
+            );
+          }
+        })
+        .finally(() => {
+          setIsFilmsLoading(false);
+        });
+    }
+
+    return () => {
+      abortController.abort();
+    };
+  }, [userData, listType]);
+
+  if (listType?.length === 0) {
+    return <div>The list is currently empty.</div>;
+  }
 
   return (
-    <section className='list'>
-      <h1>{heading}</h1>
-      {films ? <SlicedList films={films} /> : null}
-    </section>
+    <div className='list'>
+      <h1 className='list-heading'>
+        {`Список "${heading}" пользователя `}
+        <span className='list-heading__nickname'>{userData?.login}</span>
+      </h1>
+      <section className='list-section'>
+        {films ? (
+          <SlicedList
+            films={films}
+            linkClassModifier='list-section__film-link'
+          />
+        ) : null}
+      </section>
+      <hr />
+    </div>
   );
 };
 

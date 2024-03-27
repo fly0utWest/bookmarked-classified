@@ -1,9 +1,32 @@
-.watchlist {
+.list {
   min-height: 90vh;
-  padding: 1.25rem 1rem;
+  width: 100%;
+  padding: 0 1.25rem;
 
-  h1 {
-    margin-bottom: 1.31rem;
-    font-weight: 700;
+  &-heading {
+    margin-top: 1.31rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+
+    &__nickname {
+      color: var(--pale-violet);
+    }
+  }
+
+  &-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.3rem;
+    width: 100%;
+
+    &__film-link {
+      width: 32%;
+
+      .lists-buttons {
+        display: flex;
+      }
+    }
   }
 }

@@ -101,7 +101,7 @@
       }
 
       margin-bottom: 0.5rem;
-      background-image: url('/src/pages/LoginPage/password-icon.svg');
+      background-image: url('/src/assets/icons/password-icon.svg');
       background-repeat: no-repeat;
       background-position: left 0.5rem center;
 
@@ -115,7 +115,7 @@
 
     &__username {
       @extend .login-form__password;
-      background-image: url('/src/pages/LoginPage/login-icon.svg');
+      background-image: url('/src/assets/icons/login-icon.svg');
       background-repeat: no-repeat;
       background-position: left 0.5rem center;
 

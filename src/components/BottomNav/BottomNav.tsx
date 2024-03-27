@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import BottomNavButton from './BottomNavButton/BottomNavButton';
-import homeIcon from './BottomNavButton/home.svg';
-import searchIcon from './BottomNavButton/search.svg';
-import profileIcon from './BottomNavButton/user.svg';
+import homeIcon from '../../assets/icons/home.svg';
+import searchIcon from '../../assets/icons/search.svg';
+import profileIcon from '../../assets/icons/user.svg';
 import { useDesktopInterface } from '../../hooks/useDesktopInterface';
 import { debounce } from '../../utils/debounce';
 import { useAuth } from '../../contexts/AuthContext';

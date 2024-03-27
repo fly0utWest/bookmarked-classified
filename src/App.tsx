@@ -46,6 +46,28 @@ const App: React.FC = () => {
             }
           ></Route>
           <Route
+            path='/user/:id/watchlist'
+            element={
+              <MainLayout>
+                <ListPage
+                  heading='Смотреть позже'
+                  type={ListPageType.WatchLater}
+                />
+              </MainLayout>
+            }
+          ></Route>
+          <Route
+            path='/user/:id/watched'
+            element={
+              <MainLayout>
+                <ListPage
+                  heading='Просмотренные'
+                  type={ListPageType.Watched}
+                />
+              </MainLayout>
+            }
+          ></Route>
+          <Route
             path='/film/:id'
             element={
               <MainLayout>

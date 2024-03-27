@@ -1,15 +1,29 @@
 .lists-buttons {
   display: none;
   position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
   bottom: 0;
   left: 0;
+  border-radius: 0 0.25rem 0 0;
   background-color: var(--background2);
   padding: 0.3rem;
+  gap: 0.3rem;
 
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     border: none;
     margin: 0.3rem;
     cursor: pointer;
+
+    & > img {
+      width: 18px;
+      height: 18px;
+    }
   }
 }

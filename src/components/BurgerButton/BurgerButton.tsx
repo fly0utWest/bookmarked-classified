@@ -1,5 +1,5 @@
 import React from 'react';
-import burger from './burger.svg';
+import burger from '../../assets/icons/burger.svg';
 import { BurgerButtonProps } from '../../types';
 
 const BurgerButton: React.FC<BurgerButtonProps> = (props) => {

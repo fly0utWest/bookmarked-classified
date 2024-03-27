@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../../contexts/ThemeContext';
-import moon from './moon.svg';
+import moon from '../../../assets/icons/moon.svg';
 import { ThemeSwitcherProps } from '../../../types';
 
 const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ classModifier }) => {

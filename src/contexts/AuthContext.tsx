@@ -107,11 +107,12 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
     }
   };
 
-  const fetchUser = useCallback(async () => {
+  const fetchUser = useCallback(async (signal: AbortSignal): Promise<void> => {
     try {
       const response = await fetch(`${config.BACK_API}/user`, {
         method: 'GET',
         credentials: 'include',
+        signal,
       });
 
       if (!response.ok) {
@@ -127,11 +128,17 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
   }, []);
 
   const reFetchUser = () => {
-    fetchUser();
+    const abortController = new AbortController();
+    fetchUser(abortController.signal);
   };
 
   useEffect(() => {
-    fetchUser();
+    const abortController = new AbortController();
+    fetchUser(abortController.signal);
+
+    return () => {
+      abortController.abort();
+    };
   }, [fetchUser, location]);
 
   const authData = {

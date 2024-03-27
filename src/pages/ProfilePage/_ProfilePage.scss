@@ -54,8 +54,7 @@
       justify-content: space-between;
 
       h2 {
-        font-size: 0.875rem;
-        font-weight: 600;
+        font-weight: 700;
         margin-bottom: 0.5rem;
       }
 
@@ -63,7 +62,8 @@
         font-size: 0.8rem;
         font-weight: 600;
 
-        &:hover, &:active {
+        &:hover,
+        &:active {
           color: var(--pale-violet);
         }
       }
@@ -82,7 +82,8 @@
         font-weight: 700;
       }
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         color: var(--pale-violet);
       }
 
@@ -105,6 +106,12 @@
 
     &__film-link {
       width: 16%;
+
+      &:hover {
+        .lists-buttons {
+          flex-direction: column;
+        }
+      }
     }
   }
 
@@ -125,7 +132,8 @@
         line-height: 1.75rem;
         font-weight: 700;
 
-        &:hover, &:active {
+        &:hover,
+        &:active {
           color: var(--pale-violet);
         }
       }

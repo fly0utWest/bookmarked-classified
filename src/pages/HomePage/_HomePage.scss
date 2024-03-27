@@ -5,7 +5,8 @@
   width: fit-content;
   overflow: hidden;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     border-color: var(--primary-color);
   }
 }
@@ -84,6 +85,7 @@
 
   &-features {
     margin: 2.6rem 0 3rem 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -110,7 +112,8 @@
         font-weight: 600;
       }
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         background-color: var(--red);
         color: var(--background2);
         transition: 0.1s ease;
@@ -127,7 +130,6 @@
 .popular-month {
   &__heading {
     font-family: inherit;
-    font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
   }
@@ -137,12 +139,13 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 0.3rem;
+    font-weight: 700;
 
     &__film-link {
       width: 32%;
 
       & > .lists-buttons {
-        display: block;
+        display: flex;
       }
     }
   }
@@ -214,7 +217,8 @@
   & > div {
     padding: 0.75rem;
 
-    a:hover, &:active {
+    a:hover,
+    &:active {
       color: var(--pale-violet);
     }
   }
@@ -251,11 +255,11 @@
   &-card {
     display: flex;
     flex-direction: column;
-    background-color: var(--background2);
     border-radius: 0.25rem;
+    background-color: var(--background2);
 
     &__container {
-      padding-left: 0.75rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.75rem;
     }
 
     &__heading {
@@ -264,15 +268,12 @@
       margin-top: 0.5rem;
       letter-spacing: 0.05rem;
 
-      a:hover, &:active {
+      a:hover,
+      &:active {
         color: var(--pale-violet);
       }
     }
-
-    &__description {
-      margin: 0.375rem;
-    }
-
+    
     &__image {
       border-radius: 0.25rem 0.25rem 0 0;
     }
@@ -281,7 +282,8 @@
       text-transform: uppercase;
       margin-top: 0.25rem;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         color: var(--pale-violet);
       }
     }

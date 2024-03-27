@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import watchedIcon from './watched.svg';
-import watchedIconActive from './watched-active.svg';
-import likedIcon from './liked.svg';
-import likedIconActive from './liked-active.svg';
-import listedIcon from './listed.svg';
-import listedIconActive from './listed-active.svg';
+import watchedIcon from '../../../assets/icons/watched.svg';
+import watchedIconActive from '../../../assets/icons/watched-active.svg';
+import likedIcon from '../../../assets/icons/liked.svg';
+import likedIconActive from '../../../assets/icons/liked-active.svg'
+import listedIcon from '../../../assets/icons/listed.svg';
+import listedIconActive from '../../../assets/icons/listed-active.svg';
 import { ListsButtonsProps } from '../../../types';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';

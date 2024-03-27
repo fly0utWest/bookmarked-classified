@@ -96,7 +96,8 @@
     flex-direction: row;
 
     &__image {
-      width: 100%;
+      flex-shrink: 0;
+      width: 32%;
       object-fit: cover;
     }
   }
@@ -116,7 +117,7 @@
 
       &:hover {
         &__film-link {
-          display: block;
+          display: flex;
         }
       }
     }
@@ -165,7 +166,7 @@
 
       &:hover {
         .lists-buttons {
-          display: block;
+          display: flex;
         }
       }
     }
@@ -266,5 +267,26 @@
   .article {
     max-width: 950px;
     margin: 0 auto;
+  }
+
+  .lists-buttons {
+    flex-direction: row;
+
+    button > img {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .list {
+    max-width: 950px;
+    width: 950px;
+    margin: 0 auto;
+
+    &-section {
+      &__film-link {
+        width: 16%;
+      }
+    }
   }
 }

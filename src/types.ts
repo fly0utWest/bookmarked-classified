@@ -108,6 +108,7 @@ export type PosterProps = {
 export type ProfileListCounterProps = {
   favoritesCount?: number[];
   watchlistCount?: number[];
+  login?: string;
 };
 
 export type HideInterfaceProps = {
@@ -205,7 +206,7 @@ export type HomeFeatureType = {
 
 export type ListPageProps = {
   heading?: string;
-  type?: ListPageType;
+  type: ListPageType;
 };
 
 export enum ListType {
@@ -218,7 +219,6 @@ export enum ListPageType {
   Favourites = 'favourites',
   WatchLater = 'watchlist',
   Watched = 'watched',
-  Catalogue = 'catalogue',
 }
 
 export type Theme = 'light' | 'dark';
