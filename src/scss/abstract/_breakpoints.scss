@@ -137,8 +137,14 @@
     margin-right: auto;
     margin-left: auto;
 
+    &-cover {
+      margin-top: 0;
+    }
+
     &-page {
       flex-direction: row;
+      justify-content: center;
+      margin-top: -5%;
 
       &-info {
         margin-left: 2.5rem;
@@ -235,6 +241,13 @@
     .review-card__film-link {
       width: 140px;
       height: 220px;
+    
+
+      &:hover {
+        .lists-buttons {
+          display: none;
+        }
+      }
     }
   }
 

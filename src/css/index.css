@@ -360,6 +360,14 @@ hr {
   animation: spin 2s linear infinite;
 }
 
+.auth-alert {
+  text-align: center;
+}
+.auth-alert__message {
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
 .header {
   position: fixed;
   width: 100%;
@@ -961,6 +969,17 @@ hr {
 .film-review-form__submit:focus {
   outline: none;
 }
+.film-review-form__warning {
+  width: 100%;
+  height: 100%;
+  background-color: var(--yellow);
+  color: var(--background2);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: 2px solid var(--peach);
+}
 
 .list {
   min-height: 90vh;
@@ -1070,6 +1089,12 @@ hr {
 .profile .profile-list-counter__favorites {
   border-right: 2px solid var(--border-grey);
 }
+.profile .profile-list-counter__favorites_inactive {
+  pointer-events: none;
+}
+.profile .profile-list-counter__watchlist_inactive {
+  pointer-events: none;
+}
 .profile-list-section, .profile-reviews-section {
   width: 100%;
   display: flex;
@@ -1085,38 +1110,6 @@ hr {
 }
 .profile hr {
   margin-bottom: 1.25rem;
-}
-.profile .review-card {
-  display: flex;
-  flex-direction: row;
-  padding: 0.5rem 0;
-  gap: 0.75rem;
-  border-bottom: 2px solid var(--border-grey);
-}
-.profile .review-card__info a {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-}
-.profile .review-card__info a:hover, .profile .review-card__info a:active {
-  color: var(--pale-violet);
-}
-.profile .review-card__info span {
-  margin-left: 0.3rem;
-  font-size: 0.875rem;
-  color: var(--grey);
-}
-.profile .review-card__info p {
-  font-size: 0.875rem;
-  padding-top: 0.5rem;
-  color: var(--grey);
-}
-.profile .review-card__film-link {
-  max-width: 80px;
-  max-height: 120px;
-}
-.profile .review-card__film-link:hover > .lists-buttons {
-  display: none;
 }
 .profile-reviews-section {
   margin-top: -0.5rem;
@@ -1357,6 +1350,7 @@ hr {
   padding: 0.5rem;
   font-weight: 600;
   border-radius: 0.25rem;
+  border-width: 2px;
 }
 .login-form__warning_success {
   background-color: var(--green);
@@ -1442,6 +1436,42 @@ hr {
 }
 .login-form__tip a:hover, .login-form__tip a:active {
   color: var(--pale-violet);
+}
+
+.review-title {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+.review-card {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 0;
+  gap: 0.75rem;
+  border-bottom: 2px solid var(--border-grey);
+}
+.review-card__info a {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+.review-card__info a:hover, .review-card__info a:active {
+  color: var(--pale-violet);
+}
+.review-card__info span {
+  margin-left: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--grey);
+}
+.review-card__info p {
+  font-size: 0.875rem;
+  color: var(--grey);
+}
+.review-card__film-link {
+  max-width: 80px;
+  max-height: 120px;
+}
+.review-card__film-link:hover .review-card__film-link > .lists-buttons {
+  display: none;
 }
 
 .onboarding {
@@ -1642,8 +1672,13 @@ hr {
     margin-right: auto;
     margin-left: auto;
   }
+  .film-cover {
+    margin-top: 0;
+  }
   .film-page {
     flex-direction: row;
+    justify-content: center;
+    margin-top: -5%;
   }
   .film-page-info {
     margin-left: 2.5rem;
@@ -1720,6 +1755,9 @@ hr {
     width: 140px;
     height: 220px;
   }
+  .profile .review-card__film-link:hover .lists-buttons {
+    display: none;
+  }
   .login-page {
     max-width: 950px;
     margin-left: auto;
@@ -1773,6 +1811,7 @@ hr {
   --green: #a6da95;
   --teal: #8bd5ca;
   --yellow: #eed49f;
+  --peach: #f5a97f;
 }
 
 [data-theme=light] {
@@ -1789,6 +1828,7 @@ hr {
   --green: #40a02b;
   --teal: #179299;
   --yellow: #df8e1d;
+  --peach: #fe640b;
 }
 [data-theme=light] .header-profile__logout-button {
   color: var(--background);

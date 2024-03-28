@@ -2,15 +2,15 @@ import { SlicedListProps } from '../../types';
 import config from '../../utils/utils';
 import FilmLink from '../../pages/HomePage/FilmLink/FilmLink';
 
-const SlicedList: React.FC<SlicedListProps> = (props) => {
+const SlicedList: React.FC<SlicedListProps> = ({films, limit, linkClassModifier}) => {
   return (
     <>
-      {props.films.slice(0, props.limit).map((film) => (
+      {films.slice(0, limit).map((film) => (
         <FilmLink
           key={film.id}
           filmId={String(film.id)}
           src={`${config.IMAGE_API}/film-covers/${film.cover}`}
-          classModifier={props.linkClassModifier}
+          classModifier={linkClassModifier}
         />
       ))}
     </>

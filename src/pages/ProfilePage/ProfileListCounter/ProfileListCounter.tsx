@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProfileListCounterProps } from '../../../types';
 
-const ProfileListCounter: React.FC<ProfileListCounterProps> = ({favoritesCount, watchlistCount, login}) => {
+const ProfileListCounter: React.FC<ProfileListCounterProps> = ({
+  favoritesCount,
+  watchlistCount,
+  login,
+}) => {
   const favCounter: number = favoritesCount?.length ?? 0;
   const watchLaterCounter: number = watchlistCount?.length ?? 0;
 
@@ -10,7 +14,9 @@ const ProfileListCounter: React.FC<ProfileListCounterProps> = ({favoritesCount, 
     <div className='profile-list-counter profile-page-header__profile-list-counter'>
       <Link
         to={`/user/${login}/favourites`}
-        className='profile-list-counter__favorites'
+        className={`profile-list-counter__favorites ${
+          favCounter === 0 ? 'profile-list-counter__favorites_inactive' : ''
+        }`}
       >
         <p className='counter'>{favCounter}</p>
         <p>
@@ -21,7 +27,9 @@ const ProfileListCounter: React.FC<ProfileListCounterProps> = ({favoritesCount, 
       </Link>
       <Link
         to={`/user/${login}/watchlist`}
-        className='profile-list-counter__watchlist'
+        className={`profile-list-counter__watchlist ${
+          watchLaterCounter === 0 ? 'profile-list-counter__watchlist_inactive' : ''
+        }`} 
       >
         <p className='counter'>{watchLaterCounter}</p>
         <p>

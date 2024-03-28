@@ -10,9 +10,12 @@ import FilmBackground from './FilmBackground/FilmBackground';
 import { useFetch } from '../../hooks/useFetch';
 import config from '../../utils/utils';
 import { getRatingClass } from '../../utils/getRatingClass';
+import AuthAlert from '../../components/AuthAlert/AuthAlert';
+import { useAuth } from '../../contexts/AuthContext';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { user } = useAuth();
   const baseUrl: string = `${config.BACK_API}/movies`;
 
   const { data: filmData, isLoading, error } = useFetch<FilmData>(baseUrl, id);
@@ -59,7 +62,11 @@ const FilmPage: React.FC = () => {
             </div>
           </div>
           <hr />
-          <FilmReviewForm />
+          {!user ? (
+            <AuthAlert message='Чтобы написать отзыв, сначала авторизуйтесь.' />
+          ) : (
+            <FilmReviewForm />
+          )}
         </section>
       </div>
     </div>

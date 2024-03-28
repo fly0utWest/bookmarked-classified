@@ -1,8 +1,23 @@
 import React from 'react';
-import ReviewCard from './ReviewCard/ReviewCard';
+import ReviewCard from '../../../components/ReviewCard/ReviewCard';
 import { ProfileReviewsProps } from '../../../types';
+import { convertParams } from '../../../utils/utils';
+import { useFetch } from '../../../hooks/useFetch';
+import { Review } from '../../../types';
+import config from '../../../utils/utils';
+import ReviewList from '../../../components/ReviewList/ReviewList';
 
-const ProfileReviews: React.FC<ProfileReviewsProps> = (props) => {
+const ProfileReviews: React.FC<ProfileReviewsProps> = ({ reviews }) => {
+  const reviewsUrl = `${config.BACK_API}/reviews?${convertParams(
+    'id',
+    reviews!,
+  )}`;
+  const {
+    data: reviewsData,
+    isLoading,
+    error,
+  } = useFetch<Review[]>(reviewsUrl);
+
   return (
     <>
       <div>
@@ -10,10 +25,7 @@ const ProfileReviews: React.FC<ProfileReviewsProps> = (props) => {
           <h2>Обзоры</h2>
         </div>
         <section className='profile-reviews-section'>
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+          <ReviewList reviews={reviewsData!} />
         </section>
       </div>
     </>

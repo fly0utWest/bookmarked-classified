@@ -8,6 +8,7 @@
 @use '../components/ui/ProfileAvatar/ProfileAvatar';
 @use '../components/ui/DropdownMenu/DropdownMenu';
 @use '../components/Loading/Loading';
+@use '../components/AuthAlert/AuthAlert';
 @use '../components/Header/Header';
 @use '../components/BottomNav/BottomNav';
 @use '../components/Footer/Footer';
@@ -21,6 +22,7 @@
 @use '../components/AsideNavLink/AsideNavLink';
 @use '../pages/ErrorPage/ErrorPage';
 @use '../pages/LoginPage/LoginPage';
+@use '../components/ReviewCard/ReviewCard';
 @use '../pages/OnBoarding/OnBoarding';
 @use '../pages/ArticlePage/_ArticlePage.scss';
 @use '../pages/SearchPage/SearchPage';

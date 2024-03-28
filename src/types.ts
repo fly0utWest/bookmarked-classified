@@ -142,6 +142,13 @@ export type ProfileReviewsProps = {
   reviews?: number[];
 };
 
+export type Review = {
+  movieId: number,
+  title: string,
+  reviewType: string,
+  text: string
+}
+
 export interface UseFetchResult<T> {
   data: T | null;
   isLoading: boolean;
@@ -251,10 +258,25 @@ export type DropdownMenuProps = {
   placeholder: string;
   classModifier?: string;
   onOptionSelect: (option: DropdownOption) => void;
-}
+};
 
 export type FilmReviewFormType = {
-  reviewHeading: string;
-  reviewType: DropdownOption | null;
-  reviewBody: string;
+  title: string;
+  reviewType?: string | null;
+  text: string;
+  movieId?: string;
+};
+
+export type AuthAlertProps = {
+  message: string
+}
+
+export type ReviewListProps = {
+  reviews: Review[];
+  limit?: number;
+  linkClassModifier?: string
+}
+
+export type ReviewCardProps = {
+  review?: Review;
 }
