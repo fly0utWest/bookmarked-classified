@@ -1,6 +1,6 @@
 import React from 'react';
-import ReviewCard from '../../../components/ReviewCard/ReviewCard';
 import { ProfileReviewsProps } from '../../../types';
+import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 import { convertParams } from '../../../utils/utils';
 import { useFetch } from '../../../hooks/useFetch';
 import { Review } from '../../../types';
@@ -25,7 +25,14 @@ const ProfileReviews: React.FC<ProfileReviewsProps> = ({ reviews }) => {
           <h2>Обзоры</h2>
         </div>
         <section className='profile-reviews-section'>
-          <ReviewList reviews={reviewsData!} />
+          {reviews?.length !== 0 ? (
+            <ReviewList reviews={reviewsData!} />
+          ) : (
+            <ErrorMessage
+              message='Обзоров пока нет :('
+              classModifier='profile-reviews-section__error-message'
+            />
+          )}
         </section>
       </div>
     </>

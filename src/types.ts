@@ -60,7 +60,6 @@ export type ArticleProps = {
 };
 
 export type ErrorPageProps = {
-  code: number;
   description: string;
 };
 
@@ -279,4 +278,9 @@ export type ReviewListProps = {
 
 export type ReviewCardProps = {
   review?: Review;
+}
+
+export type ErrorMessageProps = {
+  message: string;
+  classModifier?: string;
 }

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import config from '../../utils/utils';
 import { useFetch } from '../../hooks/useFetch';
 import { FilmData, ReviewCardProps } from '../../types';
+import Loading from '../Loading/Loading';
+import ErrorMessage from '../ui/ErrorMessage/ErrorMessage';
+import { matchReviewType } from '../../utils/matchReviewType';
 
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   const {
@@ -12,15 +15,23 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
     error,
   } = useFetch<FilmData>(`${config.BACK_API}/movies/${review?.movieId}`);
 
+if (isLoading) {
+  return <Loading />
+}
+
+if (error) {
+  return <ErrorMessage message={error} />
+}
+
   return (
-    <div className='review-card'>
+    <div className={`review-card  ${matchReviewType(review?.reviewType!)}`}>
       <FilmLink
         filmId={String(film?.id)}
         src={`${config.IMAGE_API}/film-covers/${film?.cover}`}
         classModifier='review-card__film-link'
       />
       <div className='review-card__info'>
-        <Link to={`/movies/${film?.id}`}>{film?.title}</Link>
+        <Link to={`/film/${film?.id}`}>{film?.title}</Link>
         <span>
           <i>{film?.year}</i>
         </span>

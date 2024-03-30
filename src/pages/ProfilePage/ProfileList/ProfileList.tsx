@@ -5,9 +5,8 @@ import { convertParams } from '../../../utils/utils';
 import { useFetch } from '../../../hooks/useFetch';
 import { FilmData } from '../../../types';
 import SlicedList from '../../../components/SlicedList/SlicedList';
-import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
-import ListError from '../../../components/ui/ListError/ListError';
+import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 
 const ProfileList: React.FC<ProfileListProps> = ({ listArray }) => {
   const baseUrl: string = `${config.BACK_API}/moviesFilter?${convertParams(
@@ -21,11 +20,11 @@ const ProfileList: React.FC<ProfileListProps> = ({ listArray }) => {
   }
 
   if (listArray?.length === 0) {
-    return <ListError />;
+    return <ErrorMessage message='В списке пока пусто :(' />;
   }
 
   if (error) {
-    return <ErrorPage code={204} description='данные не были получены' />;
+    return <ErrorMessage message={error} />;
   }
 
   return (

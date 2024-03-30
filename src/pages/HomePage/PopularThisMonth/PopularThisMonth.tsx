@@ -4,6 +4,7 @@ import { FilmData } from '../../../types';
 import { useFetch } from '../../../hooks/useFetch';
 import config from '../../../utils/utils';
 import SlicedList from '../../../components/SlicedList/SlicedList';
+import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 
 const PopularThisMonth: React.FC = () => {
   const baseUrl: string = `${config.BACK_API}/moviesFilter?sort=rating`;
@@ -14,7 +15,7 @@ const PopularThisMonth: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorPage code={204} description='данные не были получены' />;
+    return <ErrorMessage message={error} />;
   }
 
   return (

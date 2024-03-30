@@ -36,7 +36,7 @@ function watchFiles() {
 }
 
 async function clean() {
-  const {default: del} = await import('del');
+  const { default: del } = await import('del');
   return del(['dist']);
 }
 
@@ -62,7 +62,7 @@ function compileSass() {
     .src('./src/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(
-      sassCompiler({ outputStyle: 'expanded' }).on(
+      sassCompiler({ outputStyle: 'compressed' }).on(
         'error',
         sassCompiler.logError,
       ),

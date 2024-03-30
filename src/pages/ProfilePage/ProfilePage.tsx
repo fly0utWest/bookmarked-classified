@@ -23,7 +23,7 @@ const ProfilePage: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorPage code={204} description='данные не были получены' />;
+    return <ErrorPage description={error} />;
   }
 
   return (

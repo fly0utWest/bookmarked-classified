@@ -49,7 +49,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             span='Главная'
           />
           <AsideNavLink
-            dest='/films'
+            dest='/catalogue'
             src='/assets/icons/films.svg'
             span='Фильмы'
           />

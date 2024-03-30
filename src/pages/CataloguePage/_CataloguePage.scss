@@ -1,0 +1,25 @@
+.catalogue {
+  padding: 0 1.25rem 1rem 1.25rem;
+
+  &-heading {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-top: 1.31rem;
+    margin-bottom: 1rem;
+  }
+
+  &-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+
+    &__film-link {
+      width: 32%;
+
+      & > .lists-buttons {
+        display: flex;
+      }
+    }
+  }
+}

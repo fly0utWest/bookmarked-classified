@@ -241,7 +241,6 @@
     .review-card__film-link {
       width: 140px;
       height: 220px;
-    
 
       &:hover {
         .lists-buttons {
@@ -293,12 +292,30 @@
 
   .list {
     max-width: 950px;
-    width: 950px;
     margin: 0 auto;
 
     &-section {
       &__film-link {
         width: 16%;
+
+        .lists-buttons {
+          display: none;
+        }
+      }
+    }
+  }
+  .catalogue {
+    max-width: 950px;
+    min-height: 90vh;
+    margin: 0 auto;
+
+    &-section {
+      &__film-link {
+        width: 16%;
+
+        .lists-buttons {
+          display: none;
+        }
       }
     }
   }

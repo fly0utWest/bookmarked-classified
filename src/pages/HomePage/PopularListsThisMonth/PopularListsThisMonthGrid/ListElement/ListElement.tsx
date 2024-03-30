@@ -1,8 +1,8 @@
 import React from 'react';
 import { ListElementProps } from '../../../../../types';
 import SlicedList from '../../../../../components/SlicedList/SlicedList';
-import ErrorPage from '../../../../ErrorPage/ErrorPage';
 import Loading from '../../../../../components/Loading/Loading';
+import ErrorMessage from '../../../../../components/ui/ErrorMessage/ErrorMessage';
 import { useFetch } from '../../../../../hooks/useFetch';
 import { FilmData } from '../../../../../types';
 
@@ -14,7 +14,7 @@ const ListElelement: React.FC<ListElementProps> = (props) => {
   } = useFetch<FilmData[]>(props.baseUrl);
 
   if (error) {
-    return <ErrorPage code={204} description='данные не были получены' />;
+    return <ErrorMessage message={error} />;
   }
   if (isLoading) {
     return <Loading />;

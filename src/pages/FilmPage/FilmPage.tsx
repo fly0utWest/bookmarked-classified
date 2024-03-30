@@ -25,7 +25,7 @@ const FilmPage: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorPage code={204} description='данные не были получены' />;
+    return <ErrorPage description={error} />;
   }
 
   return (
@@ -65,7 +65,7 @@ const FilmPage: React.FC = () => {
           {!user ? (
             <AuthAlert message='Чтобы написать отзыв, сначала авторизуйтесь.' />
           ) : (
-            <FilmReviewForm />
+            user?.reviews?.includes(Number(id))
           )}
         </section>
       </div>

@@ -57,48 +57,21 @@
 
   .home-features .home-feature {
     color: var(--primary-color);
-
-    &__icon {
-      filter: invert(8%) sepia(9%) saturate(4273%) hue-rotate(194deg)
-        brightness(94%) contrast(82%);
-    }
-
+    
     &:hover,
     &:active {
       color: var(--background);
 
-      .home-feature__icon {
-        filter: invert(96%) sepia(7%) saturate(96%) hue-rotate(182deg)
-          brightness(100%) contrast(94%);
-      }
+
     }
   }
 
   .bottom-nav__button .container {
-    img {
-      filter: invert(12%) sepia(10%) saturate(2289%) hue-rotate(194deg)
-        brightness(95%) contrast(90%);
-    }
-
     &::after {
       border-bottom: 2px solid var(--primary-color);
     }
   }
 
-  .burger-button {
-    filter: invert(12%) sepia(10%) saturate(2289%) hue-rotate(194deg)
-      brightness(95%) contrast(90%);
-  }
-
-  .nav-link > img {
-    filter: invert(12%) sepia(10%) saturate(2289%) hue-rotate(194deg)
-      brightness(95%) contrast(90%);
-  }
-
-  .nav-link_active > img {
-    filter: invert(96%) sepia(7%) saturate(96%) hue-rotate(182deg)
-      brightness(100%) contrast(94%);
-  }
 
   .film-review-form__submit:hover,
   .film-review-form__submit:active {
@@ -108,9 +81,25 @@
   .login-form__warning {
     color: var(--background);
   }
+}
 
-  .dropdown-menu__placeholder::after {
-    filter: invert(16%) sepia(12%) saturate(1285%) hue-rotate(194deg)
-      brightness(91%) contrast(99%);
+.review-card {
+  &__info {
+    a {
+      color: var(--background);
+
+      &:active,
+      &:hover {
+        color: var(--pale-violet);
+      }
+    }
+
+    span {
+      color: var(--background);
+    }
+
+    p {
+      color: var(--background);
+    }
   }
 }

@@ -5,6 +5,7 @@ import HideInterface from './pages/HideInterface';
 import Loading from './components/Loading/Loading';
 import ScrollToTop from './pages/ScrollToTop';
 import { ListPageType } from './types';
+import CataloguePage from './pages/CataloguePage/CataloguePage';
 
 const RegistrationPage = lazy(
   () => import('./pages/LoginPage/RegistrationPage/RegistrationPage'),
@@ -60,10 +61,7 @@ const App: React.FC = () => {
             path='/user/:id/watched'
             element={
               <MainLayout>
-                <ListPage
-                  heading='Просмотренные'
-                  type={ListPageType.Watched}
-                />
+                <ListPage heading='Просмотренные' type={ListPageType.Watched} />
               </MainLayout>
             }
           ></Route>
@@ -87,7 +85,7 @@ const App: React.FC = () => {
             path='*'
             element={
               <MainLayout>
-                <ErrorPage code={404} description='странца не найдена' />
+                <ErrorPage description='Cтранца не найдена' />
               </MainLayout>
             }
           ></Route>
@@ -128,6 +126,14 @@ const App: React.FC = () => {
             element={
               <MainLayout>
                 <SearchPage />
+              </MainLayout>
+            }
+          ></Route>
+          <Route
+            path='catalogue'
+            element={
+              <MainLayout>
+                <CataloguePage />
               </MainLayout>
             }
           ></Route>
