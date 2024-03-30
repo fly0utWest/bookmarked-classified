@@ -14,19 +14,22 @@ import AuthAlert from '../../components/AuthAlert/AuthAlert';
 import { useAuth } from '../../contexts/AuthContext';
 import { Review } from '../../types';
 import { convertParams } from '../../utils/utils';
+import ReviewCard from '../../components/ReviewCard/ReviewCard';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
-  const baseUrl: string = `${config.BACK_API}/movies`;
+  const movieUrl: string = `${config.BACK_API}/movies`;
+  const reviewUrl: string = `${config.BACK_API}/review`;
 
-  const { data: filmData, isLoading, error } = useFetch<FilmData>(baseUrl, id);
+  const { data: filmData, isLoading, error } = useFetch<FilmData>(movieUrl, id);
+  const {
+    data: reviewData,
+    isLoading: reviewLoading,
+    error: reviewError,
+  } = useFetch<Review[]>(`${reviewUrl}/${user?.id}/${id}`);
 
-  const {data: reviewData, isLoading: reviewIsLoading, error: reviewError} = useFetch<Review[]>(`${config.BACK_API}/reviews?${convertParams('id', user?.reviews!)}`);
-
-  if (reviewData) {
-    
-  }
+  console.log(reviewData);
 
   if (isLoading) {
     return <Loading />;
@@ -70,8 +73,11 @@ const FilmPage: React.FC = () => {
             </div>
           </div>
           <hr />
-          {!user ? (
+          {!user && (
             <AuthAlert message='Чтобы написать отзыв, сначала авторизуйтесь.' />
+          )}
+          {reviewData?.length !== 0 && reviewData !== null ? (
+            <ReviewCard review={reviewData?.[0]} />
           ) : (
             <FilmReviewForm />
           )}

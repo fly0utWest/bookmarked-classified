@@ -10,12 +10,16 @@ import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
 import { useTheme } from '../../contexts/ThemeContext';
 import ProfileAvatar from '../ui/ProfileAvatar/ProfileAvatar';
 import { useDesktopInterface } from '../../hooks/useDesktopInterface';
+import SearchInput from '../SearchInput/SearchInput';
+import SearchButton from '../ui/SearchButton/SearchButton';
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const { user } = useAuth();
   const { theme } = useTheme();
   const isDesktopInterface = useDesktopInterface();
+
+  const [isSearchBarActive, setIsSearchBarActive] = useState<boolean>(false);
 
   useEffect(() => {
     document.body.classList.toggle('body_noscroll', openMenu);
@@ -76,7 +80,9 @@ const Header: React.FC = () => {
                       <li>
                         <Link to='/catalogue'>Фильмы</Link>
                       </li>
-                      <li></li>
+                      <li><SearchButton eventHandler={() => {
+                        setIsSearchBarActive(!isSearchBarActive)
+                      }}/></li>
                     </>
                   ) : (
                     <LoginButton classModifier='header-nav__login-button' />
@@ -93,6 +99,9 @@ const Header: React.FC = () => {
           ) : null}
         </div>
       </header>
+      {isDesktopInterface ? (
+        <SearchInput classModifier='header__search-input' innerState={isSearchBarActive}/>
+      ) : null}
       {isDesktopInterface ? null : (
         <AsideMenu updatedState={openMenu} setUpdatedState={setOpenMenu} />
       )}

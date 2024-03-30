@@ -25,7 +25,7 @@ const ProfileList: React.FC<ProfileListProps> = ({ listArray }) => {
   }
 
   if (error) {
-  return <ErrorMessage message={error} classModifier='error-message_warning f'/>
+  return <ErrorMessage message="Произошла ошибка." classModifier='error-message_warning f'/>
   }
 
   return (

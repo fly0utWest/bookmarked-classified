@@ -88,7 +88,7 @@ const App: React.FC = () => {
             path='*'
             element={
               <MainLayout>
-                <ErrorPage code={404} description='странца не найдена' />
+                <ErrorPage code={404} description='Страница не найдена' />
               </MainLayout>
             }
           ></Route>

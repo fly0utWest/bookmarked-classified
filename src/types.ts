@@ -144,11 +144,11 @@ export type ProfileReviewsProps = {
 
 export type Review = {
   id: number;
-  movieId: number,
-  title: string,
-  reviewType: string,
-  text: string
-}
+  movieId: number;
+  title: string;
+  reviewType: string;
+  text: string;
+};
 
 export interface UseFetchResult<T> {
   data: T | null;
@@ -269,20 +269,30 @@ export type FilmReviewFormType = {
 };
 
 export type AuthAlertProps = {
-  message: string
-}
+  message: string;
+};
 
 export type ReviewListProps = {
   reviews: Review[];
   limit?: number;
-  linkClassModifier?: string
-}
+  linkClassModifier?: string;
+};
 
 export type ReviewCardProps = {
   review?: Review;
-}
+};
 
 export type ErrorMessageProps = {
   message: string;
   classModifier?: string;
-}
+};
+
+export type SearchInputProps = {
+  classModifier?: string;
+  innerState?: boolean;
+};
+
+export type SearchButtonProps = {
+  eventHandler: () => void;
+  
+};

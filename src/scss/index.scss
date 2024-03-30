@@ -7,6 +7,7 @@
 @use '../components/ui/ProfileAvatar/ProfileAvatar';
 @use '../components/ui/ErrorMessage/ErrorMessage';
 @use '../components/ui/DropdownMenu/DropdownMenu';
+@use '../components/SearchInput/SearchInput';
 @use '../components/Loading/Loading';
 @use '../components/AuthAlert/AuthAlert';
 @use '../components/Header/Header';
@@ -16,6 +17,7 @@
 @use '../pages/FilmPage/FilmPage';
 @use '../pages/ProfilePage/ProfilePage';
 @use '../pages/ListPage/ListPage';
+@use '../components/ui/SearchButton/SearchButton';
 @use '../pages/CataloguePage/CataloguePage';
 @use '../components/BurgerMenu/BurgerMenu';
 @use '../components/BurgerButton/BurgerButton';

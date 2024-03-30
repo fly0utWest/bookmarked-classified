@@ -4,7 +4,7 @@ import { FilmData } from '../../types'
 import config from '../../utils/utils'
 import SlicedList from '../../components/SlicedList/SlicedList'
 import Loading from '../../components/Loading/Loading'
-import ErrorMessage from '../../components/ui/ErrorMessage/ErrorMessage'
+import ErrorPage from '../ErrorPage/ErrorPage'
 
 const CataloguePage = () => {
   const {data: films, isLoading, error} = useFetch<FilmData[]>(`${config.BACK_API}/movies`);
@@ -14,7 +14,7 @@ const CataloguePage = () => {
     }
 
     if (error) {
-        return <ErrorMessage message={error}/>
+        return <ErrorPage description='Данные не были получены' code={204}/>
     }
 
     return (

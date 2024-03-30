@@ -14,7 +14,7 @@ const PopularThisMonth: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorMessage message={error} classModifier='error-message_warning'/>  }
+    return <ErrorMessage message='Проишошла ошибка' classModifier='error-message_warning'/>  }
 
   return (
     <>

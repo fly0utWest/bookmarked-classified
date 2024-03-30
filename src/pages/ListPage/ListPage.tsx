@@ -59,7 +59,7 @@ const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {
   }, [userData, listType]);
 
   if (userError) {
-    return <ErrorMessage message={userError}/>
+    return <ErrorMessage message='Произошла ошибка.' />;
   }
 
   if (listType?.length === 0) {
@@ -70,7 +70,7 @@ const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {
           <span className='list-heading__nickname'>{userData?.login}</span>
         </h1>
         <section className='list-section'>
-         <ErrorMessage message='В списке пока пусто :('/> 
+          <ErrorMessage message='В списке пока пусто :(' />
         </section>
         <hr />
       </div>

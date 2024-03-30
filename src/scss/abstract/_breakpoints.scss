@@ -292,6 +292,10 @@
   .catalogue {
     max-width: 950px;
     margin: 0 auto;
+
+    .film-link {
+      width: 16%;
+    }
   }
 
   div[class$='film-link'] {
