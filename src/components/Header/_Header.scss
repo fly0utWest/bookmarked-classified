@@ -36,8 +36,7 @@
     }
 
     &__logout-button {
-      &:hover,
-      &:active {
+      &:hover, &:active {
         background-color: var(--pale-violet);
       }
     }
@@ -59,7 +58,7 @@
       }
 
       .container {
-        padding: 0.3rem 1rem;
+        padding: 0.3rem;
         position: relative;
         border-radius: 0.25rem 0.25rem 0 0;
         flex-shrink: 0;
@@ -78,6 +77,7 @@
 
     & nav > ul {
       li:not(.container) {
+        margin-top: 2px;
 
         & a {
           display: inline-block;
@@ -90,8 +90,7 @@
             transition: transform 0.15s ease-in-out;
           }
 
-          &:hover::after,
-          &:active::after {
+          &:hover::after, &:active::after {
             transform: scaleX(1);
           }
         }
@@ -99,8 +98,7 @@
     }
 
     &__login-button {
-      &:hover,
-      &:active {
+      &:hover, &:active {
         background-color: var(--red);
       }
     }
@@ -113,8 +111,7 @@
     gap: 0.5rem;
 
     &__logout-button {
-      &:hover,
-      &:active {
+      &:hover, &:active {
         background-color: var(--pale-violet);
       }
     }
@@ -123,7 +120,7 @@
       display: none;
       flex-direction: column;
       position: absolute;
-      width: max-content;
+      width: 100%;
       height: auto;
       top: 100%;
       left: 0;
@@ -141,6 +138,8 @@
         transition: background-color 0.1s;
       }
     }
+
+
   }
 
   &__theme-switcher {

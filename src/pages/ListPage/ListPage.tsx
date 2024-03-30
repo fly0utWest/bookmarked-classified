@@ -3,7 +3,6 @@ import { useFetch } from '../../hooks/useFetch';
 import { useAuth } from '../../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import config from '../../utils/utils';
-import ErrorPage from '../ErrorPage/ErrorPage';
 import { useParams } from 'react-router-dom';
 import SlicedList from '../../components/SlicedList/SlicedList';
 import { FilmData, ListPageProps, User } from '../../types';
@@ -59,19 +58,23 @@ const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {
     };
   }, [userData, listType]);
 
+  if (userError) {
+    return <ErrorMessage message={userError}/>
+  }
+
   if (listType?.length === 0) {
-      return (
-        <div className='list'>
-          <h1 className='list-heading'>
-            {`Список "${heading}" пользователя `}
-            <span className='list-heading__nickname'>{userData?.login}</span>
-          </h1>
-          <section className='list-section'>
-              <ErrorMessage message='В списке пока пусто :(' />
-          </section>
-          <hr />
-        </div>
-      );
+    return (
+      <div className='list'>
+        <h1 className='list-heading'>
+          {`Список "${heading}" пользователя `}
+          <span className='list-heading__nickname'>{userData?.login}</span>
+        </h1>
+        <section className='list-section'>
+         <ErrorMessage message='В списке пока пусто :('/> 
+        </section>
+        <hr />
+      </div>
+    );
   }
 
   return (
@@ -81,13 +84,12 @@ const ListPage: React.FC<ListPageProps> = ({ heading, type }) => {
         <span className='list-heading__nickname'>{userData?.login}</span>
       </h1>
       <section className='list-section'>
-        {films && 
+        {films ? (
           <SlicedList
             films={films}
             linkClassModifier='list-section__film-link'
-          />}
-        {filmsError ? <ErrorMessage message={filmsError!}/> : null}
-        {listType?.length === 0 && <ErrorMessage message='В списке пока пусто :('/>}
+          />
+        ) : null}
       </section>
       <hr />
     </div>

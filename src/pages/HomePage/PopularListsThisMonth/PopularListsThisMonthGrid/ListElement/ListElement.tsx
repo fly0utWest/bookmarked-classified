@@ -2,9 +2,9 @@ import React from 'react';
 import { ListElementProps } from '../../../../../types';
 import SlicedList from '../../../../../components/SlicedList/SlicedList';
 import Loading from '../../../../../components/Loading/Loading';
-import ErrorMessage from '../../../../../components/ui/ErrorMessage/ErrorMessage';
 import { useFetch } from '../../../../../hooks/useFetch';
 import { FilmData } from '../../../../../types';
+import ErrorMessage from '../../../../../components/ui/ErrorMessage/ErrorMessage';
 
 const ListElelement: React.FC<ListElementProps> = (props) => {
   const {
@@ -14,8 +14,7 @@ const ListElelement: React.FC<ListElementProps> = (props) => {
   } = useFetch<FilmData[]>(props.baseUrl);
 
   if (error) {
-    return <ErrorMessage message={error} />;
-  }
+    return <ErrorMessage message={error} classModifier='error-message_warning'/>  }
   if (isLoading) {
     return <Loading />;
   }

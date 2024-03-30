@@ -1,4 +1,3 @@
-import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
 import { useFetch } from '../../../hooks/useFetch';
@@ -15,8 +14,7 @@ const PopularThisMonth: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorMessage message={error} />;
-  }
+    return <ErrorMessage message={error} classModifier='error-message_warning'/>  }
 
   return (
     <>

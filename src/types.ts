@@ -60,6 +60,7 @@ export type ArticleProps = {
 };
 
 export type ErrorPageProps = {
+  code: number;
   description: string;
 };
 
@@ -142,6 +143,7 @@ export type ProfileReviewsProps = {
 };
 
 export type Review = {
+  id: number;
   movieId: number,
   title: string,
   reviewType: string,

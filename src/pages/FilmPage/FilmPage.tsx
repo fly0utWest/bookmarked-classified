@@ -12,6 +12,8 @@ import config from '../../utils/utils';
 import { getRatingClass } from '../../utils/getRatingClass';
 import AuthAlert from '../../components/AuthAlert/AuthAlert';
 import { useAuth } from '../../contexts/AuthContext';
+import { Review } from '../../types';
+import { convertParams } from '../../utils/utils';
 
 const FilmPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,12 +22,18 @@ const FilmPage: React.FC = () => {
 
   const { data: filmData, isLoading, error } = useFetch<FilmData>(baseUrl, id);
 
+  const {data: reviewData, isLoading: reviewIsLoading, error: reviewError} = useFetch<Review[]>(`${config.BACK_API}/reviews?${convertParams('id', user?.reviews!)}`);
+
+  if (reviewData) {
+    
+  }
+
   if (isLoading) {
     return <Loading />;
   }
 
   if (error) {
-    return <ErrorPage description={error} />;
+    return <ErrorPage code={204} description='данные не были получены' />;
   }
 
   return (
@@ -57,7 +65,7 @@ const FilmPage: React.FC = () => {
             <p>Актёры</p>
             <div className='container'>
               {filmData?.cast?.map((castMember) => (
-                <CastCard name={castMember} />
+                <CastCard key={castMember} name={castMember} />
               ))}
             </div>
           </div>
@@ -65,7 +73,7 @@ const FilmPage: React.FC = () => {
           {!user ? (
             <AuthAlert message='Чтобы написать отзыв, сначала авторизуйтесь.' />
           ) : (
-            user?.reviews?.includes(Number(id))
+            <FilmReviewForm />
           )}
         </section>
       </div>

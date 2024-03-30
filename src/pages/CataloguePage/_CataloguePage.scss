@@ -1,5 +1,6 @@
 .catalogue {
   padding: 0 1.25rem 1rem 1.25rem;
+  min-height: 90vh;
 
   &-heading {
     font-weight: 700;
@@ -17,7 +18,7 @@
     &__film-link {
       width: 32%;
 
-      & > .lists-buttons {
+      .lists-buttons {
         display: flex;
       }
     }

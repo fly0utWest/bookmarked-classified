@@ -44,9 +44,6 @@ const Header: React.FC = () => {
             <div className='header-nav'>
               <nav>
                 <ul>
-                  <li>
-                    <Link to='/catalogue'>Фильмы</Link>
-                  </li>
                   {user ? (
                     <>
                       <li className='container'>
@@ -74,11 +71,12 @@ const Header: React.FC = () => {
                           <Link to={`/user/${user?.login}/favourites`}>
                             Любимые
                           </Link>
-                          <Link to={`/user/${user?.login}/watched`}>
-                            Просмотренные
-                          </Link>
                         </div>
                       </li>
+                      <li>
+                        <Link to='/catalogue'>Фильмы</Link>
+                      </li>
+                      <li></li>
                     </>
                   ) : (
                     <LoginButton classModifier='header-nav__login-button' />

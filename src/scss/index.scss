@@ -4,8 +4,8 @@
 @use '../components/ui/LogoutButton/LogoutButton';
 @use '../components/ui/ListsButtons/ListsButtons';
 @use '../components/ui/ThemeSwitcher/ThemeSwitcher';
-@use '../components/ui/ErrorMessage/ErrorMessage';
 @use '../components/ui/ProfileAvatar/ProfileAvatar';
+@use '../components/ui/ErrorMessage/ErrorMessage';
 @use '../components/ui/DropdownMenu/DropdownMenu';
 @use '../components/Loading/Loading';
 @use '../components/AuthAlert/AuthAlert';
@@ -14,9 +14,9 @@
 @use '../components/Footer/Footer';
 @use '../pages/HomePage/HomePage';
 @use '../pages/FilmPage/FilmPage';
+@use '../pages/ProfilePage/ProfilePage';
 @use '../pages/ListPage/ListPage';
 @use '../pages/CataloguePage/CataloguePage';
-@use '../pages/ProfilePage/ProfilePage';
 @use '../components/BurgerMenu/BurgerMenu';
 @use '../components/BurgerButton/BurgerButton';
 @use '../components/ProfileInfo/ProfileInfo';

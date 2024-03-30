@@ -1,8 +1,9 @@
 .article {
   min-height: 90vh;
+  margin-bottom: 1.25rem;
 
   &-heading {
-    margin: 1.25rem;
+    margin: 1.31rem 1.25rem 1.25rem 1.25rem;
     font-weight: 700;
     font-size: 1.5rem;
   }
@@ -15,10 +16,6 @@
       &__heading {
         font-weight: 700;
         font-size: 1rem;
-      }
-
-      &__section {
-
       }
 
       & > i {

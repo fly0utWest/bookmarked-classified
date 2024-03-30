@@ -8,7 +8,7 @@ const ErrorPage: React.FC<ErrorPageProps> = (props) => {
       <div className='error__image'>
         <img src='/assets/error.gif' alt='' />
       </div>
-      <h1 className='error__heading'>{`Ошибка: ${props.description} :(`}</h1>
+      <h1 className='error__heading'>{`Ошибка ${props.code}: ${props.description} :(`}</h1>
       <Link to='/home'>На главную</Link>
     </div>
   );

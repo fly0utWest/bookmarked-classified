@@ -10,7 +10,7 @@ const ReviewList: React.FC<ReviewListProps> = ({
   return (
     <>
       {reviews?.slice(0, limit).map((review) => (
-        <ReviewCard review={review} />
+        <ReviewCard key={review.id} review={review} />
       ))}
     </>
   );

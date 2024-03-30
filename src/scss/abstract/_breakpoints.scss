@@ -109,18 +109,6 @@
   .popular-month-section {
     flex-wrap: nowrap;
     gap: 0.5rem;
-
-    &__film-link {
-      & > .lists-buttons {
-        display: none;
-      }
-
-      &:hover {
-        &__film-link {
-          display: flex;
-        }
-      }
-    }
   }
 
   .burger-menu {
@@ -292,31 +280,23 @@
 
   .list {
     max-width: 950px;
+    width: 950px;
     margin: 0 auto;
 
     &-section {
       &__film-link {
         width: 16%;
-
-        .lists-buttons {
-          display: none;
-        }
       }
     }
   }
   .catalogue {
     max-width: 950px;
-    min-height: 90vh;
     margin: 0 auto;
+  }
 
-    &-section {
-      &__film-link {
-        width: 16%;
-
-        .lists-buttons {
-          display: none;
-        }
-      }
+  div[class$='film-link'] {
+    .lists-buttons {
+      display: none;
     }
   }
 }

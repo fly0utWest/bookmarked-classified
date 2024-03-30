@@ -1,7 +1,12 @@
 .error-message {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--red);
+  color: var(--primary-color);
+
+
+  &_warning {
+    color: var(--red);
+  }
 }
 
 .profile-reviews-section__error-message {

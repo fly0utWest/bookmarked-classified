@@ -5,7 +5,6 @@ import HideInterface from './pages/HideInterface';
 import Loading from './components/Loading/Loading';
 import ScrollToTop from './pages/ScrollToTop';
 import { ListPageType } from './types';
-import CataloguePage from './pages/CataloguePage/CataloguePage';
 
 const RegistrationPage = lazy(
   () => import('./pages/LoginPage/RegistrationPage/RegistrationPage'),
@@ -19,6 +18,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const OnBoarding = lazy(() => import('./pages/OnBoarding/OnBoarding'));
 const ArticlePage = lazy(() => import('./pages/ArticlePage/ArticlePage'));
 const SearchPage = lazy(() => import('./pages/SearchPage/SearchPage'));
+const CataloguePage = lazy(() => import('./pages/CataloguePage/CataloguePage'));
 
 const App: React.FC = () => {
   return (
@@ -61,7 +61,10 @@ const App: React.FC = () => {
             path='/user/:id/watched'
             element={
               <MainLayout>
-                <ListPage heading='Просмотренные' type={ListPageType.Watched} />
+                <ListPage
+                  heading='Просмотренные'
+                  type={ListPageType.Watched}
+                />
               </MainLayout>
             }
           ></Route>
@@ -85,7 +88,7 @@ const App: React.FC = () => {
             path='*'
             element={
               <MainLayout>
-                <ErrorPage description='Cтранца не найдена' />
+                <ErrorPage code={404} description='странца не найдена' />
               </MainLayout>
             }
           ></Route>
@@ -130,7 +133,7 @@ const App: React.FC = () => {
             }
           ></Route>
           <Route
-            path='catalogue'
+            path='/catalogue'
             element={
               <MainLayout>
                 <CataloguePage />

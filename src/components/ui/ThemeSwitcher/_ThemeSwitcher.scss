@@ -7,6 +7,11 @@
   font-size: 0.815rem;
   flex-shrink: 0;
 
+  &__icon {
+    filter: invert(46%) sepia(9%) saturate(842%) hue-rotate(193deg)
+      brightness(95%) contrast(94%);
+  }
+
   .checkbox {
     display: flex;
     align-items: center;
