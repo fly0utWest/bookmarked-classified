@@ -74,13 +74,10 @@ const FilmPage: React.FC = () => {
           </div>
           <hr />
           {!user && (
-            <AuthAlert message='Чтобы написать отзыв, сначала авторизуйтесь.' />
+            <AuthAlert message='Сначала авторизуйтесь, чтобы написать рецензию.' />
           )}
-          {reviewData?.length !== 0 && reviewData !== null ? (
-            <ReviewCard review={reviewData?.[0]} />
-          ) : (
-            <FilmReviewForm />
-          )}
+          {user &&
+            (reviewData?.length === 0 ? <FilmReviewForm /> : <ReviewCard review={reviewData?.[0]} />)}
         </section>
       </div>
     </div>
