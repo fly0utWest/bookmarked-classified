@@ -303,4 +303,15 @@
       display: none;
     }
   }
+
+  .doc {
+    margin: 0 auto;
+    width: 950px;
+  }
+
+.profile-review-section__review-card {
+  & .review-card__delete {
+    display: none;
+  }
+}
 }

@@ -5,12 +5,12 @@ import { ReviewListProps } from '../../types';
 const ReviewList: React.FC<ReviewListProps> = ({
   reviews,
   limit,
-  linkClassModifier,
+  reviewClassModifier,
 }) => {
   return (
     <>
       {reviews?.slice(0, limit).map((review) => (
-        <ReviewCard key={review.id} review={review} />
+        <ReviewCard key={review.id} review={review} classModifier={reviewClassModifier}/>
       ))}
     </>
   );

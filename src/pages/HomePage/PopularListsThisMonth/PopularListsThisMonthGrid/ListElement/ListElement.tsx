@@ -14,7 +14,7 @@ const ListElelement: React.FC<ListElementProps> = (props) => {
   } = useFetch<FilmData[]>(props.baseUrl);
 
   if (error) {
-    return <ErrorMessage message="Произощла ошибка." classModifier='error-message_warning'/>  }
+    return <ErrorMessage message="Произошла ошибка." classModifier='error-message_warning'/>  }
   if (isLoading) {
     return <Loading />;
   }

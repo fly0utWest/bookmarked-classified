@@ -1,44 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        <nav className="footer-grid">
-          <ul className="footer-list">
-            <li className="footer-list__element">
-              <Link to="/:address">О нас</Link>
+    <footer className='footer'>
+      <div className='container'>
+        <nav className='footer-grid'>
+          <ul className='footer-list'>
+            <li className='footer-list__element'>
+              <Link to='/blank'>О нас</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">API</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>API</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Подкаст</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Подкаст</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Польз. соглашение</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Польз. соглашение</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Связаться с нами</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Связаться с нами</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Новости</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Новости</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Поддержка</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Поддержка</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Приложения</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Приложения</Link>
             </li>
-            <li className="footer-list__element">
-              <Link to="/:address">Обзор года</Link>
+            <li className='footer-list__element'>
+              <Link to='/blank'>Обзор года</Link>
             </li>
           </ul>
         </nav>
         <p>
-          &copy; Bookmarked. Интерфейс написан{" "}
-          <a href="https://github.com/fly0utWest">вот этим чуваком</a>.
+          &copy; Bookmarked.{' '}
+          <Link to='https://github.com/fly0utWest'>GitHub автора</Link>.
         </p>
       </div>
     </footer>

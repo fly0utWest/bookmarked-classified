@@ -62,7 +62,7 @@ const ProfilePage: React.FC = () => {
             <div className='container profile-page__container'>
               <h2>Смотреть позже</h2>
               {userData?.watchLater.length === 0 ? null : (
-                <Link to={`/user/${userData?.login}/watchlater`}>
+                <Link to={`/user/${userData?.login}/watchlist`}>
                   Показать все
                 </Link>
               )}

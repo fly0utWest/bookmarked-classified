@@ -27,7 +27,7 @@ const ProfileReviews: React.FC<ProfileReviewsProps> = ({ reviews }) => {
         </div>
         <section className='profile-reviews-section'>
           {reviewsData ? (
-            <ReviewList reviews={reviewsData!} />
+            <ReviewList reviews={reviewsData!} reviewClassModifier='profile-review-section__review-card'/>
           ) : (
             <>
               <ErrorMessage message='Обзоров пока нет :(' />

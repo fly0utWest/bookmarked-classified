@@ -5,7 +5,6 @@ import { convertParams } from '../../../utils/utils';
 import { useFetch } from '../../../hooks/useFetch';
 import { FilmData } from '../../../types';
 import SlicedList from '../../../components/SlicedList/SlicedList';
-import ErrorPage from '../../ErrorPage/ErrorPage';
 import Loading from '../../../components/Loading/Loading';
 import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 

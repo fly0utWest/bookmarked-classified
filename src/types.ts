@@ -275,11 +275,12 @@ export type AuthAlertProps = {
 export type ReviewListProps = {
   reviews: Review[];
   limit?: number;
-  linkClassModifier?: string;
+  reviewClassModifier?: string;
 };
 
 export type ReviewCardProps = {
   review?: Review;
+  classModifier?: string;
 };
 
 export type ErrorMessageProps = {
@@ -293,6 +294,10 @@ export type SearchInputProps = {
 };
 
 export type SearchButtonProps = {
-  eventHandler: () => void;
-  
+  eventHandler: () => void;  
 };
+
+export type DocPageProps = {
+  heading?: string;
+  content?: string;
+}

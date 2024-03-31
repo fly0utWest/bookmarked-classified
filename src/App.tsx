@@ -19,6 +19,7 @@ const OnBoarding = lazy(() => import('./pages/OnBoarding/OnBoarding'));
 const ArticlePage = lazy(() => import('./pages/ArticlePage/ArticlePage'));
 const SearchPage = lazy(() => import('./pages/SearchPage/SearchPage'));
 const CataloguePage = lazy(() => import('./pages/CataloguePage/CataloguePage'));
+const DocPage = lazy(() => import('./pages/DocPage/DocPage'));
 
 const App: React.FC = () => {
   return (
@@ -61,10 +62,7 @@ const App: React.FC = () => {
             path='/user/:id/watched'
             element={
               <MainLayout>
-                <ListPage
-                  heading='Просмотренные'
-                  type={ListPageType.Watched}
-                />
+                <ListPage heading='Просмотренные' type={ListPageType.Watched} />
               </MainLayout>
             }
           ></Route>
@@ -139,6 +137,12 @@ const App: React.FC = () => {
                 <CataloguePage />
               </MainLayout>
             }
+          ></Route>
+          <Route
+            element={<MainLayout>
+              <DocPage heading='Пустая страница-плейсхолдер' content='Просто пустая страница, и это нормально.'/>
+            </MainLayout>}
+            path='/blank'
           ></Route>
         </Routes>
       </Suspense>
