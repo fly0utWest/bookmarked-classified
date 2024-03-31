@@ -13,7 +13,6 @@ import { getRatingClass } from '../../utils/getRatingClass';
 import AuthAlert from '../../components/AuthAlert/AuthAlert';
 import { useAuth } from '../../contexts/AuthContext';
 import { Review } from '../../types';
-import { convertParams } from '../../utils/utils';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 
 const FilmPage: React.FC = () => {

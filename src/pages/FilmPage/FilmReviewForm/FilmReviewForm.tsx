@@ -65,6 +65,7 @@ export const FilmReviewForm: React.FC = () => {
         if (!response.ok) {
           throw new Error('Sending a review has failed.');
         }
+        window.location.reload();
       } catch (error: unknown) {
         console.error('Review: ', error);
         setReviewError((error as Error).message);

@@ -6,6 +6,7 @@ import { useFetch } from '../../../hooks/useFetch';
 import { Review } from '../../../types';
 import config from '../../../utils/utils';
 import ReviewList from '../../../components/ReviewList/ReviewList';
+import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 
 const ProfileReviews: React.FC<ProfileReviewsProps> = ({ reviews }) => {
   const reviewsUrl = `${config.BACK_API}/reviews?${convertParams(
@@ -25,7 +26,14 @@ const ProfileReviews: React.FC<ProfileReviewsProps> = ({ reviews }) => {
           <h2>Обзоры</h2>
         </div>
         <section className='profile-reviews-section'>
-          <ReviewList reviews={reviewsData!} />
+          {reviewsData ? (
+            <ReviewList reviews={reviewsData!} />
+          ) : (
+            <>
+              <ErrorMessage message='Обзоров пока нет :(' />
+              <hr />
+            </>
+          )}
         </section>
       </div>
     </>

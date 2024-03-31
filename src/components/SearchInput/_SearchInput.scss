@@ -1,8 +1,6 @@
 .search-input {
   width: 100%;
-  transform: translateY(-100%);
-  max-width: 950px;
-  margin: 0 auto;
+  max-width: 910px;
   height: 3.5rem;
   padding: 1rem;
   color: var(--primary-color);
@@ -10,21 +8,21 @@
   border: none;
   outline: none;
   transition: 0.1s ease-out;
-  opacity: 0;
-  margin-bottom: -3.5rem;
 
   &:focus {
   }
+}
 
-  .header__search-input {
-    position: absolute;
-    top: 0;
-  }
+.header__search-input {
+  position: absolute;
+  top: 4.375rem;
+  z-index: 9;
+  transform: translateY(-100%);
+  opacity: 0;
 
   &_active {
     transform: translateY(0);
     transition: 0.1s ease-out;
     opacity: 1;
-    margin-bottom: 0rem;
   }
 }
