@@ -1,4 +1,4 @@
 {
-  "BACK_API": "http://193-168-173-18.cloud-xip.com:8080",
-  "IMAGE_API": "http://193-168-173-18.cloud-xip.com/files"
+  "BACK_API": "https//193-168-173-18.cloud-xip.com:8080",
+  "IMAGE_API": "https://193-168-173-18.cloud-xip.com/files"
 }
