@@ -113,4 +113,13 @@
     filter: invert(16%) sepia(12%) saturate(1285%) hue-rotate(194deg)
       brightness(91%) contrast(99%);
   }
+
+  .review {
+    &-card {
+      &__delete {
+        filter: invert(98%) sepia(10%) saturate(553%) hue-rotate(177deg)
+          brightness(99%) contrast(93%);
+      }
+    }
+  }
 }

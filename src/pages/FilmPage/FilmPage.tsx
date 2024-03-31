@@ -76,7 +76,7 @@ const FilmPage: React.FC = () => {
             <AuthAlert message='Сначала авторизуйтесь, чтобы написать рецензию.' />
           )}
           {user &&
-            (reviewData?.length === 0 ? <FilmReviewForm /> : <ReviewCard review={reviewData?.[0]} />)}
+            (reviewData?.length === 0 ||reviewData === null ? <FilmReviewForm /> : <ReviewCard review={reviewData?.[0]} />)}
         </section>
       </div>
     </div>

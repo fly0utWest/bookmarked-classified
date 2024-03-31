@@ -17,6 +17,20 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
 
   const {user} = useAuth();
 
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`${config.BACK_API}/review/${review?.id}`, {
+        method: 'DELETE',
+      })
+      if (!response.ok) {
+        throw new Error('Deleting a review has failed.');
+      }
+      window.location.reload();
+    } catch(error: unknown) {
+      console.error('Review: ', error);
+    } 
+  }
+
   return (
     <div className={`review-card ${matchReviewType(review?.reviewType!)}`}>
       <FilmLink
@@ -32,9 +46,11 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
         <p className='review-title'>{review?.title}</p>
         <p className='review-text'>{review?.text}</p>
       </div>
-      <button className='review-card__delete'>
-        {user?.reviews.includes(review?.id!) ? <img src={deleteIcon} alt="" /> : null}
-      </button>
+      {user?.reviews.includes(review?.id!) ? (
+        <button className='review-card__delete' onClick={handleDelete}>
+          <img src={deleteIcon} alt="" />
+        </button>
+      ) : null}
     </div>
   );
 };
