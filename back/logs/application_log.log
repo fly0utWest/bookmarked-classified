@@ -1,0 +1,863 @@
+2024-03-24 14:56:03,599 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 114834 (/home/nik/Projects/backend/movies-back/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-24 14:56:03,602 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-24 14:56:04,132 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-24 14:56:04,139 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-24 14:56:04,141 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-24 14:56:04,142 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-24 14:56:04,174 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-24 14:56:04,175 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 546 ms
+2024-03-24 14:56:04,195 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-24 14:56:05,258 ERROR org.springframework.boot.web.embedded.tomcat.TomcatStarter [main] Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtRequestFilter': Unsatisfied dependency expressed through field 'userDetailsService': Error creating bean with name 'userDetailsServiceImpl': Unsatisfied dependency expressed through field 'users': Error creating bean with name 'userDao' defined in file [/home/nik/Projects/backend/movies-back/target/classes/com/classified/letterboxd/db/dao/UserDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'mySqlDb': Unsatisfied dependency expressed through field 'connections': Error creating bean with name 'hikariPool': Invocation of init method failed
+2024-03-24 14:56:05,279 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2024-03-24 14:56:05,281 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-03-24 14:56:05,285 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger [main] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-24 14:56:05,293 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at com.classified.letterboxd.StartServer.main(StartServer.java:13)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:501)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtRequestFilter': Unsatisfied dependency expressed through field 'userDetailsService': Error creating bean with name 'userDetailsServiceImpl': Unsatisfied dependency expressed through field 'users': Error creating bean with name 'userDao' defined in file [/home/nik/Projects/backend/movies-back/target/classes/com/classified/letterboxd/db/dao/UserDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'mySqlDb': Unsatisfied dependency expressed through field 'connections': Error creating bean with name 'hikariPool': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:772)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:752)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4850)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:488)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDetailsServiceImpl': Unsatisfied dependency expressed through field 'users': Error creating bean with name 'userDao' defined in file [/home/nik/Projects/backend/movies-back/target/classes/com/classified/letterboxd/db/dao/UserDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'mySqlDb': Unsatisfied dependency expressed through field 'connections': Error creating bean with name 'hikariPool': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:772)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:752)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:769)
+	... 55 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao' defined in file [/home/nik/Projects/backend/movies-back/target/classes/com/classified/letterboxd/db/dao/UserDao.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'mySqlDb': Unsatisfied dependency expressed through field 'connections': Error creating bean with name 'hikariPool': Invocation of init method failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:241)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1193)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:769)
+	... 69 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mySqlDb': Unsatisfied dependency expressed through field 'connections': Error creating bean with name 'hikariPool': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:772)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:752)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 82 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hikariPool': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:421)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1767)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:769)
+	... 97 common frames omitted
+Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80)
+	at com.classified.letterboxd.db.HikariPool.init(HikariPool.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+	... 109 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:175)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:819)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:440)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	... 117 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:62)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:150)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:166)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:121)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:939)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:809)
+	... 125 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
+	... 128 common frames omitted
+2024-03-24 14:57:23,830 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 116393 (/home/nik/Projects/backend/movies-back/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-24 14:57:23,832 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-24 14:57:24,311 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-24 14:57:24,315 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-24 14:57:24,316 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-24 14:57:24,316 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-24 14:57:24,336 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-24 14:57:24,337 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 477 ms
+2024-03-24 14:57:24,354 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-24 14:57:24,577 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@468e8565
+2024-03-24 14:57:24,578 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-24 14:57:24,600 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 8.3.0
+Driver: MySQL Connector/J
+2024-03-24 14:57:24,610 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-24 14:57:24,611 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-24 14:57:24,612 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-24 14:57:24,614 INFO com.classified.letterboxd.db.MySqlDb [main] REVIEWS table was successfully created
+2024-03-24 14:57:24,615 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-24 14:57:24,616 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-24 14:57:24,617 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-24 14:57:24,618 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-24 14:57:24,619 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-24 14:57:24,619 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.039 seconds
+2024-03-24 14:57:24,745 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3554bdc0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a3b10f4, org.springframework.security.web.context.SecurityContextHolderFilter@19f02280, org.springframework.security.web.header.HeaderWriterFilter@5b2b8d86, org.springframework.web.filter.CorsFilter@49580ca8, org.springframework.security.web.authentication.logout.LogoutFilter@6d0290d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19827608, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cc9ef8d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@525647f3, org.springframework.security.web.access.ExceptionTranslationFilter@29013ef2, org.springframework.security.web.access.intercept.AuthorizationFilter@3b35798]
+2024-03-24 14:57:24,883 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-24 14:57:24,889 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-24 14:57:24,894 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.342 seconds (process running for 1.676)
+2024-03-24 14:57:30,580 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-6] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 14:57:30,580 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-6] Initializing Servlet 'dispatcherServlet'
+2024-03-24 14:57:30,581 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-6] Completed initialization in 1 ms
+2024-03-24 14:57:30,665 INFO com.classified.letterboxd.controllers.UserController [http-nio-8080-exec-4] Failed to auth: Invalid JWT token
+2024-03-24 14:57:30,673 INFO com.classified.letterboxd.controllers.UserController [http-nio-8080-exec-7] Failed to auth: Invalid JWT token
+2024-03-24 14:57:31,525 INFO com.classified.letterboxd.controllers.UserController [http-nio-8080-exec-9] Failed to auth: Invalid JWT token
+2024-03-24 14:57:32,198 INFO com.classified.letterboxd.controllers.UserController [http-nio-8080-exec-10] Failed to auth: Invalid JWT token
+2024-03-24 14:57:36,296 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:36,471 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:36,648 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:36,662 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:58,708 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:58,837 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:58,942 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:57:58,953 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:58:07,454 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User Nikita:1 has been successfully retrieved!
+2024-03-24 14:58:07,467 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:03:18,920 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Denis:2 has been successfully retrieved!
+2024-03-24 15:03:18,921 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Denis:2 has been successfully retrieved!
+2024-03-24 15:03:42,592 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Denis:2 has been successfully retrieved!
+2024-03-24 15:03:42,592 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User Denis:2 has been successfully retrieved!
+2024-03-24 15:03:50,543 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:03:50,665 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:03:50,816 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:03:50,824 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:03:59,933 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:03:59,933 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:18,069 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:18,069 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:22,195 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:22,195 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:25,917 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:25,917 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:33,451 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:33,610 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:33,781 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:33,791 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:56,935 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:57,059 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:57,163 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:04:57,173 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:05:11,765 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:05:11,765 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:05:51,879 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:05:51,879 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:10:22,950 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:10:22,950 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:11:52,811 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:11:52,811 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 15:57:45,324 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 142442 (/home/nik/Projects/backend/movies-back/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-24 15:57:45,326 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-24 15:57:45,909 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-24 15:57:45,914 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-24 15:57:45,916 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-24 15:57:45,916 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-24 15:57:45,942 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-24 15:57:45,943 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 587 ms
+2024-03-24 15:57:45,962 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-24 15:57:46,213 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1084ac45
+2024-03-24 15:57:46,215 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-24 15:57:46,239 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 8.3.0
+Driver: MySQL Connector/J
+2024-03-24 15:57:46,256 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-24 15:57:46,258 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-24 15:57:46,259 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-24 15:57:46,261 INFO com.classified.letterboxd.db.MySqlDb [main] REVIEWS table was successfully created
+2024-03-24 15:57:46,262 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-24 15:57:46,264 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-24 15:57:46,265 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-24 15:57:46,266 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-24 15:57:46,266 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-24 15:57:46,266 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.05 seconds
+2024-03-24 15:57:46,415 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@685f5d0d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3830b06c, org.springframework.security.web.context.SecurityContextHolderFilter@16a3cc88, org.springframework.security.web.header.HeaderWriterFilter@30a9e3db, org.springframework.web.filter.CorsFilter@3e28d779, org.springframework.security.web.authentication.logout.LogoutFilter@78c262ba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f884bd6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f081b5d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15214920, org.springframework.security.web.access.ExceptionTranslationFilter@23444a36, org.springframework.security.web.access.intercept.AuthorizationFilter@357c9bd9]
+2024-03-24 15:57:46,580 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-24 15:57:46,588 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-24 15:57:46,593 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.611 seconds (process running for 1.995)
+2024-03-24 15:57:52,375 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 15:57:52,376 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-03-24 15:57:52,377 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 0 ms
+2024-03-24 15:57:58,805 ERROR com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User test retrieving failed. Reason: Cannot invoke "com.classified.letterboxd.models.User.getId()" because "user" is null
+2024-03-24 16:01:24,891 ERROR com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User test retrieving failed. Reason: Cannot invoke "com.classified.letterboxd.models.User.getId()" because "user" is null
+2024-03-24 16:01:34,924 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 144142 (/home/nik/Projects/backend/movies-back/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-24 16:01:34,926 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-24 16:01:35,532 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-24 16:01:35,538 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-24 16:01:35,539 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-24 16:01:35,539 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-24 16:01:35,562 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-24 16:01:35,562 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 608 ms
+2024-03-24 16:01:35,581 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-24 16:01:35,808 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67bd351e
+2024-03-24 16:01:35,810 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-24 16:01:35,837 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 8.3.0
+Driver: MySQL Connector/J
+2024-03-24 16:01:35,849 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-24 16:01:35,851 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-24 16:01:35,852 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-24 16:01:35,853 INFO com.classified.letterboxd.db.MySqlDb [main] REVIEWS table was successfully created
+2024-03-24 16:01:35,855 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-24 16:01:35,856 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-24 16:01:35,857 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-24 16:01:35,859 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-24 16:01:35,859 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-24 16:01:35,859 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.047 seconds
+2024-03-24 16:01:36,012 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a0aaaf0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@426131d7, org.springframework.security.web.context.SecurityContextHolderFilter@740a0d5e, org.springframework.security.web.header.HeaderWriterFilter@1f884bd6, org.springframework.web.filter.CorsFilter@5d9618f2, org.springframework.security.web.authentication.logout.LogoutFilter@7d2c345d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@265c1a7c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b2b8d86, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c7e73c5, org.springframework.security.web.access.ExceptionTranslationFilter@16a3cc88, org.springframework.security.web.access.intercept.AuthorizationFilter@4ae2e781]
+2024-03-24 16:01:36,163 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-24 16:01:36,170 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-24 16:01:36,175 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.571 seconds (process running for 1.948)
+2024-03-24 16:02:09,545 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 16:02:09,545 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-03-24 16:02:09,546 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2024-03-24 16:02:21,820 ERROR com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User test1 retrieving failed. Reason: Cannot invoke "com.classified.letterboxd.models.User.getId()" because "user" is null
+2024-03-24 16:02:21,829 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User test1 creation has been successfully completed!
+2024-03-24 16:03:17,224 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User test1:4 has been successfully retrieved!
+2024-03-24 16:04:02,742 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 16:04:07,517 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 16:04:07,745 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 16:04:08,114 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 16:04:08,121 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 16:06:10,495 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User test1:4 has been successfully retrieved!
+2024-03-24 16:48:14,518 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 164925 (/home/nik/Projects/backend/movies-back/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-24 16:48:14,520 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-24 16:48:15,084 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-24 16:48:15,090 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-24 16:48:15,092 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-24 16:48:15,092 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-24 16:48:15,124 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-24 16:48:15,125 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 575 ms
+2024-03-24 16:48:15,143 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-24 16:48:15,352 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ba467c2
+2024-03-24 16:48:15,354 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-24 16:48:15,378 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 8.3.0
+Driver: MySQL Connector/J
+2024-03-24 16:48:15,396 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-24 16:48:15,398 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-24 16:48:15,400 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-24 16:48:15,401 INFO com.classified.letterboxd.db.MySqlDb [main] REVIEWS table was successfully created
+2024-03-24 16:48:15,403 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-24 16:48:15,405 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-24 16:48:15,406 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-24 16:48:15,408 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-24 16:48:15,408 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-24 16:48:15,408 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.052 seconds
+2024-03-24 16:48:15,469 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation should only be used on methods with parameters: public org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.classified.letterboxd.controllers.AuthenticationController.passwordEncoder()
+2024-03-24 16:48:15,558 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@32507479, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@632383b9, org.springframework.security.web.context.SecurityContextHolderFilter@12fcb2c3, org.springframework.security.web.header.HeaderWriterFilter@7436364d, org.springframework.web.filter.CorsFilter@4ae2e781, org.springframework.security.web.authentication.logout.LogoutFilter@29013ef2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39ab5ef7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@517704, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@339f3a55, org.springframework.security.web.access.ExceptionTranslationFilter@4026461d, org.springframework.security.web.access.intercept.AuthorizationFilter@14b528b6]
+2024-03-24 16:48:15,710 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-24 16:48:15,719 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-24 16:48:15,725 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.523 seconds (process running for 1.871)
+2024-03-24 16:52:13,508 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 16:52:13,508 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-24 16:52:13,509 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2024-03-24 16:54:25,082 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User does not exist: test2
+2024-03-24 16:54:25,091 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User test2 creation has been successfully completed!
+2024-03-24 16:54:34,249 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User test2:5 has been successfully retrieved!
+2024-03-24 16:55:01,183 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 168010 (/home/nik/Projects/backend/movies-back/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-24 16:55:01,184 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-24 16:55:01,637 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-24 16:55:01,642 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-24 16:55:01,643 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-24 16:55:01,643 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-24 16:55:01,663 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-24 16:55:01,663 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 456 ms
+2024-03-24 16:55:01,689 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-24 16:55:01,864 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@566f1852
+2024-03-24 16:55:01,865 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-24 16:55:01,888 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 8.3.0
+Driver: MySQL Connector/J
+2024-03-24 16:55:01,904 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-24 16:55:01,906 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-24 16:55:01,907 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-24 16:55:01,909 INFO com.classified.letterboxd.db.MySqlDb [main] REVIEWS table was successfully created
+2024-03-24 16:55:01,910 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-24 16:55:01,911 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-24 16:55:01,912 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-24 16:55:01,914 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-24 16:55:01,914 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-24 16:55:01,914 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.048 seconds
+2024-03-24 16:55:01,961 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation should only be used on methods with parameters: public org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder com.classified.letterboxd.controllers.AuthenticationController.passwordEncoder()
+2024-03-24 16:55:02,030 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@73bb1337, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@685f5d0d, org.springframework.security.web.context.SecurityContextHolderFilter@16a3cc88, org.springframework.security.web.header.HeaderWriterFilter@30a9e3db, org.springframework.web.filter.CorsFilter@3830b06c, org.springframework.security.web.authentication.logout.LogoutFilter@450f0235, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f884bd6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f081b5d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e28d779, org.springframework.security.web.access.ExceptionTranslationFilter@23444a36, org.springframework.security.web.access.intercept.AuthorizationFilter@296edc75]
+2024-03-24 16:55:02,154 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-24 16:55:02,160 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-24 16:55:02,164 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.246 seconds (process running for 1.543)
+2024-03-24 16:55:11,484 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 16:55:11,484 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-24 16:55:11,485 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2024-03-24 16:55:19,341 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User test2:5 has been successfully retrieved!
+2024-03-24 16:55:38,309 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User does not exist: test3
+2024-03-24 16:55:38,318 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User test3 creation has been successfully completed!
+2024-03-24 16:55:43,251 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:28,214 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:28,546 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:28,997 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:29,012 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,466 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,469 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,470 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,471 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,474 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,474 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User test3:6 has been successfully retrieved!
+2024-03-24 16:56:33,510 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-9] Empty response for getMovies request
+2024-03-24 16:56:33,512 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 16:56:33,513 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 16:56:33,515 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 16:56:33,515 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 16:56:33,515 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 16:58:43,472 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User does not exist: test4
+2024-03-24 16:58:43,481 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User test4 creation has been successfully completed!
+2024-03-24 16:58:46,043 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User test4:7 has been successfully retrieved!
+2024-03-24 17:01:04,167 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User does not exist: abobus
+2024-03-24 17:01:04,175 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus creation has been successfully completed!
+2024-03-24 17:01:27,195 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:27,438 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:27,781 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:27,791 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,383 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,384 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,385 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,387 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,392 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,395 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:01:31,425 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-6] Empty response for getMovies request
+2024-03-24 17:01:31,427 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:01:31,428 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:01:31,429 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:01:31,430 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:01:31,430 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:01:45,013 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:06:40,931 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User test4:7 has been successfully retrieved!
+2024-03-24 17:07:50,756 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-3] Movie 9 has been successfully retrieved!
+2024-03-24 17:07:50,756 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 9 has been successfully retrieved!
+2024-03-24 17:15:51,825 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:15:51,826 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:15:51,837 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:15:51,838 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:15:51,871 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:15:51,871 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:15:51,871 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-9] Empty response for getMovies request
+2024-03-24 17:15:51,871 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:15:51,871 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-1] Empty response for getMovies request
+2024-03-24 17:15:51,871 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:16:11,470 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:16:11,471 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:16:13,052 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:16:13,053 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:16:21,039 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:16:21,042 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:17:36,679 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:17:36,835 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:17:37,181 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:17:37,191 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:03,114 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:03,129 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,358 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,371 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,371 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,371 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,373 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,373 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:04,416 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:18:04,417 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-1] Empty response for getMovies request
+2024-03-24 17:18:04,425 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-8] Empty response for getMovies request
+2024-03-24 17:18:04,427 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-8] Empty response for getMovies request
+2024-03-24 17:18:58,700 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:18:58,702 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:19:10,362 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:19:10,363 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:19:13,828 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:19:13,830 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:25:51,805 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,275 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,949 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,954 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,956 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,956 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,959 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,961 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:29:26,989 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:29:26,989 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:29:26,989 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:29:26,990 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-8] Empty response for getMovies request
+2024-03-24 17:30:09,783 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:30:09,784 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:30:09,784 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:30:09,785 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:30:09,787 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:30:09,789 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:20,714 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-6] Movie 10 has been successfully retrieved!
+2024-03-24 17:31:20,714 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:20,719 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-10] Movie 10 has been successfully retrieved!
+2024-03-24 17:31:22,056 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:22,056 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:22,056 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:22,058 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:22,058 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:23,310 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-10] Movie 10 has been successfully retrieved!
+2024-03-24 17:31:23,310 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-5] Movie 10 has been successfully retrieved!
+2024-03-24 17:31:23,311 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:24,225 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:24,225 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:24,225 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:24,226 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:24,227 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 17:31:28,070 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-8] Movie 10 has been successfully retrieved!
+2024-03-24 17:31:28,070 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 10 has been successfully retrieved!
+2024-03-24 17:31:28,071 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:29,700 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:29,718 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,804 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,814 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,814 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,815 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,815 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,816 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:31:31,842 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-1] Empty response for getMovies request
+2024-03-24 17:31:31,843 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:33:59,927 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,331 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,336 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,338 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,338 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,338 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,339 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:02,359 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:34:02,361 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:34:07,987 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,197 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,199 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,200 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,200 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,200 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,201 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:34:22,224 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:34:22,227 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:38:06,374 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-3] Empty response for getMovies request
+2024-03-24 17:38:55,936 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:38:55,936 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:38:55,937 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:38:55,950 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:38:55,950 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:38:55,952 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:38:55,982 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:38:55,983 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:39:02,706 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:39:02,706 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:39:02,707 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:39:02,707 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:39:02,707 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:39:02,708 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:39:02,734 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:39:02,737 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-3] Empty response for getMovies request
+2024-03-24 17:39:08,604 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-1] Empty response for getMovies request
+2024-03-24 17:39:10,366 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:39:12,652 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:39:28,850 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:39:30,317 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:39:42,725 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:39:42,776 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:39:51,024 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-5] Empty response for getMovies request
+2024-03-24 17:39:57,171 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-4] Empty response for getMovies request
+2024-03-24 17:39:57,843 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:40:03,680 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:03,682 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:03,682 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:03,683 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:03,683 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:03,684 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:03,794 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:40:03,800 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:40:33,613 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-3] Empty response for getMovies request
+2024-03-24 17:40:35,600 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:40:47,412 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-2] Empty response for getMovies request
+2024-03-24 17:40:50,664 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:50,664 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:50,664 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:50,664 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:50,665 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:50,666 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:40:50,739 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-8] Empty response for getMovies request
+2024-03-24 17:40:50,740 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:41:30,507 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,569 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,577 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,577 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,577 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,578 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,578 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User abobus:8 has been successfully retrieved!
+2024-03-24 17:41:32,595 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-3] Empty response for getMovies request
+2024-03-24 17:41:32,596 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-7] Empty response for getMovies request
+2024-03-24 17:44:44,264 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-4] Movie 10 has been successfully retrieved!
+2024-03-24 17:44:44,265 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:44,270 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-5] Movie 10 has been successfully retrieved!
+2024-03-24 17:44:45,473 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:45,490 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:45,744 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:45,744 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:45,744 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:45,745 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:45,745 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:47,774 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 10 has been successfully retrieved!
+2024-03-24 17:44:47,774 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-6] Movie 10 has been successfully retrieved!
+2024-03-24 17:44:47,775 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:48,757 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:48,774 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-7] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:49,035 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:49,035 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:49,035 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:49,037 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:49,037 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User abobus:8 has been successfully retrieved!
+2024-03-24 17:44:49,059 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-10] Empty response for getMovies request
+2024-03-24 17:44:49,061 WARN com.classified.letterboxd.controllers.MovieController [http-nio-8080-exec-8] Empty response for getMovies request
+2024-03-24 17:47:01,810 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User abobus:8 has been successfully retrieved!
+2024-03-24 17:59:08,599 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User does not exist: jpjpjp
+2024-03-24 18:05:28,023 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-4] Movie 8 has been successfully retrieved!
+2024-03-24 18:05:28,028 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-6] Movie 8 has been successfully retrieved!
+2024-03-24 18:05:30,334 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-9] Movie 8 has been successfully retrieved!
+2024-03-24 18:05:30,334 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-5] Movie 8 has been successfully retrieved!
+2024-03-24 18:11:51,175 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-3] Movie 10 has been successfully retrieved!
+2024-03-24 18:11:51,175 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-5] Movie 10 has been successfully retrieved!
+2024-03-24 18:11:54,191 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 10 has been successfully retrieved!
+2024-03-24 18:11:54,191 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-10] Movie 10 has been successfully retrieved!
+2024-03-24 18:14:22,585 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-9] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:22,726 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:22,963 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:22,971 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:34,194 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:34,195 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:34,196 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:34,197 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:34,203 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:34,204 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:35,047 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:14:37,829 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-4] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:17:09,072 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-3] User does not exist: favourites
+2024-03-24 18:17:09,073 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.Exception: No user: favourites] with root cause
+java.lang.Exception: No user: favourites
+	at com.classified.letterboxd.controllers.UserController.getUser(UserController.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.classified.letterboxd.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-03-24 18:17:09,180 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-5] User does not exist: favourites
+2024-03-24 18:17:09,180 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-5] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.Exception: No user: favourites] with root cause
+java.lang.Exception: No user: favourites
+	at com.classified.letterboxd.controllers.UserController.getUser(UserController.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.classified.letterboxd.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-03-24 18:17:37,958 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:20:02,753 WARN com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User does not exist: Nikit
+2024-03-24 18:20:11,249 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-6] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:23:06,078 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-10] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:23:06,223 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-8] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:23:06,381 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-1] User Nikita:1 has been successfully retrieved!
+2024-03-24 18:23:06,393 INFO com.classified.letterboxd.db.dao.UserDao [http-nio-8080-exec-2] User Nikita:1 has been successfully retrieved!

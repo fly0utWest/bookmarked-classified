@@ -1,0 +1,50 @@
+2024-03-01 09:35:34,583 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 9827 (/home/nik/Projects/backend/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-01 09:35:34,585 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-01 09:35:35,096 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-01 09:35:35,101 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-01 09:35:35,102 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-01 09:35:35,102 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-01 09:35:35,121 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-01 09:35:35,122 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 509 ms
+2024-03-01 09:35:35,165 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-01 09:35:35,295 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@688a2c09
+2024-03-01 09:35:35,296 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-01 09:35:35,309 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 11.3.2-MariaDB
+Driver: MySQL Connector/J
+2024-03-01 09:35:35,315 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-01 09:35:35,320 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-01 09:35:35,326 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-01 09:35:35,331 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-01 09:35:35,334 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-01 09:35:35,338 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-01 09:35:35,342 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-01 09:35:35,342 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-01 09:35:35,342 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.045 seconds
+2024-03-01 09:35:35,485 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-01 09:35:35,491 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-01 09:35:35,494 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.216 seconds (process running for 1.576)
+2024-03-01 09:35:43,367 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 09:35:43,367 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-01 09:35:43,368 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2024-03-01 09:35:43,407 ERROR com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-2] Movie 1 retrieving failed. Reason: null
+2024-03-01 09:35:43,407 ERROR com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 1 retrieving failed. Reason: null
+2024-03-01 09:35:44,898 ERROR com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-3] Movie 1 retrieving failed. Reason: null
+2024-03-01 09:35:44,902 ERROR com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-4] Movie 1 retrieving failed. Reason: null
+2024-03-01 09:35:46,510 ERROR com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-5] Movie 1 retrieving failed. Reason: null
+2024-03-01 09:35:46,514 ERROR com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-6] Movie 1 retrieving failed. Reason: null
+2024-03-01 09:36:15,066 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-7] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:15,070 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-8] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:48,615 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-9] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:48,617 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-10] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:50,598 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-2] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:50,602 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:51,421 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-3] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:51,424 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-4] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:52,008 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-5] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:52,011 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-6] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:53,200 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-7] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:53,204 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-8] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:53,963 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-9] Movie 1 has been successfully retrieved!
+2024-03-01 09:36:53,966 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-10] Movie 1 has been successfully retrieved!

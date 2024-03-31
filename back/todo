@@ -1,0 +1,16 @@
+1. establish db connection
+2. Check logs working
+4. Implement DB schema creation
+3. Implement properties
+5. Refactor DB interaction with lambdassss
+here
+
+- Movie:
+    - model pojo
+    - db schema
+    - dao
+
+- JSON conversions
+
+-  GET endpoint for Movie
+-  POST endpoint for Movie

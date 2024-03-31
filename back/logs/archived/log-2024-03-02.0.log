@@ -1,0 +1,32 @@
+2024-03-02 09:31:00,566 INFO org.springframework.boot.StartupInfoLogger [main] Starting StartServer using Java 21.0.2 with PID 26991 (/home/nik/Projects/backend/target/classes started by nik in /home/nik/Projects/backend)
+2024-03-02 09:31:00,568 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-02 09:31:01,085 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port 8080 (http)
+2024-03-02 09:31:01,090 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-02 09:31:01,091 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-02 09:31:01,091 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-03-02 09:31:01,113 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-02 09:31:01,113 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 515 ms
+2024-03-02 09:31:01,150 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-02 09:31:01,240 INFO com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@303c55fa
+2024-03-02 09:31:01,241 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-02 09:31:01,250 INFO com.classified.letterboxd.db.MySqlDb [main] Connected to: jdbc:mysql://localhost:3306/db_cinema?serverTimezone=UTC
+DB name: MySQL
+DB version: 11.3.2-MariaDB
+Driver: MySQL Connector/J
+2024-03-02 09:31:01,255 INFO com.classified.letterboxd.db.MySqlDb [main] Schema DB_CINEMA has been successfully created
+2024-03-02 09:31:01,255 INFO com.classified.letterboxd.db.MySqlDb [main] Users table was successfully created
+2024-03-02 09:31:01,256 INFO com.classified.letterboxd.db.MySqlDb [main] Movies table was successfully created
+2024-03-02 09:31:01,256 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_FAVOURED_MOVIES table was successfully created
+2024-03-02 09:31:01,257 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCHED_MOVIES table was successfully created
+2024-03-02 09:31:01,257 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_WATCH_LATER_MOVIES table was successfully created
+2024-03-02 09:31:01,257 INFO com.classified.letterboxd.db.MySqlDb [main] USERS_REVIEWS table was successfully created
+2024-03-02 09:31:01,257 INFO com.classified.letterboxd.db.MySqlDb [main] DB initialization has been successfully completed
+2024-03-02 09:31:01,257 INFO com.classified.letterboxd.utils.MetricsHelper [main] Elapsed Time for DB init: 0.014 seconds
+2024-03-02 09:31:01,418 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-02 09:31:01,425 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port 8080 (http) with context path ''
+2024-03-02 09:31:01,430 INFO org.springframework.boot.StartupInfoLogger [main] Started StartServer in 1.181 seconds (process running for 1.546)
+2024-03-02 09:31:05,019 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-02 09:31:05,019 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-02 09:31:05,020 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 0 ms
+2024-03-02 09:31:05,056 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-2] Movie 1 has been successfully retrieved!
+2024-03-02 09:31:05,056 INFO com.classified.letterboxd.db.dao.MovieDao [http-nio-8080-exec-1] Movie 1 has been successfully retrieved!
