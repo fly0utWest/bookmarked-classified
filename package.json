@@ -1,7 +1,7 @@
 {
   "name": "diploma",
   "version": "0.1.0",
-  "proxy": "http://193-168-173-18.cloud-xip.com:8080",
+  "proxy": "",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
