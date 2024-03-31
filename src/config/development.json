@@ -1,4 +1,4 @@
 {
   "BACK_API": "",
-  "IMAGE_API": "http://localhost:8090/files"
+  "IMAGE_API": "http://193-168-173-18.cloud-xip.com:8090/files"
 }
