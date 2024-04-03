@@ -34,6 +34,9 @@ const ListsButtons: React.FC<ListsButtonsProps> = ({
       try {
         const response = await fetch(url, {
           method: `${state ? 'DELETE' : 'POST'}`,
+          headers: {
+            "x-auth": `${localStorage.getItem('jwtToken')}`
+          }
         });
         if (response.ok) {
           setter(!state);
