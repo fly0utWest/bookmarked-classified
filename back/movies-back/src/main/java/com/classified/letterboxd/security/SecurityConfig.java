@@ -37,7 +37,7 @@ public class SecurityConfig {
         config.setAllowCredentials(true);
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "x-auth", "Cache-Control", "Content-Type")); // Headers allowed in the actual request
-        config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://193-168-173-18.cloud-xip.com:3000"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:80", "http://193-168-173-18.cloud-xip.com:3000", "http://193-168-173-18.cloud-xip.com:80"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
