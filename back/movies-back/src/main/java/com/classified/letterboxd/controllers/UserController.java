@@ -43,19 +43,14 @@ public class UserController implements AppLogging {
     }
 
     @RequestMapping("/user")
-    public String userByCookie(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        User user = authUtil.userByCookie(request);
+    public String userByCookie(HttpServletResponse response, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
 
         if (user != null) {
             user.setPassword("");
             response.setStatus(OK.value());
             return (objectMapper.writeValueAsString(user));
         } else {
-            Cookie cookie = new Cookie("AUTH", null);
-            cookie.setPath("/");
-            cookie.setHttpOnly(true);
-            cookie.setMaxAge(0); // Set cookie to expire immediately
-            response.addCookie(cookie);
             response.setStatus(UNAUTHORIZED.value());
             return "Auth failed";
         }

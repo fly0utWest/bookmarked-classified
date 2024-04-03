@@ -6,6 +6,7 @@ import com.classified.letterboxd.models.Movie;
 import com.classified.letterboxd.models.User;
 import com.classified.letterboxd.models.exceptions.NoMovieException;
 import com.classified.letterboxd.utils.AppLogging;
+import com.classified.letterboxd.utils.AuthUtil;
 import com.classified.letterboxd.utils.JwtUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,6 +36,8 @@ public class MovieController implements AppLogging {
     private ObjectMapper objectMapper;
     @Autowired
     private JwtUtil jwtUtil;
+    @Autowired
+    private AuthUtil authUtil;
 
     @GetMapping("/movies/{id}")
     public ResponseEntity<String> getMovie(@PathVariable long id) throws Exception {
@@ -60,8 +63,8 @@ public class MovieController implements AppLogging {
     }
 
     @PostMapping("/movies/{movieId}/like")
-    public ResponseEntity<Void> likeMovie(@PathVariable Long movieId, HttpServletRequest request) throws Exception {
-        User user = getUserByCookie(request);
+    public ResponseEntity<Void> likeMovie(@PathVariable Long movieId, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
             movies.likeMovie(movieId, user.getId());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -69,8 +72,8 @@ public class MovieController implements AppLogging {
     }
 
     @DeleteMapping("/movies/{movieId}/like")
-    public ResponseEntity<Void> unlikeMovie(@PathVariable Long movieId, HttpServletRequest request) throws Exception {
-        User user = getUserByCookie(request);
+    public ResponseEntity<Void> unlikeMovie(@PathVariable Long movieId, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
             movies.unlikeMovie(movieId, user.getId());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -78,8 +81,8 @@ public class MovieController implements AppLogging {
     }
 
     @PostMapping("/movies/{movieId}/watched")
-    public ResponseEntity<Void> watchedMovie(@PathVariable Long movieId, HttpServletRequest request) throws Exception {
-        User user = getUserByCookie(request);
+    public ResponseEntity<Void> watchedMovie(@PathVariable Long movieId, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
             movies.markAsWatched(movieId, user.getId());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -87,8 +90,8 @@ public class MovieController implements AppLogging {
     }
 
     @DeleteMapping("/movies/{movieId}/watched")
-    public ResponseEntity<Void> unwatchMovie(@PathVariable Long movieId, HttpServletRequest request) throws Exception {
-        User user = getUserByCookie(request);
+    public ResponseEntity<Void> unwatchMovie(@PathVariable Long movieId, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
             movies.unmarkAsWatched(movieId, user.getId());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -96,8 +99,8 @@ public class MovieController implements AppLogging {
     }
 
     @PostMapping("/movies/{movieId}/watch-later")
-    public ResponseEntity<Void> watchLaterMovie(@PathVariable Long movieId, HttpServletRequest request) throws Exception {
-        User user = getUserByCookie(request);
+    public ResponseEntity<Void> watchLaterMovie(@PathVariable Long movieId, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
             movies.markToWatchLater(movieId, user.getId());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -105,8 +108,8 @@ public class MovieController implements AppLogging {
     }
 
     @DeleteMapping("/movies/{movieId}/watch-later")
-    public ResponseEntity<Void> unwatchLaterMovie(@PathVariable Long movieId, HttpServletRequest request) throws Exception {
-        User user = getUserByCookie(request);
+    public ResponseEntity<Void> unwatchLaterMovie(@PathVariable Long movieId, @RequestHeader("x-auth") String token) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
             movies.unMarkToWatchLater(movieId, user.getId());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -156,36 +159,4 @@ public class MovieController implements AppLogging {
 }
     private static List<String> supportedRequestParams = Arrays.asList("only_count");
 
-
-
-    @Nullable
-    public User getUserByCookie(HttpServletRequest request) throws Exception {
-        Cookie[] cookies = request.getCookies();
-        String jwtToken = null;
-        User user = null;
-
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("AUTH".equals(cookie.getName())) {
-                    jwtToken = cookie.getValue();
-                    break;
-                }
-            }
-        }
-
-        if (jwtToken != null) {
-            try {
-                Claims token = jwtUtil.parseToken(jwtToken);
-                String username = token.getSubject();
-                if (token.getExpiration().after(new Date())) {
-                    user = users.getUser(username);
-                }
-            } catch (Exception e) {
-                log.info("Failed to get user by cookie: {}", e.getMessage());
-            }
-        }
-
-        return user;
-
-    }
 }

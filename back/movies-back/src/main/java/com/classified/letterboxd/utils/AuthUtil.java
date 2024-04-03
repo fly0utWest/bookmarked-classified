@@ -4,6 +4,7 @@ import com.classified.letterboxd.db.dao.UserDao;
 import com.classified.letterboxd.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
+import jakarta.annotation.Nullable;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,24 @@ public class AuthUtil implements AppLogging {
 
         return user;
     }
+
+    @Nullable
+    public User getUserByToken(String token) throws Exception {
+        User user = null;
+        if (token != null) {
+            try {
+                Claims parsedToken = jwtUtil.parseToken(token);
+                String username = parsedToken.getSubject();
+                if (parsedToken.getExpiration().after(new Date())) {
+                    user = users.getUser(username);
+                }
+            } catch (Exception e) {
+                log.info("Failed to get user by token: {}", e.getMessage());
+            }
+        }
+
+        return user;
+
+    }
+
 }
