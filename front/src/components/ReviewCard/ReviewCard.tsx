@@ -21,6 +21,9 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review, classModifier }) => {
     try {
       const response = await fetch(`${config.BACK_API}/review/${review?.id}`, {
         method: 'DELETE',
+        headers: {
+          'x-auth': `${localStorage.getItem('jwtToken')}`
+        }
       });
       if (!response.ok) {
         throw new Error('Deleting a review has failed.');

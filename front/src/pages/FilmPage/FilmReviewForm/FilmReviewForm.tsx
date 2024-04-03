@@ -58,6 +58,7 @@ export const FilmReviewForm: React.FC = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            "x-auth": `${localStorage.getItem('jwtToken')}`
           },
           body: JSON.stringify(reviewFormData),
         });
