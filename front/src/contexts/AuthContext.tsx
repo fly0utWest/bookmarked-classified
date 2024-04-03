@@ -75,6 +75,9 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
       if (!response.ok) {
         throw new Error('Login failed.');
       }
+      const token = await response.text();
+      localStorage.setItem('jwtToken', token);
+
       navigate('/home');
       window.location.reload();
     } catch (error: unknown) {
@@ -114,6 +117,9 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
         method: 'GET',
         credentials: 'include',
         signal,
+        headers: {
+          "x-auth": `${localStorage.getItem('jwtToken')}`
+        }
       });
 
       if (!response.ok) {
