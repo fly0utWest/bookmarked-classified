@@ -1,10 +1,19 @@
-FROM node:16
-WORKDIR /frontend
-EXPOSE 3000
-COPY package.json package-lock.json ./
+FROM node:16 as build
+
+WORKDIR /app
+
+COPY package*.json ./
+
 RUN npm install
-COPY tsconfig.json gulpfile.mjs ./
-COPY src/ ./src
-COPY public/ ./public
-# Now that node_modules are installed, you can run npm start
-CMD ["npm", "start"]
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
