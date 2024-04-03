@@ -43,7 +43,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/auth")
-    public void authenticate(@RequestBody String body, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+    public String authenticate(@RequestBody String body, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
 
         User user = objectMapper.readValue(body, User.class);
 
@@ -52,13 +52,7 @@ public class AuthenticationController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtil.generateToken((UserDetails) authentication.getPrincipal());
-
-        Cookie cookie = new Cookie("AUTH", jwt);
-        cookie.setHttpOnly(true);
-        cookie.setAttribute("SameSite", "None");
-        cookie.setSecure(true);
-        cookie.setMaxAge(7 * 24 * 60 * 60); // 7 days
-        response.addCookie(cookie);
+        return jwt;
     }
 
     @GetMapping("/signout")
