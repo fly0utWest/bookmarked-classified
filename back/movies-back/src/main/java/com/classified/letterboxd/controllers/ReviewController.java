@@ -62,8 +62,8 @@ public class ReviewController implements AppLogging {
     }
 
     @PostMapping("/review")
-    public String addReview(@RequestBody String body, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        User user = authUtil.userByCookie(request);
+    public String addReview(@RequestBody String body, @RequestHeader("x-auth") String token, HttpServletResponse response) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
 
             try {
@@ -82,8 +82,8 @@ public class ReviewController implements AppLogging {
     }
 
     @DeleteMapping("/review/{id}")
-    public String removeReview(@PathVariable long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        User user = authUtil.userByCookie(request);
+    public String removeReview(@PathVariable long id, @RequestHeader("x-auth") String token, HttpServletResponse response) throws Exception {
+        User user = authUtil.getUserByToken(token);
         if (user != null) {
 
             try {
