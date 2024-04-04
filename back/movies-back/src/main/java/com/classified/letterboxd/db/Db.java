@@ -45,7 +45,7 @@ public interface Db {
     Movie getMovie(long id) throws Exception;
 
     List<Movie> getMoviesSorted(String sort) throws Exception;
-
+    List<Movie> searchMovies(String request) throws Exception;
     void addMovie(Movie movie) throws Exception;
     int updateMovie(Movie movie) throws Exception;
     int deleteMovie(long id) throws Exception;
