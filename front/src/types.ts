@@ -293,3 +293,7 @@ export type DocPageProps = {
   heading?: string;
   content?: string;
 };
+
+export type SearchInputProps = {
+  onSearch: (query: string) => void;
+};
