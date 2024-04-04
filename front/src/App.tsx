@@ -20,6 +20,7 @@ const ArticlePage = lazy(() => import('./pages/ArticlePage/ArticlePage'));
 const SearchPage = lazy(() => import('./pages/SearchPage/SearchPage'));
 const CataloguePage = lazy(() => import('./pages/CataloguePage/CataloguePage'));
 const DocPage = lazy(() => import('./pages/DocPage/DocPage'));
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage/ReviewsPage'));
 
 const App: React.FC = () => {
   return (
@@ -63,6 +64,14 @@ const App: React.FC = () => {
             element={
               <MainLayout>
                 <ListPage heading='Просмотренные' type={ListPageType.Watched} />
+              </MainLayout>
+            }
+          ></Route>
+          <Route
+            path='/user/:id/reviews'
+            element={
+              <MainLayout>
+                <ReviewsPage />
               </MainLayout>
             }
           ></Route>
@@ -139,9 +148,14 @@ const App: React.FC = () => {
             }
           ></Route>
           <Route
-            element={<MainLayout>
-              <DocPage heading='Пустая страница-плейсхолдер' content='Просто пустая страница, и это нормально.'/>
-            </MainLayout>}
+            element={
+              <MainLayout>
+                <DocPage
+                  heading='Пустая страница-плейсхолдер'
+                  content='Просто пустая страница, и это нормально.'
+                />
+              </MainLayout>
+            }
             path='/blank'
           ></Route>
         </Routes>

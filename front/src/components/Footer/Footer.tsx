@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer: React.FC = () => {
   return (
     <footer className='footer'>
-      <div className='container'>
+      <div className='container footer__container'>
         <nav className='footer-grid'>
           <ul className='footer-list'>
             <li className='footer-list__element'>
@@ -36,9 +36,9 @@ const Footer: React.FC = () => {
             </li>
           </ul>
         </nav>
-        <p>
+        <p className='footer-copyright'>
           &copy; Bookmarked.{' '}
-          <Link to='https://github.com/fly0utWest'>GitHub автора</Link>.
+          <Link className='footer-copyright__author' to='https://github.com/fly0utWest'>GitHub автора</Link>.
         </p>
       </div>
     </footer>

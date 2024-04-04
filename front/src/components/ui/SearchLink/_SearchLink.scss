@@ -1,0 +1,30 @@
+.search-link {
+  display: flex;
+  width: max-content;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  gap: 0.5rem;
+  flex-shrink: 0;
+
+  img {
+    filter: invert(99%) sepia(1%) saturate(1762%) hue-rotate(209deg)
+      brightness(119%) contrast(100%);
+  }
+
+  &_active {
+    .search-link__label {
+      color: var(--pale-violet);
+    }
+
+    img {
+      filter: invert(76%) sepia(54%) saturate(2784%) hue-rotate(206deg)
+        brightness(102%) contrast(93%);
+    }
+
+    transition: 0.15s ease-in-out;
+  }
+}

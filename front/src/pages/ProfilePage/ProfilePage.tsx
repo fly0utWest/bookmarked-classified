@@ -80,7 +80,7 @@ const ProfilePage: React.FC = () => {
             <ProfileList listArray={userData?.watched} />
             <hr />
           </div>
-          <ProfileReviews reviews={userData?.reviews} />
+          <ProfileReviews reviews={userData?.reviews} username={userData?.login} />
         </div>
       </div>
     </div>

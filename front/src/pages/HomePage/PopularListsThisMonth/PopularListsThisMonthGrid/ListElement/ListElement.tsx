@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListElementProps } from '../../../../../types';
-import SlicedList from '../../../../../components/SlicedList/SlicedList';
+import SlicedList from '../../../../../utils/SlicedList';
 import Loading from '../../../../../components/Loading/Loading';
 import { useFetch } from '../../../../../hooks/useFetch';
 import { FilmData } from '../../../../../types';
@@ -14,7 +14,13 @@ const ListElelement: React.FC<ListElementProps> = (props) => {
   } = useFetch<FilmData[]>(props.baseUrl);
 
   if (error) {
-    return <ErrorMessage message="Произошла ошибка." classModifier='error-message_warning'/>  }
+    return (
+      <ErrorMessage
+        message='Произошла ошибка.'
+        classModifier='error-message_warning'
+      />
+    );
+  }
   if (isLoading) {
     return <Loading />;
   }

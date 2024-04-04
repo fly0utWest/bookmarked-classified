@@ -12,13 +12,15 @@
 @use '../components/AuthAlert/AuthAlert';
 @use '../components/Header/Header';
 @use '../components/BottomNav/BottomNav';
+@use '../components/BottomNavButton/BottomNavButton';
 @use '../components/Footer/Footer';
 @use '../pages/HomePage/HomePage';
 @use '../pages/FilmPage/FilmPage';
 @use '../pages/ProfilePage/ProfilePage';
 @use '../pages/ListPage/ListPage';
 @use '../pages/DocPage/DocPage';
-@use '../components/ui/SearchButton/SearchButton';
+@use '../pages/ReviewsPage/ReviewsPage';
+@use '../components/ui/SearchLink/SearchLink';
 @use '../pages/CataloguePage/CataloguePage';
 @use '../components/BurgerMenu/BurgerMenu';
 @use '../components/BurgerButton/BurgerButton';

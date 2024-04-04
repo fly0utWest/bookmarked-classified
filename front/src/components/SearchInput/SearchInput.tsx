@@ -1,17 +1,18 @@
-import React from 'react';
-import { SearchInputProps } from '../../types';
+import React, { useEffect, useRef } from 'react';
 
-const SearchInput: React.FC<SearchInputProps> = ({
-  classModifier,
-  innerState,
-}) => {
+const SearchInput: React.FC = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef?.current?.focus();
+  }, []);
+
   return (
     <input
-      className={`search-input ${classModifier ? classModifier : ''}${
-        innerState ? ' header__search-input_active' : ''
-      }`}
+      className='search-input'
       type='search'
       placeholder='Начните вводить название фильма...'
+      ref={inputRef}
     />
   );
 };

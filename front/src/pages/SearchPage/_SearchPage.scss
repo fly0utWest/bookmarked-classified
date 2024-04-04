@@ -1,4 +1,10 @@
 .search {
   min-height: 90vh;
   padding: 0;
+
+  &-results {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
 }

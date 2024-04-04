@@ -2,7 +2,7 @@ import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
 import { useFetch } from '../../../hooks/useFetch';
 import config from '../../../utils/utils';
-import SlicedList from '../../../components/SlicedList/SlicedList';
+import SlicedList from '../../../utils/SlicedList';
 import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 
 const PopularThisMonth: React.FC = () => {
@@ -14,7 +14,13 @@ const PopularThisMonth: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorMessage message='Произошла ошибка' classModifier='error-message_warning'/>  }
+    return (
+      <ErrorMessage
+        message='Произошла ошибка'
+        classModifier='error-message_warning'
+      />
+    );
+  }
 
   return (
     <>

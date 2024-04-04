@@ -9,7 +9,7 @@
   font-weight: 600;
   padding: 0.5rem 0 0.44rem 0.5rem;
 
-  & > img {
+  &__icon {
     margin-right: 0.94rem;
     filter: invert(99%) sepia(88%) saturate(2%) hue-rotate(92deg)
       brightness(113%) contrast(100%);
@@ -22,7 +22,7 @@
   background-color: var(--pale-violet);
   color: var(--background);
 
-  & > img {
+  .nav-link__icon {
     filter: invert(12%) sepia(26%) saturate(936%) hue-rotate(206deg)
       brightness(100%) contrast(100%);
     opacity: 1;

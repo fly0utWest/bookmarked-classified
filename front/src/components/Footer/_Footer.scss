@@ -25,10 +25,10 @@
     margin-bottom: 0.75rem;
   }
 
-  p {
+  &-copyright {
     font-size: 0.75rem;
 
-    a {
+    &__author {
       text-decoration: underline;
 
       &:hover {
@@ -37,7 +37,7 @@
     }
   }
 
-  & .container {
+  &__container {
     max-width: 950px;
     margin-right: auto;
     margin-left: auto;

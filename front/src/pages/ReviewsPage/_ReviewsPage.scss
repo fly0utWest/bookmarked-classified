@@ -1,0 +1,24 @@
+.reviews {
+  min-height: 90vh;
+  width: 100%;
+  padding: 0 1.25rem;
+
+  &-heading {
+    margin-top: 1.31rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+
+    &__nickname {
+      color: var(--pale-violet);
+    }
+  }
+
+  &-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+  }
+}

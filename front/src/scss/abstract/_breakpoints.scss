@@ -1,21 +1,12 @@
-@media (min-width: 0px) and (max-width: 767.98px) {
-}
-
 @media (min-width: 767.99px) {
   body {
-    margin-bottom: 0;
     box-shadow: inset -15px 0 15px -10px var(--background2),
       inset 15px 0 15px -10px var(--background2);
   }
 
-  .bottom-nav {
-    display: none;
-  }
-
   .home {
     max-width: 950px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 
     .home-features {
       display: grid;
@@ -48,14 +39,6 @@
     }
   }
 
-  .burger-menu__aside {
-    width: 40%;
-  }
-
-  .burger-button {
-    display: none;
-  }
-
   .header {
     padding: 0;
     transition: box-shadow 0.2s ease-out;
@@ -67,8 +50,7 @@
 
     &-container {
       max-width: 950px;
-      margin-right: auto;
-      margin-left: auto;
+      margin: auto;
       padding: 0 1.25rem;
 
       &__logo {
@@ -122,8 +104,7 @@
 
   .film {
     max-width: 950px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 
     &-cover {
       margin-top: 0;
@@ -168,8 +149,7 @@
 
   .error {
     max-width: 950px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 
     &__image {
       box-shadow: inset 5px 40px 90px 110px var(--background);
@@ -178,8 +158,7 @@
 
   .profile {
     max-width: 950px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 
     &-page {
       &-header {
@@ -222,17 +201,6 @@
 
         & > div:first-child {
           width: 100%;
-        }
-      }
-    }
-
-    .review-card__film-link {
-      width: 140px;
-      height: 220px;
-
-      &:hover {
-        .lists-buttons {
-          display: none;
         }
       }
     }
@@ -293,7 +261,7 @@
     max-width: 950px;
     margin: 0 auto;
 
-    .film-link {
+    &-section__film-link {
       width: 16%;
     }
   }
@@ -309,9 +277,32 @@
     width: 950px;
   }
 
-.profile-review-section__review-card {
-  & .review-card__delete {
-    display: none;
+  .profile-review-section__review-card {
+    & .review-card__delete {
+      display: none;
+    }
   }
-}
+
+  .reviews {
+    width: 950px;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .review-card__film-link {
+    width: 140px;
+    height: 220px;
+
+    &:hover {
+      .lists-buttons {
+        display: none;
+      }
+    }
+  }
+
+  .search {
+    max-width: 950px;
+    width: 950px;
+    margin: 0 auto;
+  }
 }

@@ -1,28 +1,11 @@
 .search-input {
   width: 100%;
-  max-width: 910px;
   height: 3.5rem;
   padding: 1rem;
   color: var(--primary-color);
   background-color: var(--background-light);
   border: none;
   outline: none;
-  transition: 0.1s ease-out;
-
-  &:focus {
-  }
+  margin-bottom: 0.5rem;
 }
 
-.header__search-input {
-  position: absolute;
-  top: 4.375rem;
-  z-index: 9;
-  transform: translateY(-100%);
-  opacity: 0;
-
-  &_active {
-    transform: translateY(0);
-    transition: 0.1s ease-out;
-    opacity: 1;
-  }
-}

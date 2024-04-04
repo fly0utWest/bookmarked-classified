@@ -140,6 +140,7 @@ export type ProfileListProps = {
 
 export type ProfileReviewsProps = {
   reviews?: number[];
+  username?: string;
 };
 
 export type Review = {
@@ -288,16 +289,7 @@ export type ErrorMessageProps = {
   classModifier?: string;
 };
 
-export type SearchInputProps = {
-  classModifier?: string;
-  innerState?: boolean;
-};
-
-export type SearchButtonProps = {
-  eventHandler: () => void;  
-};
-
 export type DocPageProps = {
   heading?: string;
   content?: string;
-}
+};
