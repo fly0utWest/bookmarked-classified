@@ -372,6 +372,19 @@ public class MySqlDb implements Db, AppLogging {
     }
 
     @Override
+    public List<Movie> searchMovies(String request) throws Exception {
+        String query = "SELECT * FROM DB_CINEMA.MOVIES WHERE" +
+                " director LIKE CONCAT('%', ?, '%') OR" +
+                " title LIKE CONCAT('%', ?, '%') OR" +
+                " description LIKE CONCAT('%', ?, '%') OR" +
+                " slogan LIKE CONCAT('%', ?, '%') OR" +
+                " studio LIKE CONCAT('%', ?, '%') OR" +
+                " cast LIKE CONCAT('%', ?, '%')";
+
+        return execQuery(MovieHandler.handle(), query, request, request, request, request, request, request);
+    }
+
+    @Override
     public void addMovie(Movie movie) throws Exception {
         execUpdate(
                 "INSERT INTO DB_CINEMA.MOVIES (title, background, cover, director, description, year, slogan, cast, studio, rating) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",

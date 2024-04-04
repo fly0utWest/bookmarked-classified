@@ -47,6 +47,15 @@ public class MovieDao implements AppLogging {
         }
     }
 
+    public List<Movie> searchMovies(String request) {
+        try {
+            return database.searchMovies(request);
+        } catch (Exception e) {
+            log.error("Movies retrieving failed. Reason: {}", e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Movie> getMoviesBy(String field, String value) {
         try {
             return database.getMoviesBy(field, value);

@@ -131,10 +131,10 @@ public class MovieController implements AppLogging {
 
     @GetMapping("/moviesFilter")
     public ResponseEntity<List<Movie>> getMoviesFilter(
-            @RequestParam(value="id", required = false) List<Long> ids,
-            @RequestParam(value="director", required = false) String director,
-            @RequestParam(value="studio", required = false) String studio,
-            @RequestParam(value="sort", required = false) String sort) {
+            @RequestParam(value = "id", required = false) List<Long> ids,
+            @RequestParam(value = "director", required = false) String director,
+            @RequestParam(value = "studio", required = false) String studio,
+            @RequestParam(value = "sort", required = false) String sort) {
 
         List<Movie> result = null;
 
@@ -156,7 +156,23 @@ public class MovieController implements AppLogging {
             log.warn("Empty response for getMovies request");
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(result);
         }
-}
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Movie>> searchMovies(
+            @RequestParam(value = "request") String request) {
+
+        List<Movie> result = null;
+
+        result = movies.searchMovies(request);
+
+        //handling obtained result
+        if (!request.isEmpty() && !request.isBlank() && result != null && result.size() > 0) return ResponseEntity.status(OK).body(result);
+        else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(result);
+        }
+    }
+
     private static List<String> supportedRequestParams = Arrays.asList("only_count");
 
 }
