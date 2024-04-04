@@ -6,8 +6,12 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0.25rem 0;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
 
     &__element {
+      display: flex;
+      align-items: center;
       font-weight: 700;
       margin-right: 0.5rem;
       font-size: 0.8rem;

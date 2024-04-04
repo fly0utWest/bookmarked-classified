@@ -8,7 +8,7 @@
   color: var(--primary-color);
   cursor: pointer;
   gap: 0.5rem;
-  flex-shrink: 0;
+  align-items: center;
 
   img {
     filter: invert(99%) sepia(1%) saturate(1762%) hue-rotate(209deg)
