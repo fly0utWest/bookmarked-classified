@@ -1,23 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { SearchInputProps } from '../../types';
 import { debounce } from '../../utils/debounce';
 
-const SearchInput: React.FC<SearchInputProps> = ({onSearch}) => {
+const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [input, setInput] = useState<string>('');
 
-  const debouncedSearch = debounce(onSearch, 1000);
-
+  const debouncedSearch = useCallback(debounce(onSearch, 1000), []);
 
   useEffect(() => {
     inputRef?.current?.focus();
   }, []);
 
-  useEffect(() =>{
-    if (input.trim()) {
+  useEffect(() => {
       debouncedSearch(input);
-    }
-  }, [input])
+  }, [input, debouncedSearch]);
 
   return (
     <input

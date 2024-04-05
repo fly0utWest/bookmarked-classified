@@ -10,7 +10,6 @@ export function useDesktopInterface(): boolean {
       setWidth(window.innerWidth);
     }, 250);
     window.addEventListener('resize', handleWidth);
-
     return () => {
       window.removeEventListener('resize', handleWidth);
     };

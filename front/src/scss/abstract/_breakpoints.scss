@@ -302,7 +302,17 @@
 
   .search {
     max-width: 950px;
-    width: 950px;
+    width: 100%;
     margin: 0 auto;
+
+    &-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      &__warning {
+        grid-column: 1/-1;
+        text-align: center;
+      }
+    }
   }
 }
