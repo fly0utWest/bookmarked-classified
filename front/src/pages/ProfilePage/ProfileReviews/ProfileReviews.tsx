@@ -4,7 +4,7 @@ import { ProfileReviewsProps } from '../../../types';
 import { convertParams } from '../../../utils/convertParams';
 import { useFetch } from '../../../hooks/useFetch';
 import { Review } from '../../../types';
-import config from '../../../utils/config';
+import config from '../../../config/config';
 import ReviewList from '../../../utils/ReviewList';
 import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 import { Link } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClassModifier } from '../../../types';
-import config from '../../../utils/config';
+import config from '../../../config/config';
 import { ErrorResponse } from '../../../types';
 import { useNavigate } from 'react-router-dom';
 

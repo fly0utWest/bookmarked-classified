@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Review, User } from '../../types';
 import { convertParams } from '../../utils/convertParams';
-import config from '../../utils/config';
+import config from '../../config/config';
 import { useFetch } from '../../hooks/useFetch';
 import ReviewList from '../../utils/ReviewList';
 import { useParams } from 'react-router-dom';

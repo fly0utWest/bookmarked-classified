@@ -1,6 +1,6 @@
 import { useFetch } from '../../hooks/useFetch';
 import { FilmData } from '../../types';
-import config from '../../utils/config';
+import config from '../../config/config';
 import SlicedList from '../../utils/SlicedList';
 import Loading from '../../components/Loading/Loading';
 import ErrorPage from '../ErrorPage/ErrorPage';

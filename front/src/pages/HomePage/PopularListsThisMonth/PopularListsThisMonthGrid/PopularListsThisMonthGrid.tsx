@@ -1,6 +1,6 @@
 import React from 'react';
 import ListElement from './ListElement/ListElement';
-import config from '../../../../utils/config';
+import config from '../../../../config/config';
 import { convertParams } from '../../../../utils/convertParams';
 
 const PopularListsThisMonthGrid: React.FC = () => {

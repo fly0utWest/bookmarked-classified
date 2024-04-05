@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
-import config from '../../utils/config';
+import config from '../../config/config';
 import { useParams } from 'react-router-dom';
 import SlicedList from '../../utils/SlicedList';
 import { FilmData, ListPageProps, User } from '../../types';

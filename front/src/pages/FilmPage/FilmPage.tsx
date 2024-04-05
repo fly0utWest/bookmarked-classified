@@ -8,7 +8,7 @@ import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
 import { useFetch } from '../../hooks/useFetch';
-import config from '../../utils/config';
+import config from '../../config/config';
 import { getRatingClass } from '../../utils/getRatingClass';
 import AuthAlert from '../../components/AuthAlert/AuthAlert';
 import { useAuth } from '../../contexts/AuthContext';

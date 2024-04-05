@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { FilmData } from '../../types';
-import config from '../../utils/config';
+import config from '../../config/config';
 import FilmCard from '../../components/FilmCard/FilmCard';
 const SearchPage: React.FC = () => {
   const [films, setFilms] = useState<FilmData[]>([]);

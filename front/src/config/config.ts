@@ -1,5 +1,5 @@
 import { Config } from '../types';
-import developmentConfig from '../config/development.json';
+import developmentConfig from './development.json';
 
 const config: Config = developmentConfig;
 

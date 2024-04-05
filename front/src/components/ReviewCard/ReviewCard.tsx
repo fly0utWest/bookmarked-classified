@@ -1,7 +1,7 @@
 import React from 'react';
 import FilmLink from '../../pages/HomePage/FilmLink/FilmLink';
 import { Link } from 'react-router-dom';
-import config from '../../utils/config';
+import config from '../../config/config';
 import { useFetch } from '../../hooks/useFetch';
 import { FilmData, ReviewCardProps } from '../../types';
 import { matchReviewType } from '../../utils/matchReviewType';

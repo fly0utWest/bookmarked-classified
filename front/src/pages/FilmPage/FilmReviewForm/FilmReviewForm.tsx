@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
 import DropdownMenu from '../../../components/ui/DropdownMenu/DropdownMenu';
 import { DropdownOption, FilmReviewFormType } from '../../../types';
-import config from '../../../utils/config';
+import config from '../../../config/config';
 import { useParams } from 'react-router-dom';
 
 export const FilmReviewForm: React.FC = () => {

@@ -10,7 +10,7 @@ import ProfileList from './ProfileList/ProfileList';
 import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
-import config from '../../utils/config';
+import config from '../../config/config';
 
 const ProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
