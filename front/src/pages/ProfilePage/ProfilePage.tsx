@@ -10,7 +10,7 @@ import ProfileList from './ProfileList/ProfileList';
 import ProfileReviews from './ProfileReviews/ProfileReviews';
 import { useFetch } from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
-import config from '../../utils/utils';
+import config from '../../utils/config';
 
 const ProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -80,7 +80,10 @@ const ProfilePage: React.FC = () => {
             <ProfileList listArray={userData?.watched} />
             <hr />
           </div>
-          <ProfileReviews reviews={userData?.reviews} username={userData?.login} />
+          <ProfileReviews
+            reviews={userData?.reviews}
+            username={userData?.login}
+          />
         </div>
       </div>
     </div>

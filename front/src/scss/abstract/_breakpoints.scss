@@ -257,6 +257,7 @@
       }
     }
   }
+
   .catalogue {
     max-width: 950px;
     margin: 0 auto;
@@ -308,6 +309,7 @@
     &-results {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      padding: 0; 
 
       &__warning {
         grid-column: 1/-1;

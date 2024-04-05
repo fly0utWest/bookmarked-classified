@@ -10,7 +10,7 @@ import { User } from '../types';
 import { FormData } from '../types';
 import { SignupFormData } from '../types';
 import { AuthContextType } from '../types';
-import config from '../utils/utils';
+import config from '../utils/config';
 import { AuthProviderType } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -63,7 +63,7 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
 
   const login = async (formData: FormData) => {
     try {
-      console.log("I'm here")
+      console.log("I'm here");
       const response = await fetch(`${config.BACK_API}/auth`, {
         method: 'POST',
         headers: {
@@ -118,8 +118,8 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
         credentials: 'include',
         signal,
         headers: {
-          "x-auth": `${localStorage.getItem('jwtToken')}`
-        }
+          'x-auth': `${localStorage.getItem('jwtToken')}`,
+        },
       });
 
       if (!response.ok) {

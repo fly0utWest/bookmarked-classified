@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FilmCardProps } from '../../types';
 import FilmLink from '../../pages/HomePage/FilmLink/FilmLink';
 import { getRatingClass } from '../../utils/getRatingClass';
-import config from '../../utils/utils';
+import config from '../../utils/config';
 import { useNavigate } from 'react-router-dom';
 
 const FilmCard: React.FC<FilmCardProps> = ({ film }) => {

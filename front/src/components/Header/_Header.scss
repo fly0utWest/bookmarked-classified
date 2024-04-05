@@ -56,6 +56,23 @@
         font-weight: 600;
         font-size: 0.8rem;
         transition: 0.05s ease-out;
+
+        &:not(.container) {
+          & > a {
+            display: flex;
+            align-items: center;
+
+            &:hover,
+            &:active {
+              color: var(--pale-violet);
+
+              & > img {
+                filter: invert(76%) sepia(54%) saturate(2784%)
+                  hue-rotate(206deg) brightness(102%) contrast(93%);
+              }
+            }
+          }
+        }
       }
 
       .container {
@@ -71,28 +88,6 @@
 
           .header-profile__dropdown {
             display: flex;
-          }
-        }
-      }
-    }
-
-    & nav > ul {
-      li:not(.container) {
-        & a {
-          display: inline-flexbox;
-          align-items: center;
-
-          &::after {
-            display: block;
-            content: '';
-            border-bottom: 2px solid var(--pale-violet);
-            transform: scaleX(0);
-            transition: transform 0.15s ease-in-out;
-          }
-
-          &:hover::after,
-          &:active::after {
-            transform: scaleX(1);
           }
         }
       }

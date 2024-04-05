@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import watchedIcon from '../../../assets/icons/watched.svg';
 import watchedIconActive from '../../../assets/icons/watched-active.svg';
 import likedIcon from '../../../assets/icons/liked.svg';
-import likedIconActive from '../../../assets/icons/liked-active.svg'
+import likedIconActive from '../../../assets/icons/liked-active.svg';
 import listedIcon from '../../../assets/icons/listed.svg';
 import listedIconActive from '../../../assets/icons/listed-active.svg';
 import { ListsButtonsProps } from '../../../types';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import config from '../../../utils/utils';
+import config from '../../../utils/config';
 import { ListType } from '../../../types';
 
 const ListsButtons: React.FC<ListsButtonsProps> = ({
@@ -35,8 +35,8 @@ const ListsButtons: React.FC<ListsButtonsProps> = ({
         const response = await fetch(url, {
           method: `${state ? 'DELETE' : 'POST'}`,
           headers: {
-            "x-auth": `${localStorage.getItem('jwtToken')}`
-          }
+            'x-auth': `${localStorage.getItem('jwtToken')}`,
+          },
         });
         if (response.ok) {
           setter(!state);

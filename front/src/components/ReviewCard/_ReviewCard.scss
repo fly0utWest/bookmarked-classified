@@ -14,7 +14,8 @@
 
     &__info {
       max-width: 70%;
-      a {
+
+      & > a {
         font-size: 1.25rem;
         line-height: 1.75rem;
         font-weight: 700;
@@ -26,13 +27,14 @@
         }
       }
 
-      span {
+      & > span {
+        font-style: italic;
         margin-left: 0.3rem;
         font-size: 0.875rem;
         color: var(--background);
       }
 
-      p {
+      .review-title, .review-text {
         font-size: 0.875rem;
         color: var(--background);
       }

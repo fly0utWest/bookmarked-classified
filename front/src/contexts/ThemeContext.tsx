@@ -1,11 +1,4 @@
-
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { Theme, ThemeContextType, ThemeProviderProps } from '../types';
 
 const defaultState: ThemeContextType = {

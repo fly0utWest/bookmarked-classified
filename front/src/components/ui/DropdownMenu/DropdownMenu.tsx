@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { DropdownMenuProps } from '../../../types';
-import { DropdownOption } from '../../../types';
 import { useRef } from 'react';
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({

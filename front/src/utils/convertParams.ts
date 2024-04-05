@@ -1,8 +1,3 @@
-import { Config } from '../types';
-import developmentConfig from '../config/development.json';
-
-const config: Config = developmentConfig;
-
 export function convertParams(
   param: string,
   values: number[] | string[],
@@ -21,7 +16,3 @@ export function convertParams(
 
   return resultParam;
 }
-
-
-
-export default config;

@@ -66,20 +66,20 @@
       margin-left: auto;
     }
   }
-}
 
-.burger-menu_active {
-  pointer-events: auto;
+  &_active {
+    pointer-events: auto;
 
-  .burger-menu__background {
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-  }
+    .burger-menu__background {
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
 
-  .burger-menu__aside {
-    transform: translateX(0);
-    box-shadow: 6px 6px 6px 2px var(--backlight);
-    transition: transform 0.2s ease-out;
+    .burger-menu__aside {
+      transform: translateX(0);
+      box-shadow: 6px 6px 6px 2px var(--backlight);
+      transition: transform 0.2s ease-out;
+    }
   }
 }
 

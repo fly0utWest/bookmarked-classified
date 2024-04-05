@@ -1,7 +1,7 @@
 import Loading from '../../../components/Loading/Loading';
 import { FilmData } from '../../../types';
 import { useFetch } from '../../../hooks/useFetch';
-import config from '../../../utils/utils';
+import config from '../../../utils/config';
 import SlicedList from '../../../utils/SlicedList';
 import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 

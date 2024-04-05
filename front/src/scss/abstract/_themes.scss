@@ -127,5 +127,30 @@
     img {
       filter: none;
     }
+
+    &_active {
+      img {
+        filter: invert(37%) sepia(26%) saturate(413%) hue-rotate(192deg)
+          brightness(93%) contrast(85%);
+      }
+    }
+  }
+
+  .header-nav {
+    ul {
+      li {
+        &:not(.container) {
+          & > a {
+            &:hover,
+            &:active {
+              & > img {
+                filter: invert(37%) sepia(26%) saturate(413%) hue-rotate(192deg)
+                  brightness(93%) contrast(85%);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

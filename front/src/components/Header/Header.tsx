@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import AsideMenu from '../BurgerMenu/BurgerMenu';
 import { useAuth } from '../../contexts/AuthContext';
@@ -10,7 +10,6 @@ import ThemeSwitcher from '../ui/ThemeSwitcher/ThemeSwitcher';
 import { useTheme } from '../../contexts/ThemeContext';
 import ProfileAvatar from '../ui/ProfileAvatar/ProfileAvatar';
 import { useDesktopInterface } from '../../hooks/useDesktopInterface';
-import SearchInput from '../SearchInput/SearchInput';
 import SearchLink from '../ui/SearchLink/SearchLink';
 
 const Header: React.FC = () => {
@@ -18,8 +17,6 @@ const Header: React.FC = () => {
   const { user } = useAuth();
   const { theme } = useTheme();
   const isDesktopInterface = useDesktopInterface();
-
-  const [isSearchBarActive, setIsSearchBarActive] = useState<boolean>(false);
 
   useEffect(() => {
     document.body.classList.toggle('body_noscroll', openMenu);
@@ -48,7 +45,7 @@ const Header: React.FC = () => {
             <nav className='header-nav'>
               <ul>
                 <li>
-                  <Link to='/catalogue'>Фильмы</Link>
+                  <NavLink to='/catalogue'>Фильмы</NavLink>
                 </li>
                 <li>
                   <SearchLink />

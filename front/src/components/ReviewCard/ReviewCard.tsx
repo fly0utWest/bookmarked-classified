@@ -1,7 +1,7 @@
 import React from 'react';
 import FilmLink from '../../pages/HomePage/FilmLink/FilmLink';
 import { Link } from 'react-router-dom';
-import config from '../../utils/utils';
+import config from '../../utils/config';
 import { useFetch } from '../../hooks/useFetch';
 import { FilmData, ReviewCardProps } from '../../types';
 import { matchReviewType } from '../../utils/matchReviewType';
@@ -22,8 +22,8 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review, classModifier }) => {
       const response = await fetch(`${config.BACK_API}/review/${review?.id}`, {
         method: 'DELETE',
         headers: {
-          'x-auth': `${localStorage.getItem('jwtToken')}`
-        }
+          'x-auth': `${localStorage.getItem('jwtToken')}`,
+        },
       });
       if (!response.ok) {
         throw new Error('Deleting a review has failed.');
@@ -47,9 +47,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review, classModifier }) => {
       />
       <div className='review-card__info'>
         <Link to={`/film/${film?.id}`}>{film?.title}</Link>
-        <span>
-          <i>{film?.year}</i>
-        </span>
+        <span>{film?.year}</span>
         <p className='review-title'>{review?.title}</p>
         <p className='review-text'>{review?.text}</p>
       </div>

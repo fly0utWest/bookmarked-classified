@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
 import DropdownMenu from '../../../components/ui/DropdownMenu/DropdownMenu';
 import { DropdownOption, FilmReviewFormType } from '../../../types';
-import config from '../../../utils/utils';
+import config from '../../../utils/config';
 import { useParams } from 'react-router-dom';
 
 export const FilmReviewForm: React.FC = () => {
@@ -25,10 +25,9 @@ export const FilmReviewForm: React.FC = () => {
   const [reviewError, setReviewError] = useState<string | null>(null);
 
   useEffect(() => {
-    
     setReviewFormData((prev) => ({
       ...prev,
-      reviewType: selectedOption?.value
+      reviewType: selectedOption?.value,
     }));
   }, [selectedOption]);
 
@@ -58,7 +57,7 @@ export const FilmReviewForm: React.FC = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            "x-auth": `${localStorage.getItem('jwtToken')}`
+            'x-auth': `${localStorage.getItem('jwtToken')}`,
           },
           body: JSON.stringify(reviewFormData),
         });

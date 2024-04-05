@@ -8,7 +8,7 @@ import Loading from '../../components/Loading/Loading';
 import { FilmReviewForm } from './FilmReviewForm/FilmReviewForm';
 import FilmBackground from './FilmBackground/FilmBackground';
 import { useFetch } from '../../hooks/useFetch';
-import config from '../../utils/utils';
+import config from '../../utils/config';
 import { getRatingClass } from '../../utils/getRatingClass';
 import AuthAlert from '../../components/AuthAlert/AuthAlert';
 import { useAuth } from '../../contexts/AuthContext';
@@ -56,7 +56,8 @@ const FilmPage: React.FC = () => {
             <div className='film-page-heading__production'>
               <p className='year'>{filmData?.year}</p>
               <p className='director'>
-                Режиссёр: <span>{filmData?.director}</span>, <span>{filmData?.studio}</span>
+                Режиссёр: <span>{filmData?.director}</span>,{' '}
+                <span>{filmData?.studio}</span>
               </p>
             </div>
           </div>
@@ -76,7 +77,11 @@ const FilmPage: React.FC = () => {
             <AuthAlert message='Сначала авторизуйтесь, чтобы написать рецензию.' />
           )}
           {user &&
-            (reviewData?.length === 0 ||reviewData === null ? <FilmReviewForm /> : <ReviewCard review={reviewData?.[0]} />)}
+            (reviewData?.length === 0 || reviewData === null ? (
+              <FilmReviewForm />
+            ) : (
+              <ReviewCard review={reviewData?.[0]} />
+            ))}
         </section>
       </div>
     </div>

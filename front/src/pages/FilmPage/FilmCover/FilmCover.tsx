@@ -1,7 +1,7 @@
 import React from 'react';
 import ListsButtons from '../../../components/ui/ListsButtons/ListsButtons';
 import { FilmCoverProps } from '../../../types';
-import config from '../../../utils/utils';
+import config from '../../../utils/config';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const FilmCover: React.FC<FilmCoverProps> = ({ img, filmId }) => {
