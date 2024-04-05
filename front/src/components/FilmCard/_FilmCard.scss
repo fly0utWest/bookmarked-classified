@@ -1,0 +1,44 @@
+.film-card {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--background2);
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.5rem;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--border-grey);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    border: 1px solid var(--primary-color);
+    background-color: var(--background-light);
+  }
+
+  &__film-link {
+    max-width: 60px;
+    max-height: 90px;
+
+    &:hover {
+      .lists-buttons {
+        display: none;
+      }
+    }
+  }
+}
+
+.film-info {
+  &__title {
+    font-weight: 600;
+  }
+
+  &__rating {
+    font-weight: 700;
+  }
+
+  &__studio,
+  &__year {
+    font-style: italic;
+  }
+}

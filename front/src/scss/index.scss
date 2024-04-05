@@ -32,5 +32,6 @@
 @use '../pages/OnBoarding/OnBoarding';
 @use '../pages/ArticlePage/_ArticlePage.scss';
 @use '../pages/SearchPage/SearchPage';
+@use "../components/FilmCard/FilmCard";
 @use './abstract/breakpoints';
 @use './abstract/themes';

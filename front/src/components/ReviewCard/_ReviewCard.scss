@@ -62,14 +62,15 @@
     }
 
     &__delete {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
+      position: relative;
+      top: 0;
+      right: 0;
       cursor: pointer;
       background-color: transparent;
       border: none;
       height: min-content;
       align-items: flex-end;
+      margin-left: auto;
       filter: invert(14%) sepia(23%) saturate(775%) hue-rotate(194deg)
         brightness(96%) contrast(97%);
     }

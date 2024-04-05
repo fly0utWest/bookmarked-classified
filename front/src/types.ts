@@ -297,3 +297,7 @@ export type DocPageProps = {
 export type SearchInputProps = {
   onSearch: (query: string) => void;
 };
+
+export type FilmCardProps = {
+  film: FilmData;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import BottomNavButton from '../BottomNavButton/BottomNavButton';
 import homeIcon from '../../assets/icons/home.svg';
 import searchIcon from '../../assets/icons/search.svg';
@@ -14,14 +14,19 @@ const BottomNav: React.FC = () => {
   const desktopInterface = useDesktopInterface();
   const { user } = useAuth();
 
-  const controlNavbar = debounce(() => {
-    if (window.scrollY > lastScrollY) {
-      setVisibility(false);
-    } else {
-      setVisibility(true);
-    }
-    setLastScrollY(window.scrollY);
-  }, 150);
+  const lastScrollYRef = useRef(window.scrollY);
+
+  const controlNavbar = useCallback(
+    debounce(() => {
+      if (window.scrollY > lastScrollYRef.current) {
+        setVisibility(false);
+      } else {
+        setVisibility(true);
+      }
+      lastScrollYRef.current = window.scrollY;
+    }, 150),
+    [],
+  );
 
   useEffect(() => {
     window.addEventListener('scroll', controlNavbar);
