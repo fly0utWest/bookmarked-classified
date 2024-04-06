@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import LatestNewsCard from '../LatestNewsCard/LatestNewsCard';
-import cardCover from "./news-cover.jpg";
+import cardCover from './news-cover.webp';
 
 const LatestNews: React.FC = () => {
   return (
     <>
-      <section className="latest-news">
-        <h2 className="latest-news__heading">Последние новости</h2>
-        <div className="container">
+      <section className='latest-news'>
+        <h2 className='latest-news__heading'>Последние новости</h2>
+        <div className='container'>
           <LatestNewsCard
             img={cardCover}
             heading='Fantastique Cinematheque: Клебер Мендонса Фильо о сохранении воспоминаний о бразильских кинодворцах с помощью "Картинок с привидениями"'
@@ -17,6 +17,6 @@ const LatestNews: React.FC = () => {
       </section>
     </>
   );
-}
+};
 
-export default LatestNews
+export default LatestNews;

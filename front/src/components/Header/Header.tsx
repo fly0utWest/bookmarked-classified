@@ -33,7 +33,9 @@ const Header: React.FC = () => {
           <Link to='/home' className='header-container__logo'>
             <img
               src={`${
-                theme === 'dark' ? '/assets/logo.png' : '/assets/logo-dark.png'
+                theme === 'dark'
+                  ? '/assets/logo.webp'
+                  : '/assets/logo-dark.webp'
               }`}
               alt=''
             />

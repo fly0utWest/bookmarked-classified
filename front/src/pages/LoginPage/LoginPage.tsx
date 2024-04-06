@@ -6,9 +6,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const LoginPage: React.FC = () => {
-
   const { formData, handleChange, error, login, loginError, user } = useAuth();
-  const {theme} = useTheme();
+  const { theme } = useTheme();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,17 +28,20 @@ const LoginPage: React.FC = () => {
     <div className='login'>
       <div className='login__background'></div>
       <div className='login-page'>
-        <img className="login-page__logo" src={`${theme === 'dark' ? '/assets/logo2.png' : '/assets/logo2-dark.png'}`} alt='' />
+        <img
+          className='login-page__logo'
+          src={`${
+            theme === 'dark' ? '/assets/logo2.webp' : '/assets/logo2-dark.webp'
+          }`}
+          alt=''
+        />
         <form className='login-form' onSubmit={handleSubmit}>
           <h1 className='login-form__heading'>Вход</h1>
           <p className='login-form__greeting'>
             Войдите в аккаунт, чтобы продолжить.
           </p>
           {loginError ? (
-            <div
-              role='alert'
-              className='login-form__warning'
-            >
+            <div role='alert' className='login-form__warning'>
               Неправильный логин или пароль!
             </div>
           ) : null}

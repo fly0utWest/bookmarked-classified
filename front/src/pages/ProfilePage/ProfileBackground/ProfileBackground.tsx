@@ -4,7 +4,9 @@ const ProfileBackground: React.FC = () => {
   return (
     <div
       className='profile-background'
-      style={{ backgroundImage: `url(/assets/profile/default-background.jpg)` }}
+      style={{
+        backgroundImage: `url(/assets/profile/default-background.webp)`,
+      }}
     ></div>
   );
 };

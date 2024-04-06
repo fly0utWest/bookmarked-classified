@@ -7,7 +7,7 @@ const ArticlePage: React.FC<ArticleProps> = (props) => {
       <h1 className='article-heading'>Дэнни Вильнёв и его лучшие фильмы</h1>
       <img
         className='article-body__background'
-        src='/assets/article-assets/1/villeneuve-cover.jpg'
+        src='/assets/article-assets/1/villeneuve-cover.webp'
         alt=''
       />
       <div className='article-page'>

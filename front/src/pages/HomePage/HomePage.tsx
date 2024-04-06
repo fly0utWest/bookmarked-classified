@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
       <PopularThisMonth />
       {user ? (
         <Link to='/home' className='home__banner'>
-          <img src='/assets/ad-banner.jpg' alt='' />
+          <img src='/assets/ad-banner.webp' alt='' />
         </Link>
       ) : (
         <section className='home-features'>

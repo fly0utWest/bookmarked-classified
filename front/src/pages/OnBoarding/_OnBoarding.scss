@@ -12,7 +12,7 @@
     width: 100%;
     top: 0;
     height: 400px;
-    background-image: url('/public/assets/welcome/onboarding-background.jpg');
+    background-image: url('/public/assets/welcome/onboarding-background.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -48,7 +48,8 @@
     cursor: pointer;
     transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: var(--background2);
       color: var(--primary-color);
       transition: 0.2s ease-out;

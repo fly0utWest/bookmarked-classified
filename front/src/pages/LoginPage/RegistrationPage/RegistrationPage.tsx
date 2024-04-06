@@ -43,7 +43,7 @@ const RegistrationPage: React.FC = () => {
         <img
           className='login-page__logo'
           src={`${
-            theme === 'dark' ? '/assets/logo2.png' : '/assets/logo2-dark.png'
+            theme === 'dark' ? '/assets/logo2.webp' : '/assets/logo2-dark.webp'
           }`}
           alt=''
         />

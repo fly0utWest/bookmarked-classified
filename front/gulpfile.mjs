@@ -4,11 +4,10 @@ import gulpSass from 'gulp-sass';
 import postCSS from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import cleanCSS from 'gulp-clean-css';
-import imagemin from 'imagemin';
 import browserSyncPackage from 'browser-sync';
 import rename from 'gulp-rename';
 import sourcemaps from 'gulp-sourcemaps';
-import cache from 'gulp-cache';
+import webp from 'gulp-webp';
 import { exec } from 'child_process';
 
 const sassCompiler = gulpSass(sass);
@@ -37,24 +36,7 @@ function watchFiles() {
 
 async function clean() {
   const { default: del } = await import('del');
-  return del(['dist']);
-}
-
-function optimizeImages() {
-  return gulp
-    .src([
-      './public/**/*.{jpg,png,svg,gif,jpeg}',
-      './src/components/**/*.{jpg,png,svg,gif,jpeg}',
-    ])
-    .pipe(
-      cache(
-        imagemin([
-          imagemin.mozjpeg({ progressive: true }),
-          imagemin.optipng({ optimizationLevel: 5 }),
-        ]),
-      ),
-    )
-    .pipe(gulp.dest((file) => file.base));
+  return del(['build']);
 }
 
 function compileSass() {
@@ -76,16 +58,21 @@ function compileSass() {
     .pipe(browserSync.stream());
 }
 
-const build = gulp.series(clean, gulp.parallel(optimizeImages, compileSass));
+function imgToWebp() {
+  return gulp
+    .src([
+      './public/**/*.{jpg,png,jpeg}',
+      './src/**/*.{jpg,png,jpeg}',
+    ])
+    .pipe(webp())
+    .pipe(gulp.dest((file) => file.base));
+}
+
 const watch = gulp.parallel(watchFiles, serve);
 const watchReact = gulp.parallel(npmStart, watchFiles);
 
 gulp.task('clean', clean);
-gulp.task('images', optimizeImages);
 gulp.task('scss', compileSass);
-gulp.task(
-  'build',
-  gulp.series(clean, gulp.parallel(optimizeImages, compileSass)),
-);
 gulp.task('watch', gulp.parallel(watchFiles, serve));
+gulp.task('webp', imgToWebp);
 gulp.task('default', watchReact);
