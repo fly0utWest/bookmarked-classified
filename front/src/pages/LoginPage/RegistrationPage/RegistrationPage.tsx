@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useRef } from 'react';
@@ -9,7 +9,6 @@ const RegistrationPage: React.FC = () => {
   const {
     signupFormData,
     signupHandleChange,
-    error,
     signup,
     signupError,
     signupSuccess,

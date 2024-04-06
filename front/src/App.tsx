@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import MainLayout from './pages/MainLayout';
-import HideInterface from './pages/HideInterface';
+import MainLayout from './utils/MainLayout';
+import HideInterface from './utils/HideInterface';
 import Loading from './components/Loading/Loading';
-import ScrollToTop from './pages/ScrollToTop';
+import ScrollToTop from './utils/ScrollToTop';
 import { ListPageType } from './types';
 
 const RegistrationPage = lazy(
