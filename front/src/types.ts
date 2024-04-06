@@ -11,7 +11,7 @@ export type ListsButtonsProps = {
   };
 };
 
-export type ButtonProps = {
+export type BottomNavButtonProps = {
   dest: string;
   src: string;
   alt: string;

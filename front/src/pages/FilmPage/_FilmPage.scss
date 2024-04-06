@@ -41,7 +41,7 @@
         }
 
         .director {
-          span {
+          &__name {
             text-decoration: underline;
             font-style: italic;
           }
@@ -75,24 +75,10 @@
       }
 
       &__cast {
-        & > p {
-          font-size: 1rem;
-          font-weight: 700;
-          padding-bottom: 0.25rem;
-        }
-
         .container {
           display: flex;
           flex-wrap: wrap;
           gap: 0.25rem;
-
-          p {
-            padding: 0.25rem;
-            line-height: 1rem;
-            text-transform: capitalize;
-            background-color: var(--background2);
-            border-radius: 0.25rem;
-          }
         }
       }
       &__description {
@@ -201,4 +187,18 @@
       border: 2px solid var(--peach);
     }
   }
+}
+
+.cast-card {
+  padding: 0.25rem;
+  line-height: 1rem;
+  text-transform: capitalize;
+  background-color: var(--background2);
+  border-radius: 0.25rem;
+}
+
+.cast-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  padding-bottom: 0.25rem;
 }

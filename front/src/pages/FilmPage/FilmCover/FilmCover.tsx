@@ -5,7 +5,7 @@ import config from '../../../config/config';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const FilmCover: React.FC<FilmCoverProps> = ({ img, filmId }) => {
-  const { user, isLoading } = useAuth();
+  const { user } = useAuth();
   let userListed = {
     watched: false,
     liked: false,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import BottomNavButton from '../BottomNavButton/BottomNavButton';
+import BottomNavButton from './BottomNavButton/BottomNavButton';
 import homeIcon from '../../assets/icons/home.svg';
 import searchIcon from '../../assets/icons/search.svg';
 import profileIcon from '../../assets/icons/user.svg';

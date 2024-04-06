@@ -56,7 +56,7 @@ const FilmPage: React.FC = () => {
             <div className='film-page-heading__production'>
               <p className='year'>{filmData?.year}</p>
               <p className='director'>
-                Режиссёр: <span>{filmData?.director}</span>,{' '}
+                Режиссёр: <span className='director__name'>{filmData?.director}</span>,{' '}
                 <span>{filmData?.studio}</span>
               </p>
             </div>
@@ -65,7 +65,7 @@ const FilmPage: React.FC = () => {
           <p className='film-page-info__description'>{filmData?.description}</p>
           <hr />
           <div className='film-page-info__cast'>
-            <p>Актёры</p>
+            <p className='cast-heading'>Актёры</p>
             <div className='container'>
               {filmData?.cast?.map((castMember) => (
                 <CastCard key={castMember} name={castMember} />
