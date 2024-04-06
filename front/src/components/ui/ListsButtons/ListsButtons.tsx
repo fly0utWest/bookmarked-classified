@@ -11,6 +11,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import config from '../../../config/config';
 import { ListType } from '../../../types';
+import Tooltip from '../Tooltip/Tooltip';
 
 const ListsButtons: React.FC<ListsButtonsProps> = ({
   classModifier,
@@ -60,30 +61,46 @@ const ListsButtons: React.FC<ListsButtonsProps> = ({
 
   return (
     <div className={`lists-buttons ${classModifier ?? ''}`}>
-      <button
-        onClick={() => {
-          listSetter(watched, setWatched, ListType.Watched);
-        }}
-        className='lists-buttons__watched'
+      <Tooltip
+        message={
+          !watched ? 'Добавить в "Просмотренные"' : 'Удалить из "Просмотреных"'
+        }
       >
-        <img src={watched ? watchedIconActive : watchedIcon} alt='' />
-      </button>
-      <button
-        onClick={() => {
-          listSetter(liked, setLiked, ListType.Favourites);
-        }}
-        className='lists-buttons__liked'
+        <button
+          onClick={() => {
+            listSetter(watched, setWatched, ListType.Watched);
+          }}
+          className='lists-buttons__watched'
+        >
+          <img src={watched ? watchedIconActive : watchedIcon} alt='' />
+        </button>
+      </Tooltip>
+      <Tooltip
+        message={!liked ? 'Добавить в "Любимые"' : 'Удалить из "Любимых"'}
       >
-        <img src={liked ? likedIconActive : likedIcon} alt='' />
-      </button>
-      <button
-        onClick={() => {
-          listSetter(listed, setListed, ListType.WatchLater);
-        }}
-        className='lists-buttons__listed'
+        <button
+          onClick={() => {
+            listSetter(liked, setLiked, ListType.Favourites);
+          }}
+          className='lists-buttons__liked'
+        >
+          <img src={liked ? likedIconActive : likedIcon} alt='' />
+        </button>
+      </Tooltip>
+      <Tooltip
+        message={
+          !listed ? 'Добавить в "Смотреть позже"' : 'Удалить из "Смотреть позже"'
+        }
       >
-        <img src={listed ? listedIconActive : listedIcon} alt='' />
-      </button>
+        <button
+          onClick={() => {
+            listSetter(listed, setListed, ListType.WatchLater);
+          }}
+          className='lists-buttons__listed'
+        >
+          <img src={listed ? listedIconActive : listedIcon} alt='' />
+        </button>
+      </Tooltip>
     </div>
   );
 };

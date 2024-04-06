@@ -301,3 +301,8 @@ export type SearchInputProps = {
 export type FilmCardProps = {
   film: FilmData;
 }
+
+export type TooltipProps = {
+  message: string;
+  children: ReactNode;
+}

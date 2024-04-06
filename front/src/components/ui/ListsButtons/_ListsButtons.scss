@@ -11,8 +11,10 @@
   background-color: var(--background2);
   padding: 0.3rem;
   gap: 0.3rem;
+  z-index: 10;
 
   button {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;

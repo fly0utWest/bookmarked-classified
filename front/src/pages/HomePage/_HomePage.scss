@@ -3,7 +3,13 @@
   border-radius: 0.25rem;
   border: 1px solid var(--border-grey);
   width: fit-content;
-  overflow: hidden;
+  overflow: visible;
+
+  & > a {
+    img {
+      overflow: hidden;
+    }
+  }
 
   &:hover,
   &:active {
