@@ -1,4 +1,4 @@
-export default function getErrorMessage(error: string): string {
+export default function getSignupError(error: string): string {
   switch (error) {
     case 'Passwords are not the same.':
       return 'Пароли не совпадают!';

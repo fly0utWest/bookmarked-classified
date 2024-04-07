@@ -73,6 +73,9 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
       });
 
       if (!response.ok) {
+        if (response.status >= 500 && response.status < 600) {
+          throw new Error('NetworkError when attempting to fetch resource');
+        }
         throw new Error('Login failed.');
       }
       const token = await response.text();
@@ -98,6 +101,9 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
           body: JSON.stringify(formData),
         });
         if (!response.ok) {
+          if (response.status >= 500 && response.status < 600) {
+            throw new Error('NetworkError when attempting to fetch resource');
+          }
           throw new Error('Registration has failed!');
         }
         setSignupSuccess(true);
