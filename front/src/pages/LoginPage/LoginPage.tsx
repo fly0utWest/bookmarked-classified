@@ -42,7 +42,9 @@ const LoginPage: React.FC = () => {
           </p>
           {loginError ? (
             <div role='alert' className='login-form__warning'>
-              Неправильный логин или пароль!
+              {loginError !== 'NetworkError when attempting to fetch resource.'
+                ? 'Неправильный логин или пароль!'
+                : 'Ошибка сервера - мы уже всё чиним!'}
             </div>
           ) : null}
           <input

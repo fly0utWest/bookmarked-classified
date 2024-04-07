@@ -63,7 +63,7 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
 
   const login = async (formData: FormData) => {
     try {
-      console.log("I'm here");
+      setLoginError(null);
       const response = await fetch(`${config.BACK_API}/auth`, {
         method: 'POST',
         headers: {
@@ -89,6 +89,7 @@ export const AuthProvider: React.FC<AuthProviderType> = ({ children }) => {
   const signup = async (formData: SignupFormData) => {
     if (formData.password === formData.repeatedPassword) {
       try {
+        setSignupError(null);
         const response = await fetch(`${config.BACK_API}/signup`, {
           method: 'POST',
           headers: {

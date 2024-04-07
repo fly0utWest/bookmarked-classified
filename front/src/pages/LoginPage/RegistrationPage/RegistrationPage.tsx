@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useTheme } from '../../../contexts/ThemeContext';
+import getSignupError from '../../../utils/getSignupError';
 
 const RegistrationPage: React.FC = () => {
   const {
@@ -54,9 +55,7 @@ const RegistrationPage: React.FC = () => {
           </p>
           {signupError ? (
             <div role='alert' className='login-form__warning'>
-              {signupError === 'Passwords are not the same.'
-                ? 'Пароли не совпадают!'
-                : 'Пользователь уже существует!'}
+              {getSignupError(signupError)}
             </div>
           ) : null}
           {signupSuccess ? (
