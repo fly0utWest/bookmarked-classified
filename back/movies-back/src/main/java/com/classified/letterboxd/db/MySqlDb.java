@@ -162,7 +162,7 @@ public class MySqlDb implements Db, AppLogging {
                             "id INT AUTO_INCREMENT PRIMARY KEY, " +
                             "title VARCHAR(255) NOT NULL, " +
                             "publication_date VARCHAR(255) NOT NULL, " +
-                            "text VARCHAR(255) NOT NULL, " +
+                            "text VARCHAR(1500) NOT NULL, " +
                             "cover VARCHAR(255) NOT NULL" +
                             ")";
             Statement statement = connection.createStatement();
