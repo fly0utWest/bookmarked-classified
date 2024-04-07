@@ -1,4 +1,5 @@
-import { ListPageType, User } from '../types';
+import { User } from '../types';
+import { ListPageType } from '../types/enums';
 
 export function matchListType(
   listType: ListPageType,

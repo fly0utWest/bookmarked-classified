@@ -4,7 +4,7 @@ import MainLayout from './utils/MainLayout';
 import HideInterface from './utils/HideInterface';
 import Loading from './components/Loading/Loading';
 import ScrollToTop from './utils/ScrollToTop';
-import { ListPageType } from './types';
+import { ListPageType } from './types/enums';
 
 const RegistrationPage = lazy(
   () => import('./pages/LoginPage/RegistrationPage/RegistrationPage'),

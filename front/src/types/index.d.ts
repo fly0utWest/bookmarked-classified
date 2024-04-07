@@ -218,18 +218,6 @@ export type ListPageProps = {
   type: ListPageType;
 };
 
-export enum ListType {
-  Favourites = 'like',
-  WatchLater = 'watch-later',
-  Watched = 'watched',
-}
-
-export enum ListPageType {
-  Favourites = 'favourites',
-  WatchLater = 'watchlist',
-  Watched = 'watched',
-}
-
 export type Theme = 'light' | 'dark';
 
 export interface ThemeContextType {

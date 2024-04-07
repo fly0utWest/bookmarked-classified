@@ -10,7 +10,7 @@ import { ListsButtonsProps } from '../../../types';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import config from '../../../config/config';
-import { ListType } from '../../../types';
+import { ListType } from '../../../types/enums';
 import Tooltip from '../Tooltip/Tooltip';
 
 const ListsButtons: React.FC<ListsButtonsProps> = ({
