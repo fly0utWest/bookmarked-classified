@@ -23,7 +23,7 @@ const FilmLink: React.FC<FilmLinkProps> = ({ filmId, src, classModifier }) => {
   return (
     <div className={`film-link ${classModifier ?? ''}`}>
       <Link to={`/film/${filmId}`}>
-        <img src={src} alt='Ссылка на фильм' />
+        <img src={src} alt='Ссылка на фильм' loading='lazy'/>
       </Link>
       <ListsButtons filmId={filmId} listStatus={userListed} />
     </div>

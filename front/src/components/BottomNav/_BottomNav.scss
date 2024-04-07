@@ -13,6 +13,7 @@
   background-color: var(--background2);
   transform: translateY(0);
   transition: transform 0.1s ease;
+  z-index: 10;
 
   &__button {
     display: flex;

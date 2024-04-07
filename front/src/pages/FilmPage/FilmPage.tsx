@@ -57,7 +57,7 @@ const FilmPage: React.FC = () => {
               <p className='year'>{filmData?.year}</p>
               <p className='director'>
                 Режиссёр: <span className='director__name'>{filmData?.director}</span>,{' '}
-                <span>{filmData?.studio}</span>
+                <span className='director__studio'>{filmData?.studio}</span>
               </p>
             </div>
           </div>
