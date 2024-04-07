@@ -1,5 +1,6 @@
 package com.classified.letterboxd.db;
 
+import com.classified.letterboxd.models.Article;
 import com.classified.letterboxd.models.Movie;
 import com.classified.letterboxd.models.Review;
 import com.classified.letterboxd.models.User;
@@ -36,11 +37,19 @@ public interface Db {
 
     Review getReview(long id) throws Exception;
 
-//    List<Review> getReviewsByUserIdAndMovie(Long userId, long movieId) throws Exception;
-
     long addReview(Review review) throws Exception;
 
     int deleteReview(long id) throws Exception;
+
+    List<Article> getArticles() throws Exception;
+
+    List<Article> getArticles(List<Long> ids) throws Exception;
+
+    Article getArticle(long id) throws Exception;
+
+    long addArticle(Article article) throws Exception;
+
+    int deleteArticle(long id) throws Exception;
 
     Movie getMovie(long id) throws Exception;
 

@@ -1,9 +1,7 @@
 package com.classified.letterboxd.db;
 
-import com.classified.letterboxd.db.handlers.MovieHandler;
-import com.classified.letterboxd.db.handlers.ResultSetHandler;
-import com.classified.letterboxd.db.handlers.ReviewHandler;
-import com.classified.letterboxd.db.handlers.UserHandler;
+import com.classified.letterboxd.db.handlers.*;
+import com.classified.letterboxd.models.Article;
 import com.classified.letterboxd.models.Movie;
 import com.classified.letterboxd.models.Review;
 import com.classified.letterboxd.models.User;
@@ -69,6 +67,7 @@ public class MySqlDb implements Db, AppLogging {
                 createUsersWatchedMoviesTable(connection);
                 createUsersWatchLaterMoviesTable(connection);
                 createUsersReviewsTable(connection);
+                createArticlesTable(connection);
                 log.info("DB initialization has been successfully completed");
             } catch (Exception e) {
                 String errorMessage = "DB initialization failed";
@@ -145,6 +144,26 @@ public class MySqlDb implements Db, AppLogging {
                             "title VARCHAR(255) NOT NULL, " +
                             "review_type VARCHAR(255) NOT NULL, " +
                             "text VARCHAR(255) NOT NULL" +
+                            ")";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+            log.info("{} table was successfully created", tableName);
+        } catch (SQLException e) {
+            log.error("{} table creation failed", tableName);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void createArticlesTable(Connection connection) {
+        String tableName = "ARTICLES";
+        try {
+            String query =
+                    "CREATE TABLE IF NOT EXISTS DB_CINEMA." + tableName + "(" +
+                            "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                            "title VARCHAR(255) NOT NULL, " +
+                            "publication_date VARCHAR(255) NOT NULL, " +
+                            "text VARCHAR(255) NOT NULL, " +
+                            "cover VARCHAR(255) NOT NULL" +
                             ")";
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
@@ -285,6 +304,53 @@ public class MySqlDb implements Db, AppLogging {
 
 
     @Override
+    public List<Article> getArticles() throws Exception {
+        String query = "SELECT * FROM DB_CINEMA.ARTICLES LIMIT 20";
+        return execQuery(ArticleHandler.handle(), query);
+    }
+
+    @Override
+    public List<Article> getArticles(List<Long> ids) throws Exception {
+        String query = "SELECT * FROM DB_CINEMA.ARTICLES WHERE ID " + buildListClause(ids);
+        return execQuery(ArticleHandler.handle(), query, ids.toArray());
+    }
+
+    @Override
+    public Article getArticle(long id) throws Exception {
+        String query = "SELECT * FROM DB_CINEMA.ARTICLES WHERE ID = ?";
+        List<Article> result = execQuery(ArticleHandler.handle(), query, id);
+        if (result.size() < 1) throw new Exception("No article obtained with id: " + id);
+        return result.get(0);
+    }
+
+
+    @Override
+    public long addArticle(Article article) throws Exception {
+        execUpdate(
+                "INSERT INTO DB_CINEMA.ARTICLES (title, publication_date, text, cover) VALUES (?, ?, ?, ?)",
+                article.getTitle(), article.getPublicationDate(), article.getText(), article.getCover());
+
+        AtomicReference<Integer> id = new AtomicReference<>();
+
+        execQuery(resultSet -> {
+            while (resultSet.next()) {
+                id.set(resultSet.getInt("LAST_INSERT_ID()"));
+            }
+            return id;
+        }, "SELECT LAST_INSERT_ID();");
+        return id.get();
+    }
+
+
+    @Override
+    public int deleteArticle(long id) throws Exception {
+        execUpdate(
+                "DELETE FROM DB_CINEMA.ARTICLES WHERE ID = ?",
+                id);
+        return 0;
+    }
+
+    @Override
     public List<Review> getReviews() throws Exception {
         String query = "SELECT * FROM DB_CINEMA.REVIEWS LIMIT 20";
         return execQuery(ReviewHandler.handle(), query);
@@ -304,14 +370,6 @@ public class MySqlDb implements Db, AppLogging {
         return result.get(0);
     }
 
-//    @Override
-//    public List<Review> getReviewsByUserIdA(Long userId, long movieId) throws Exception {
-//        String query = "SELECT * FROM DB_CINEMA.USERS_REVIEWS" +
-//                " WHERE USERS_REVIEWS.user_id = ? AND USERS_REVIEWS.MOVIE_ID = ?";
-//        List<Review> result = execQuery(ReviewHandler.handle(), query, userId, movieId);
-//        if (result.size() < 1) throw new Exception("No review obtained for user id: " + userId);
-//        return result;
-//    }
 
     @Override
     public long addReview(Review review) throws Exception {
