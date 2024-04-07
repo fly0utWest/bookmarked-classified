@@ -13,7 +13,7 @@ export const FilmReviewForm: React.FC = () => {
     { value: 'NEUTRAL', label: 'Нейтральная' },
   ];
   const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(
-    null,
+    null
   );
   const [placeholder, setPlaceholder] = useState<string>('Тип рецензии');
   const [reviewFormData, setReviewFormData] = useState<FilmReviewFormType>({
@@ -32,7 +32,7 @@ export const FilmReviewForm: React.FC = () => {
   }, [selectedOption]);
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
     setReviewFormData((prevReviewFormData) => ({
@@ -50,7 +50,7 @@ export const FilmReviewForm: React.FC = () => {
     if (
       reviewFormData.text !== '' &&
       reviewFormData.title !== '' &&
-      reviewFormData.reviewType !== null
+      reviewFormData.reviewType
     ) {
       try {
         const response = await fetch(`${config.BACK_API}/review`, {
@@ -71,13 +71,14 @@ export const FilmReviewForm: React.FC = () => {
         setReviewError((error as Error).message);
       }
     }
+    setReviewError('Пожалуйста, проверьте, все ли поля заполнены.');
   };
 
   return (
     <form className='film-review-form' onSubmit={handleSubmit}>
       {reviewError ? (
         <div role='alert' className='film-review-form__warning'>
-          При отправке рецензии произошла ошибка.
+          {reviewError}
         </div>
       ) : null}
       <p className='film-review-form__heading'>
