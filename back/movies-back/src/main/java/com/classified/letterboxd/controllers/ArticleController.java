@@ -43,6 +43,7 @@ public class ArticleController implements AppLogging {
     }
 
 
+
     @RequestMapping("/articles")
     public ResponseEntity<List<Article>> getArticles(@RequestParam(value = "id", required = false) List<Long> ids) {
 
@@ -50,7 +51,7 @@ public class ArticleController implements AppLogging {
 
         //request by ids handling
         if (ids != null && !ids.isEmpty()) result = articles.getArticles(ids);
-
+        else result  = articles.getArticles();
         //handling obtained result
         if (result != null && result.size() > 0) return ResponseEntity.status(OK).body(result);
         else {

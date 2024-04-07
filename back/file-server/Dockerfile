@@ -11,6 +11,7 @@ RUN chmod 755 /files
 COPY film-backgrounds/ /files/film-backgrounds
 COPY film-covers/ /files/film-covers
 COPY profile-backgrounds /files/profile-backgrounds
+COPY article-covers /files/article-covers
 
 COPY src ./src
 

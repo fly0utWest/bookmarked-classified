@@ -308,7 +308,7 @@
 
     &-results {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(calc(100%/4), 1fr));
 
       &__warning {
         grid-column: 1/-1;
@@ -326,7 +326,6 @@
       }
     }
   }
-
 
   .tooltip-container {
     .tooltip {

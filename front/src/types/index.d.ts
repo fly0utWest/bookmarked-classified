@@ -288,9 +288,16 @@ export type SearchInputProps = {
 
 export type FilmCardProps = {
   film: FilmData;
-}
+};
 
 export type TooltipProps = {
   message: string;
   children: ReactNode;
+};
+
+export interface ArticleData {
+  title: string;
+  publicationDate: string;
+  text: string;
+  cover: string;
 }
