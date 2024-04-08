@@ -5,7 +5,7 @@ import config from '../../../config/config';
 import { useFetch } from '../../../hooks/useFetch';
 
 const RecentArticles: React.FC = () => {
-  const baseUrl = `${config.BACK_API}/articles`;
+  const baseUrl: string = `${config.BACK_API}/articles`;
   const {
     data: articleData,
     isLoading,
@@ -18,11 +18,7 @@ const RecentArticles: React.FC = () => {
         <h2 className='recent-articles__heading'>Статьи</h2>
         <div className='container'>
           {articleData?.slice(0, 6).map((article) => (
-            <ArticleCard
-              img={article?.cover}
-              heading={article?.title}
-              description={article?.text}
-            />
+            <ArticleCard key={article?.id} article={article} />
           ))}
         </div>
       </section>

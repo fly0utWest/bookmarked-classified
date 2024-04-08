@@ -52,13 +52,6 @@ export type ProfileInfoProps = {
   avatar?: string;
 };
 
-export type ArticleProps = {
-  title?: string;
-  cover?: string;
-  content?: string;
-  date?: string;
-};
-
 export type ErrorPageProps = {
   code: number;
   description: string;
@@ -78,9 +71,7 @@ export type FilmCoverProps = {
 };
 
 export type ArticleCardProps = {
-  img: string;
-  heading: string;
-  description: string;
+  article: ArticleData;
 };
 
 export type FilmLinkProps = {
@@ -296,6 +287,7 @@ export type TooltipProps = {
 };
 
 export interface ArticleData {
+  id: number;
   title: string;
   publicationDate: string;
   text: string;

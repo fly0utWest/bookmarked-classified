@@ -8,7 +8,6 @@ const SearchPage: React.FC = () => {
   const [initial, setInitial] = useState<boolean>(true);
 
   const searchFilms = async (query: string) => {
-    console.log(query);
     if (query.trim()) {
       setInitial(false);
       try {
