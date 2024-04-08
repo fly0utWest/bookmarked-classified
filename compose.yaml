@@ -31,21 +31,6 @@ services:
       - mysql-db:/var/lib/mysql
     networks:
       - movies
-  image-storage:
-    image: file-server:v1
-    build:
-      context: ./back/file-server
-      dockerfile: Dockerfile
-    restart: always
-    #    environment:
-    #      _JAVA_OPTIONS: >
-    #        -Xdebug
-    #        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
-    ports:
-      - 8090:8090
-      - 5005:5005
-    networks:
-      - movies
   frontend:
     image: frontend:latest
     build:

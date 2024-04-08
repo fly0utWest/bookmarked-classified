@@ -15,7 +15,6 @@
     <name>Letterboxd</name>
 	<description>Diploma project for classified app</description>
     <modules>
-        <module>file-server</module>
 		<module>movies-back</module>
 	</modules>
     <properties>

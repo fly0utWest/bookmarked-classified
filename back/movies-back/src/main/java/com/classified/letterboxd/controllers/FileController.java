@@ -1,4 +1,4 @@
-package fileserver.controllers;
+package com.classified.letterboxd.controllers;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.ContentDisposition;
