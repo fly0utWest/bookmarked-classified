@@ -3,6 +3,8 @@ import ArticleCard from '../ArticleCard/ArticleCard';
 import { ArticleData } from '../../../types';
 import config from '../../../config/config';
 import { useFetch } from '../../../hooks/useFetch';
+import Loading from '../../../components/Loading/Loading';
+import ErrorMessage from '../../../components/ui/ErrorMessage/ErrorMessage';
 
 const RecentArticles: React.FC = () => {
   const baseUrl: string = `${config.BACK_API}/articles`;
@@ -11,6 +13,14 @@ const RecentArticles: React.FC = () => {
     isLoading,
     error,
   } = useFetch<ArticleData[]>(baseUrl);
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  if (error) {
+    return <ErrorMessage message='Произошла ошибка.' />;
+  }
 
   return (
     <>
