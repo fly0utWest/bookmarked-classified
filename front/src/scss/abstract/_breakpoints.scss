@@ -199,6 +199,10 @@
         flex-direction: row;
         justify-content: space-between;
 
+        & > div:not(:first-child) {
+          max-width: 40%;
+        }
+
         & > div:first-child {
           width: 100%;
         }
@@ -279,6 +283,20 @@
   }
 
   .profile-review-section__review-card {
+    .review-title {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    .review-text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+
     & .review-card__delete {
       display: none;
     }
@@ -308,7 +326,7 @@
 
     &-results {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(calc(100%/4), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(calc(100% / 4), 1fr));
 
       &__warning {
         grid-column: 1/-1;
