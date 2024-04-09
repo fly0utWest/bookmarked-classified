@@ -19,7 +19,7 @@ const RecentArticles: React.FC = () => {
   }
 
   if (error) {
-    return <ErrorMessage message='Произошла ошибка.' classModifier='error-message__warning'/>;
+    return <ErrorMessage message='Произошла ошибка.' classModifier='error-message_warning'/>;
   }
 
   return (
