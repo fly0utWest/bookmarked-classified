@@ -1,6 +1,6 @@
 {
   "short_name": "Bookmarked",
-  "name": "Bookmarked - cinephile",
+  "name": "Bookmarked - a cinephile service for creating lists",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,14 +8,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.webp",
-      "type": "image/webp",
+      "src": "logo192.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.webp",
-      "type": "image/webp",
-      "sizes": "512x512"
+      "src": "logo256.png",
+      "type": "image/png",
+      "sizes": "256x256"
     }
   ],
   "start_url": ".",
