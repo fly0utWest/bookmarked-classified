@@ -28,7 +28,6 @@ const FilmPage: React.FC = () => {
     error: reviewError,
   } = useFetch<Review[]>(`${reviewUrl}/${user?.id}/${id}`);
 
-
   if (isLoading) {
     return <Loading />;
   }
