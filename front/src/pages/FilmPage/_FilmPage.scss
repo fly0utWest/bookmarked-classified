@@ -10,23 +10,19 @@
     height: 250px;
     max-height: 250px;
   }
-
   &-page {
-    display: flex;
     flex-direction: column;
     padding: 0 1.25rem;
 
     &-heading {
       display: flex;
       flex-direction: row;
-      align-items: flex-end;
       flex-wrap: wrap;
       gap: 0.5rem;
 
       &__title {
         font-weight: 600;
         line-height: 2.25rem;
-        font-size: 2.25rem;
       }
 
       &__production {
