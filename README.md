@@ -28,7 +28,7 @@
 ## Tech Stack
 
 - **React.js 18**: A modern React framework for building single page application.
-- **SCSS**: A CSS-preprocessors that allows to write nested CSS-styles and many more featires that are currently not available in plain CSS.
+- **SCSS**: A CSS-preprocessors that allows to write nested CSS-styles and many more features that are currently not available in plain CSS.
 - **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
 - **ESLint**: Pluggable linting utility for JavaScript and TypeScript.
 - **MySQL**: Store and manage data efficiently.
