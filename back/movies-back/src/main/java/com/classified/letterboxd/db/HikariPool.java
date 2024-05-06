@@ -23,8 +23,13 @@ public class HikariPool {
 
     @PostConstruct
     public void init() {
+        initDataSource("");
+    }
+
+    public void initDataSource(String url) {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(props.getUrl());
+        if (url.isBlank()) config.setJdbcUrl(props.getUrl());
+        else config.setJdbcUrl(url);
         config.setUsername(props.getUser());
         config.setPassword(props.getPassword());
         config.addDataSourceProperty("maximumPoolSize", "10");

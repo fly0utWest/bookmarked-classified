@@ -8,6 +8,7 @@ import com.classified.letterboxd.models.User;
 import com.classified.letterboxd.models.exceptions.NoMovieException;
 import com.classified.letterboxd.models.exceptions.NoUserException;
 import com.classified.letterboxd.utils.AppLogging;
+import com.classified.letterboxd.utils.configs.DbProps;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,21 @@ public class MySqlDb implements Db, AppLogging {
 
     @Autowired
     private HikariPool connections;
+    @Autowired
+    private DbProps props;
+
 
     @Override
     public Connection getConnection() throws SQLException {
+        try {
+            return connections.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public Connection getInitialConnection() throws SQLException {
         try {
             return connections.getConnection();
         } catch (SQLException e) {
@@ -54,20 +67,22 @@ public class MySqlDb implements Db, AppLogging {
         Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
         DriverManager.registerDriver(driver);
         measured(() -> {
-            try (Connection connection = getConnection()) {
+            try (Connection initConnection = getConnection()) {
                 log.info(getMetainfo());
 
-                createSchema(connection, "DB_CINEMA");
+                createSchema(initConnection, "DB_CINEMA");
+                connections.initDataSource(props.getUrl() + "DB_CINEMA?serverTimezone=UTC");
+                try (Connection connection = getConnection()) {
+                    createUsersTable(connection);
+                    createMoviesTable(connection);
+                    createReviewsTable(connection);
 
-                createUsersTable(connection);
-                createMoviesTable(connection);
-                createReviewsTable(connection);
-
-                createUsersFavouredMoviesTable(connection);
-                createUsersWatchedMoviesTable(connection);
-                createUsersWatchLaterMoviesTable(connection);
-                createUsersReviewsTable(connection);
-                createArticlesTable(connection);
+                    createUsersFavouredMoviesTable(connection);
+                    createUsersWatchedMoviesTable(connection);
+                    createUsersWatchLaterMoviesTable(connection);
+                    createUsersReviewsTable(connection);
+                    createArticlesTable(connection);
+                }
                 log.info("DB initialization has been successfully completed");
             } catch (Exception e) {
                 String errorMessage = "DB initialization failed";
