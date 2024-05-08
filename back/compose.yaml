@@ -15,7 +15,7 @@ services:
     networks:
       - movies
   mysql-db:
-    image: hsheth2/mysql-low-memory:latest
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: 'db_cinema'
