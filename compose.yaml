@@ -15,7 +15,7 @@ services:
     networks:
       - movies
   mysql-db:
-    image: hsheth2/mysql-low-memory:latest
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: "db_cinema"
@@ -31,6 +31,14 @@ services:
       - mysql-db:/var/lib/mysql
     networks:
       - movies
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: "512M"
+        reservations:
+          cpus: "0.25"
+          memory: "128M"
   frontend:
     image: frontend:latest
     build:
