@@ -20,11 +20,14 @@ public class FileController {
     @GetMapping("/files/{filePath}/{fileName:.+}")
     public ResponseEntity<Resource> serveFile(@PathVariable String filePath, @PathVariable String fileName) throws IOException {
         // Define the directory where files are stored
-        String directory = "/files/" + filePath + "/";
+        String baseDirectory = "D:\\Projects\\bookmarked-classified\\back\\movies-back\\files";
+
+        Path directory = Paths.get(baseDirectory, filePath).normalize();
 
         // Load file as Resource
-        Path file = Paths.get(directory).resolve(fileName).normalize();
+        Path file = directory.resolve(fileName).normalize();
         Resource resource = new UrlResource(file.toUri());
+
 
         // Check if the file exists and is readable
         if (!resource.exists() || !resource.isReadable()) {
@@ -49,7 +52,7 @@ public class FileController {
             return "Please select a file to upload.";
         }
         String base = "/files/";
-        String directory = base + filePath + "/";
+        String directory = base + filePath + "\\";
         try {
             Files.createDirectories(Paths.get(directory));
             // Save the file to a specific path
