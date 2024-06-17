@@ -53,8 +53,8 @@ const HomePage: React.FC = () => {
           />{' '}
           <HomeFeature
             icon='/assets/icons/liked.svg'
-            alt='Понравившеися'
-            text='Отмечайте понравившеися шоу!'
+            alt='Понравившиеся'
+            text='Отмечайте понравившиеся шоу!'
           />{' '}
           <HomeFeature
             icon='/assets/icons/reviews.svg'
